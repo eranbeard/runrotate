@@ -209,11 +209,66 @@
                         </div>
                     </div>
                 </div>
+                <div class="social-stats">
+                    <div class="stat like-stat">
+                        <button class="stat-button">
+                            <i class="far fa-heart"></i>
+                            <span class="count">42</span>
+                        </button>
+                    </div>
+                    <div class="stat comment-stat">
+                        <button class="stat-button" id="toggle-comments">
+                            <i class="far fa-comment"></i>
+                            <span class="count">8</span>
+                        </button>
+                    </div>
+                    <div class="stat share-stat">
+                        <button class="stat-button">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Comments Section -->
+                <div class="comments-section">
+                    <div class="comments-header">
+                        <h4>Comments <span class="comment-count">8</span></h4>
+                        <button class="close-comments" id="close-comments">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="comments-list">
+                        <div class="comment">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="comment-avatar">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">Sarah Johnson</span>
+                                    <span class="comment-time">2h ago</span>
+                                </div>
+                                <p class="comment-text">Love this rotation! The Hoka Clifton 9 looks amazing for daily runs.</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="comment-avatar">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">Mike Chen</span>
+                                    <span class="comment-time">5h ago</span>
+                                </div>
+                                <p class="comment-text">Have you tried the Vaporfly 3 for your tempo runs? It's a game changer!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-comment">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=faces" alt="You" class="current-user-avatar">
+                        <div class="comment-input-container">
+                            <input type="text" placeholder="Add a comment..." class="comment-input">
+                            <button class="post-comment">Post</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <button class="share-btn">
-                <i class="fas fa-share"></i> SHARE ROTATION
-            </button>
         </section>
 
         <!-- Individual Shoe Cards -->
@@ -343,6 +398,105 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle comments section
+            const toggleCommentsBtn = document.getElementById('toggle-comments');
+            const closeCommentsBtn = document.getElementById('close-comments');
+            const commentsSection = document.querySelector('.comments-section');
+            
+            if (toggleCommentsBtn && commentsSection) {
+                toggleCommentsBtn.addEventListener('click', () => {
+                    commentsSection.classList.toggle('expanded');
+                    if (commentsSection.classList.contains('expanded')) {
+                        commentsSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+                
+                closeCommentsBtn.addEventListener('click', () => {
+                    commentsSection.classList.remove('expanded');
+                });
+            }
+            
+            // Like button functionality
+            const likeButton = document.querySelector('.like-stat .stat-button');
+            if (likeButton) {
+                likeButton.addEventListener('click', function() {
+                    const countElement = this.querySelector('.count');
+                    if (countElement) {
+                        let count = parseInt(countElement.textContent);
+                        const isLiked = this.classList.toggle('liked');
+                        const icon = this.querySelector('i');
+                        
+                        if (isLiked) {
+                            count += 1;
+                            icon.className = 'fas fa-heart';
+                        } else {
+                            count -= 1;
+                            icon.className = 'far fa-heart';
+                        }
+                        
+                        countElement.textContent = count;
+                    }
+                });
+            }
+            
+            // Post comment functionality
+            const postButton = document.querySelector('.post-comment');
+            const commentInput = document.querySelector('.comment-input');
+            const commentsList = document.querySelector('.comments-list');
+            const commentCount = document.querySelector('.comment-count');
+            
+            if (postButton && commentInput) {
+                postButton.addEventListener('click', postComment);
+                commentInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        postComment();
+                    }
+                });
+                
+                function postComment() {
+                    const text = commentInput.value.trim();
+                    if (text) {
+                        const now = new Date();
+                        const timeString = 'Just now';
+                        
+                        const commentHtml = `
+                            <div class="comment">
+                                <img src="${document.querySelector('.current-user-avatar').src}" alt="You" class="comment-avatar">
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <span class="comment-author">You</span>
+                                        <span class="comment-time">${timeString}</span>
+                                    </div>
+                                    <p class="comment-text">${text}</p>
+                                </div>
+                            </div>
+                        `;
+                        
+                        commentsList.insertAdjacentHTML('afterbegin', commentHtml);
+                        
+                        // Update comment count
+                        if (commentCount) {
+                            const count = parseInt(commentCount.textContent) + 1;
+                            commentCount.textContent = count;
+                            
+                            // Update the comment button count
+                            const commentButtonCount = document.querySelector('.comment-stat .count');
+                            if (commentButtonCount) {
+                                commentButtonCount.textContent = count;
+                            }
+                        }
+                        
+                        // Clear input
+                        commentInput.value = '';
+                        
+                        // Ensure comments section is expanded
+                        commentsSection.classList.add('expanded');
+                    }
+                }
+            }
+        });
+        
         // Toggle more details
         document.querySelectorAll('.toggle-details').forEach(button => {
             button.addEventListener('click', function() {
