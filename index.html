@@ -310,10 +310,10 @@
                         </form>
                     </div>
                     <div class="shoe-actions">
+                        <button class="btn-secondary toggle-details" aria-expanded="false">More Details <i class="fas fa-chevron-down"></i></button>
                         <button class="btn-primary">CHECK PRICES</button>
                     </div>
                     <div class="more-details">
-                        <button class="toggle-details">More Details <i class="fas fa-chevron-down"></i></button>
                         <div class="details-content">
                             <div class="pros-cons">
                                 <div class="pros">
@@ -567,14 +567,17 @@
         // Toggle more details
         document.querySelectorAll('.toggle-details').forEach(button => {
             button.addEventListener('click', function() {
-                const content = this.nextElementSibling;
+                const content = this.closest('.shoe-card-detailed').querySelector('.more-details .details-content');
                 const icon = this.querySelector('i');
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
                 
-                if (content.style.display === 'block') {
+                if (isExpanded) {
                     content.style.display = 'none';
+                    this.setAttribute('aria-expanded', 'false');
                     icon.className = 'fas fa-chevron-down';
                 } else {
                     content.style.display = 'block';
+                    this.setAttribute('aria-expanded', 'true');
                     icon.className = 'fas fa-chevron-up';
                 }
             });
