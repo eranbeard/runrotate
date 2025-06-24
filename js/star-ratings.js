@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Function to create star rating element
+    // Function to create star rating element with numerical value
     function createStarRating(rating) {
         const fullStars = Math.floor(rating);
-        const hasHalfStar = rating % 1 >= 0.5;
-        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+        const hasHalfStar = rating % 1 >= 0.3; // More accurate half-star detection
+        const percentage = (rating / 5) * 100;
         
         const container = document.createElement('div');
-        container.className = 'star-rating';
+        container.className = 'rating-container';
+        
+        // Create star rating element
+        const starRating = document.createElement('div');
+        starRating.className = 'star-rating';
         
         // Create empty stars container
         const starsContainer = document.createElement('div');
@@ -23,25 +27,26 @@ document.addEventListener('DOMContentLoaded', function() {
             starsContainer.appendChild(star.cloneNode(true));
         }
         
-        // Add filled stars
-        for (let i = 0; i < fullStars; i++) {
+        // Set filled stars width based on rating
+        filledStars.style.width = `${percentage}%`;
+        
+        // Add filled stars (all 5, but clipped by width)
+        for (let i = 0; i < 5; i++) {
             const star = document.createElement('span');
             star.className = 'star';
             filledStars.appendChild(star);
         }
         
-        // Add half star if needed
-        if (hasHalfStar) {
-            const halfStar = document.createElement('span');
-            halfStar.className = 'star';
-            filledStars.appendChild(halfStar);
-            filledStars.style.width = `${(fullStars + 0.5) * 100 / 5}%`;
-        } else {
-            filledStars.style.width = `${fullStars * 100 / 5}%`;
-        }
+        starRating.appendChild(starsContainer);
+        starRating.appendChild(filledStars);
         
-        container.appendChild(starsContainer);
-        container.appendChild(filledStars);
+        // Add numerical value
+        const valueSpan = document.createElement('span');
+        valueSpan.className = 'rating-value';
+        valueSpan.textContent = rating.toFixed(1);
+        
+        container.appendChild(starRating);
+        container.appendChild(valueSpan);
         
         return container;
     }
@@ -50,32 +55,36 @@ document.addEventListener('DOMContentLoaded', function() {
     function initStarRatings() {
         // Update user ratings
         document.querySelectorAll('.user-rating').forEach(ratingEl => {
-            const text = ratingEl.textContent.trim();
-            const ratingMatch = text.match(/(\d+\.?\d*)/);
-            if (ratingMatch) {
-                const rating = parseFloat(ratingMatch[0]);
+            const rating = parseFloat(ratingEl.getAttribute('data-rating'));
+            if (!isNaN(rating)) {
+                const label = document.createElement('span');
+                label.textContent = 'Jane\'s Rating: ';
+                
+                ratingEl.textContent = '';
+                ratingEl.appendChild(label);
+                
                 const starRating = createStarRating(rating);
-                ratingEl.textContent = text.split(':')[0] + ': ';
                 ratingEl.appendChild(starRating);
             }
         });
         
         // Update global ratings
         document.querySelectorAll('.global-rating').forEach(ratingEl => {
-            const text = ratingEl.textContent.trim();
-            const ratingMatch = text.match(/(\d+\.?\d*)/);
-            if (ratingMatch) {
-                const rating = parseFloat(ratingMatch[0]);
-                const starRating = createStarRating(rating);
+            const rating = parseFloat(ratingEl.getAttribute('data-rating'));
+            if (!isNaN(rating)) {
                 const linkText = document.createElement('span');
                 linkText.textContent = 'Global Rating: ';
+                
+                // Clear existing content but keep the external link icon
+                const externalIcon = ratingEl.querySelector('i.fa-external-link-alt') || 
+                                   document.createElement('i');
+                externalIcon.className = 'fas fa-external-link-alt';
+                
                 ratingEl.textContent = '';
                 ratingEl.appendChild(linkText);
-                ratingEl.appendChild(starRating);
                 
-                // Re-add external link icon
-                const externalIcon = document.createElement('i');
-                externalIcon.className = 'fas fa-external-link-alt';
+                const starRating = createStarRating(rating);
+                ratingEl.appendChild(starRating);
                 ratingEl.appendChild(document.createTextNode(' '));
                 ratingEl.appendChild(externalIcon);
             }

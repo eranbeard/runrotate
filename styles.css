@@ -40,53 +40,117 @@ img {
 }
 
 /* Star Rating */
+.shoe-stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.shoe-stats > * {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.shoe-stats i.fas {
+    color: var(--primary-color);
+    font-size: 13px;
+    width: 16px;
+    text-align: center;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
 .star-rating {
     display: inline-flex;
     position: relative;
     font-size: 0;
-    margin-left: 4px;
+    vertical-align: middle;
+    line-height: 1;
 }
 
 .star-rating .stars {
     display: inline-flex;
     position: relative;
-    color: #ddd;
-    font-size: 16px;
+    color: #e0e0e0;
+    font-size: 14px;
     letter-spacing: 2px;
+    white-space: nowrap;
 }
 
 .star-rating .stars .star {
     display: inline-block;
     position: relative;
     width: 16px;
-    margin-right: 1px;
+    height: 16px;
+    margin-right: 2px;
     overflow: hidden;
 }
 
 .star-rating .stars .star:before {
     content: '★';
     display: block;
+    font-size: 16px;
+    line-height: 1;
 }
 
 .star-rating .filled-stars {
-    color: #ffc107;
+    color: #ffb400;
     position: absolute;
     left: 0;
     top: 0;
     white-space: nowrap;
     overflow: hidden;
     width: 0;
+    pointer-events: none;
 }
 
 .star-rating .filled-stars .star {
     display: inline-block;
     width: 16px;
-    margin-right: 1px;
+    height: 16px;
+    margin-right: 2px;
 }
 
 .star-rating .filled-stars .star:before {
     content: '★';
     display: block;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.rating-value {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    margin-left: 2px;
+}
+
+.user-rating .rating-value {
+    color: var(--primary-color);
+}
+
+.global-rating {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.global-rating:hover {
+    color: var(--primary-color);
+}
+
+.global-rating i.fa-external-link-alt {
+    font-size: 11px;
+    margin-left: 4px;
 }
 
 /* Buttons & Interactive Elements */
