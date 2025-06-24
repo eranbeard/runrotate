@@ -297,18 +297,8 @@
                         <span class="user-rating" data-rating="4.8">Jane's Rating: 4.8</span>
                         <a href="#" class="global-rating" data-rating="4.6">Global Rating: 4.6 <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    <p class="ai-summary"><em>Jane's Review Summary:</em> "Reliable daily trainer with excellent cushioning for high mileage."</p>
+                    <p class="ai-summary">"Reliable daily trainer with excellent cushioning for high mileage."</p>
                     
-                    <!-- Comment Section -->
-                    <div class="comment-section" id="comments-hoka-clifton">
-                        <div class="comments-list">
-                            <!-- Sample comments will be added here dynamically -->
-                        </div>
-                        <form class="comment-form">
-                            <input type="text" class="comment-input" placeholder="Add a comment..." required>
-                            <button type="submit" class="comment-submit">Post</button>
-                        </form>
-                    </div>
                     <div class="shoe-actions">
                         <button class="btn-secondary toggle-details" aria-expanded="false">Read More <i class="fas fa-chevron-down"></i></button>
                         <button class="btn-primary">CHECK PRICES</button>
@@ -421,6 +411,16 @@
                         </div>
                     </div>
                 </div>
+                <!-- Comment Section -->
+                <div class="comment-section" id="comments-hoka-clifton">
+                    <div class="comments-list">
+                        <!-- Sample comments will be added here dynamically -->
+                    </div>
+                    <form class="comment-form">
+                        <input type="text" class="comment-input" placeholder="Add a comment..." required>
+                        <button type="submit" class="comment-submit">Post</button>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -439,29 +439,43 @@
                 button.addEventListener('click', function(e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    const shoeCard = this.closest('.shoe-card-detailed');
-                    const commentSection = shoeCard.querySelector('.comment-section');
                     
-                    // Hide all other comment sections
-                    document.querySelectorAll('.comment-section').forEach(section => {
-                        if (section !== commentSection) {
-                            section.classList.remove('visible');
-                        }
-                    });
+                    // Find the closest parent that contains the comment section
+                    const container = this.closest('.shoe-card-detailed') || this.closest('.comments-container');
+                    if (!container) return;
                     
-                    // Toggle current comment section
-                    if (commentSection) {
-                        commentSection.classList.toggle('visible');
+                    // Try to find both possible comment section class names
+                    let commentSection = container.querySelector('.comment-section') || 
+                                        container.querySelector('.comments-section');
+                    
+                    if (!commentSection) return;
+                    
+                    // Toggle the comment section
+                    if (commentSection.classList.contains('comments-section')) {
+                        // For the shoe rotation section (uses .comments-section)
+                        commentSection.classList.toggle('expanded');
                         
-                        // Scroll to show the comment section if it was just made visible
-                        if (commentSection.classList.contains('visible')) {
-                            commentSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                            
-                            // Focus the comment input if it's a form
-                            const commentInput = commentSection.querySelector('.comment-input');
-                            if (commentInput) {
-                                setTimeout(() => commentInput.focus(), 300);
-                            }
+                        // Toggle max-height for smooth animation
+                        if (commentSection.classList.contains('expanded')) {
+                            commentSection.style.maxHeight = commentSection.scrollHeight + 'px';
+                        } else {
+                            commentSection.style.maxHeight = '0';
+                        }
+                    } else {
+                        // For the shoe card section (uses .comment-section)
+                        commentSection.style.maxHeight = commentSection.style.maxHeight ? null : '500px';
+                        commentSection.style.padding = commentSection.style.padding ? null : '20px';
+                        commentSection.style.marginTop = commentSection.style.marginTop ? null : '15px';
+                    }
+                    
+                    // Scroll to show the comment section if it was just expanded
+                    if (commentSection.style.maxHeight || commentSection.classList.contains('expanded')) {
+                        commentSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        
+                        // Focus the comment input if it's a form
+                        const commentInput = commentSection.querySelector('.comment-input');
+                        if (commentInput) {
+                            setTimeout(() => commentInput.focus(), 300);
                         }
                     }
                 });
