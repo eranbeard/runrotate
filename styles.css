@@ -97,10 +97,72 @@ button {
 
 @media (max-width: 992px) {
     .profile-header {
+        display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 30px 20px;
+    }
+    
+    /* Mobile layout */
+    .profile-avatar {
+        order: 1;
+        margin-bottom: 20px;
+    }
+    
+    .profile-info {
+        order: 2;
+        width: 100%;
+    }
+    
+    .profile-name {
+        order: 1;
+        margin-bottom: 16px;
+    }
+    
+    .profile-meta {
+        order: 2;
+        flex-direction: column;
+        gap: 8px;
+        margin: 12px 0;
+    }
+    
+    .profile-actions {
+        order: 3;
+        margin: 16px 0;
+        max-width: 100%;
+    }
+    
+    .profile-badges {
+        order: 4;
+        margin: 16px 0;
+        justify-content: center;
+    }
+    
+    .social-stats:first-of-type {
+        order: 5;
+        margin-top: 8px;
+        border-top: 1px solid #edf2f7;
+        padding-top: 12px;
+    }
+    
+    .social-stats:last-of-type {
+        order: 6;
+        margin-bottom: 8px;
+    }
+    
+    .profile-bio {
+        order: 7;
+        margin: 16px 0 0;
+        padding-top: 16px;
+        border-top: 1px solid #edf2f7;
+    }
+    
+    /* Adjust stats for mobile */
+    .profile-stats {
+        max-width: 100%;
+        margin: 16px 0 0;
+        order: 8;
     }
 }
 
@@ -266,6 +328,7 @@ button {
     padding: 16px 24px;
     margin: 20px 0 0;
     gap: 10px;
+    max-width: 400px;
 }
 
 .stat-item {
@@ -802,14 +865,23 @@ button {
 
 .social-stats {
     display: flex;
-    gap: 16px;
+    justify-content: center;
+    gap: 24px;
     font-size: 13px;
     color: #495057;
+    padding: 4px 0;
+}
+
+.social-stats:first-child {
+    padding-top: 8px;
+    border-top: 1px solid #edf2f7;
+    margin-top: 8px;
 }
 
 .social-stats .stat {
     text-align: center;
     line-height: 1.3;
+    min-width: 80px;
 }
 
 .social-stats .stat-label {
@@ -817,6 +889,19 @@ button {
     font-size: 11px;
     color: #6c757d;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 2px;
+}
+
+.social-stats .stat {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.social-stats small {
+    font-size: 0.8em;
+    opacity: 0.8;
 }
 
 /* Individual Shoe Cards */
