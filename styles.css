@@ -1184,7 +1184,7 @@ button {
 .shoe-image-detailed {
     position: relative;
     width: 100%;
-    padding-bottom: 66.67%; /* 2:3 aspect ratio (height/width) */
+    padding-bottom: 100%; /* 1:1 aspect ratio */
     background: #f8fafc;
     border-radius: 8px;
     overflow: hidden;
@@ -1478,7 +1478,9 @@ button {
     }
     
     .shoe-image-detailed {
-        height: 300px;
+        height: 0;
+        padding-bottom: 100%; /* 1:1 aspect ratio */
+        width: 100%;
     }
 }
 
