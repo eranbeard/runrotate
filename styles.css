@@ -1315,8 +1315,20 @@ button {
 
 .shoe-details h3 {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin: 0;
     color: var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.shoe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 15px;
 }
 
 .shoe-tags {
@@ -1405,14 +1417,16 @@ button {
 
 .shoe-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     margin-bottom: 20px;
+    gap: 15px;
 }
 
 .social-actions {
     display: flex;
     gap: 15px;
+    margin-left: auto;
 }
 
 .like, .comment {
