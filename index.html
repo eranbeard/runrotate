@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RunRotate - User Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- User Header Section -->
+        <header class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-wrapper">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=faces" alt="Jane Smith" class="avatar">
+                        <span class="online-status"></span>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+                
+                <div class="profile-info">
+                    <div class="profile-name">
+                        <h1>Jane Smith</h1>
+                        <div class="profile-meta">
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> New York, USA</span>
+                            <span class="member-since"><i class="far fa-calendar-alt"></i> Member since Jan 2022</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">3,700</span>
+                            <span class="stat-label">Total KM</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">42<small>km</small></span>
+                            <span class="stat-label">Avg Weekly</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-badges">
+                        <div class="badge">
+                            <i class="fas fa-medal gold"></i>
+                            <span>Marathon Finisher</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-trophy"></i>
+                            <span>10K PB: 39:12</span>
+                        </div>
+                        <div class="badge strava-connected">
+                            <img src="https://cdn.iconscout.com/icon/free/png-256/strava-2-569175.png" alt="Strava" class="strava-logo">
+                            <span>Connected</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="profile-details">
+                <div class="detail-section personal-bests">
+                    <h3><i class="fas fa-tachometer-alt"></i> Personal Bests</h3>
+                    <div class="pb-grid">
+                        <div class="pb-item">
+                            <span class="pb-distance">5K</span>
+                            <span class="pb-time">18:45</span>
+                            <span class="pb-date">Jun 2023</span>
+                        </div>
+                        <div class="pb-item">
+                            <span class="pb-distance">10K</span>
+                            <span class="pb-time">39:12</span>
+                            <span class="pb-date">Sep 2023</span>
+                        </div>
+                        <div class="pb-item">
+                            <span class="pb-distance">Half</span>
+                            <span class="pb-time">1:28:36</span>
+                            <span class="pb-date">Mar 2024</span>
+                        </div>
+                        <div class="pb-item">
+                            <span class="pb-distance">Marathon</span>
+                            <span class="pb-time">3:14:22</span>
+                            <span class="pb-date">Oct 2023</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-section recent-races">
+                    <div class="section-header">
+                        <h3><i class="fas fa-flag-checkered"></i> Recent Races</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="race-list">
+                        <div class="race-item">
+                            <div class="race-date">
+                                <span class="month">NOV</span>
+                                <span class="day">05</span>
+                            </div>
+                            <div class="race-details">
+                                <h4>New York City Marathon</h4>
+                                <div class="race-meta">
+                                    <span class="distance">42.2K</span>
+                                    <span class="location">New York, USA</span>
+                                </div>
+                            </div>
+                            <div class="race-result">
+                                <span class="time">3:14:22</span>
+                                <span class="pace">4:36/km</span>
+                            </div>
+                        </div>
+                        <div class="race-item">
+                            <div class="race-date">
+                                <span class="month">MAR</span>
+                                <span class="day">12</span>
+                            </div>
+                            <div class="race-details">
+                                <h4>Chicago Half Marathon</h4>
+                                <div class="race-meta">
+                                    <span class="distance">21.1K</span>
+                                    <span class="location">Chicago, USA</span>
+                                </div>
+                            </div>
+                            <div class="race-result">
+                                <span class="time">1:28:36</span>
+                                <span class="pace">4:12/km</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Shoe Rotation Section -->
+        <section class="shoe-rotation">
+            <div class="section-header">
+                <h2>Shoe Rotation</h2>
+                <div class="rotation-controls">
+                    <button class="nav-arrow"><i class="fas fa-chevron-left"></i></button>
+                    <span class="current-slide">1/2</span>
+                    <button class="nav-arrow"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="rotation-grid-container">
+                <div class="rotation-grid">
+                    <div class="rotation-title">JaneDoeRunner's Running Shoe Rotation</div>
+                    <div class="rotation-date">12/6/25</div>
+                    
+                    <div class="shoe-card">
+                        <div class="shoe-image">
+                            <i class="fas fa-shoe-prints"></i>
+                            <span class="shoe-role daily">DAILY</span>
+                        </div>
+                        <div class="shoe-name">Hoka Clifton 9</div>
+                    </div>
+                    
+                    <div class="shoe-card">
+                        <div class="shoe-image">
+                            <i class="fas fa-shoe-prints"></i>
+                            <span class="shoe-role tempo">TEMPO</span>
+                        </div>
+                        <div class="shoe-name">Nike Pegasus 40</div>
+                    </div>
+                    
+                    <div class="shoe-card">
+                        <div class="shoe-image">
+                            <i class="fas fa-shoe-prints"></i>
+                            <span class="shoe-role race">RACE</span>
+                        </div>
+                        <div class="shoe-name">Nike Vaporfly 3</div>
+                    </div>
+                    
+                    <div class="shoe-card">
+                        <div class="shoe-image">
+                            <i class="fas fa-shoe-prints"></i>
+                            <span class="shoe-role recovery">RECOVERY</span>
+                        </div>
+                        <div class="shoe-name">Hoka Bondi 8</div>
+                    </div>
+                    
+                    <div class="rotation-footer">RUNROTATE.COM</div>
+                </div>
+            </div>
+            
+            <button class="share-btn">
+                <i class="fas fa-share"></i> SHARE ROTATION
+            </button>
+        </section>
+
+        <!-- Individual Shoe Cards -->
+        <section class="shoe-cards">
+            <h2>My Running Shoes</h2>
+            
+            <!-- Shoe Card 1 -->
+            <div class="shoe-card-detailed">
+                <div class="shoe-image-detailed">
+                    <img src="https://via.placeholder.com/200" alt="Nike Vaporfly">
+                </div>
+                <div class="shoe-details">
+                    <h3>Nike ZoomX Vaporfly Next% 3</h3>
+                    <div class="shoe-tags">
+                        <span class="tag-primary">Race</span>
+                        <span class="tag-secondary">Lightweight</span>
+                        <span class="tag-secondary">Breathable</span>
+                    </div>
+                    <div class="shoe-stats">
+                        <span class="distance"><i class="fas fa-running"></i> 238km logged</span>
+                        <span class="user-rating">Jane's Rating: 4.5 <i class="fas fa-star"></i></span>
+                        <a href="#" class="global-rating">Global Rating: 4.4 <i class="fas fa-star"></i> <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <p class="ai-summary">Great for race day, but not the most durable option for daily training.</p>
+                    <div class="shoe-actions">
+                        <button class="btn-primary">CHECK PRICES</button>
+                        <div class="social-actions">
+                            <span class="like"><i class="far fa-heart"></i> 42</span>
+                            <span class="comment"><i class="far fa-comment"></i> 8</span>
+                        </div>
+                    </div>
+                    <div class="more-details">
+                        <button class="toggle-details">More Details <i class="fas fa-chevron-down"></i></button>
+                        <div class="details-content">
+                            <div class="pros-cons">
+                                <div class="pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>Incredibly lightweight</li>
+                                        <li>Excellent energy return</li>
+                                        <li>Great for race day</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>Less durable than training shoes</li>
+                                        <li>Expensive</li>
+                                        <li>Not ideal for daily training</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="attribute-ratings">
+                                <h4>Attribute Ratings</h4>
+                                <div class="rating-item">
+                                    <span class="rating-label">Cushioning</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 90%;">9/10</div>
+                                    </div>
+                                </div>
+                                <div class="rating-item">
+                                    <span class="rating-label">Responsiveness</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 95%;">9.5/10</div>
+                                    </div>
+                                </div>
+                                <div class="rating-item">
+                                    <span class="rating-label">Durability</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 60%;">6/10</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="personal-notes">
+                                <h4>Personal Notes</h4>
+                                <p>Best used for race day and key workouts. The carbon plate really helps with energy return in the later stages of a marathon.</p>
+                            </div>
+                            <div class="durability-timeline">
+                                <h4>Durability Timeline</h4>
+                                <p>After 200km, started to notice some wear on the outsole. Still performs well but likely won't last beyond 400-500km.</p>
+                            </div>
+                            <button class="btn-secondary">Read More Reviews</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shoe Card 2 (simplified for brevity) -->
+            <div class="shoe-card-detailed">
+                <div class="shoe-image-detailed">
+                    <img src="https://via.placeholder.com/200" alt="Hoka Clifton">
+                </div>
+                <div class="shoe-details">
+                    <h3>Hoka Clifton 9</h3>
+                    <div class="shoe-tags">
+                        <span class="tag-primary">Daily Trainer</span>
+                        <span class="tag-secondary">Cushioned</span>
+                        <span class="tag-secondary">Comfortable</span>
+                    </div>
+                    <div class="shoe-stats">
+                        <span class="distance"><i class="fas fa-running"></i> 450km logged</span>
+                        <span class="user-rating">Jane's Rating: 4.8 <i class="fas fa-star"></i></span>
+                        <a href="#" class="global-rating">Global Rating: 4.6 <i class="fas fa-star"></i> <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <p class="ai-summary">Reliable daily trainer with excellent cushioning for high mileage.</p>
+                    <div class="shoe-actions">
+                        <button class="btn-primary">CHECK PRICES</button>
+                        <div class="social-actions">
+                            <span class="like"><i class="far fa-heart"></i> 128</span>
+                            <span class="comment"><i class="far fa-comment"></i> 24</span>
+                        </div>
+                    </div>
+                    <div class="more-details">
+                        <button class="toggle-details">More Details <i class="fas fa-chevron-down"></i></button>
+                        <!-- Details content would be similar to the first card -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer CTA -->
+        <footer class="cta-footer">
+            <h2>Ready to Share Your Running Journey?</h2>
+            <p>Join our community of passionate runners and track your shoe rotation.</p>
+            <button class="btn-cta">Join for Free</button>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle more details
+        document.querySelectorAll('.toggle-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('i');
+                
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                    icon.className = 'fas fa-chevron-down';
+                } else {
+                    content.style.display = 'block';
+                    icon.className = 'fas fa-chevron-up';
+                }
+            });
+        });
+
+        // Simple rotation slider functionality
+        let currentSlide = 1;
+        const totalSlides = 2;
+        
+        document.querySelector('.fa-chevron-right').addEventListener('click', function() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlide();
+            }
+        });
+        
+        document.querySelector('.fa-chevron-left').addEventListener('click', function() {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlide();
+            }
+        });
+        
+        function updateSlide() {
+            document.querySelector('.current-slide').textContent = `${currentSlide}/${totalSlides}`;
+            // In a real implementation, you would update the rotation grid content here
+        }
+    </script>
+</body>
+</html>
