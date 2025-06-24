@@ -1573,6 +1573,55 @@ button {
     color: var(--text-primary);
 }
 
+/* Durability Timeline */
+.durability-timeline {
+    margin: 20px 0;
+    padding: 15px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.durability-timeline h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.distance-badge {
+    display: inline-block;
+    background-color: #e6f0ff;
+    color: #007BFF;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 12px;
+    min-width: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-right: 15px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.distance-badge:hover {
+    background-color: #d0e2ff;
+    transform: translateY(-1px);
+}
+
+.timeline-desc {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 .comment-meta {
     display: flex;
     justify-content: space-between;
