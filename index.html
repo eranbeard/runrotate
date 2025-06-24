@@ -283,8 +283,8 @@
                     <div class="shoe-header">
                         <h3>Hoka Clifton 9</h3>
                         <div class="social-actions">
-                            <span class="like"><i class="far fa-heart"></i> 128</span>
-                            <span class="comment"><i class="far fa-comment"></i> 24</span>
+                            <span class="like"><i class="far fa-heart"></i> <span class="count">128</span></span>
+                            <span class="comment"><i class="far fa-comment"></i> <span class="count">24</span></span>
                         </div>
                     </div>
                     <div class="shoe-tags">
@@ -298,6 +298,17 @@
                         <a href="#" class="global-rating" data-rating="4.6">Global Rating: 4.6 <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <p class="ai-summary"><em>Jane's Review Summary:</em> "Reliable daily trainer with excellent cushioning for high mileage."</p>
+                    
+                    <!-- Comment Section -->
+                    <div class="comment-section" id="comments-hoka-clifton">
+                        <div class="comments-list">
+                            <!-- Sample comments will be added here dynamically -->
+                        </div>
+                        <form class="comment-form">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." required>
+                            <button type="submit" class="comment-submit">Post</button>
+                        </form>
+                    </div>
                     <div class="shoe-actions">
                         <button class="btn-primary">CHECK PRICES</button>
                     </div>
@@ -366,8 +377,8 @@
                     <div class="shoe-header">
                         <h3>Nike Pegasus 40</h3>
                         <div class="social-actions">
-                            <span class="like"><i class="far fa-heart"></i> 89</span>
-                            <span class="comment"><i class="far fa-comment"></i> 15</span>
+                            <span class="like"><i class="far fa-heart"></i> <span class="count">89</span></span>
+                            <span class="comment"><i class="far fa-comment"></i> <span class="count">15</span></span>
                         </div>
                     </div>
                     <div class="shoe-tags">
@@ -381,6 +392,17 @@
                         <a href="#" class="global-rating">Global Rating: 4.5 <i class="fas fa-star"></i> <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <p class="ai-summary"><em>Jane's Review Summary:</em> "A versatile workhorse that handles tempo runs and long runs with ease."</p>
+                    
+                    <!-- Comment Section -->
+                    <div class="comment-section" id="comments-nike-pegasus">
+                        <div class="comments-list">
+                            <!-- Sample comments will be added here dynamically -->
+                        </div>
+                        <form class="comment-form">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." required>
+                            <button type="submit" class="comment-submit">Post</button>
+                        </form>
+                    </div>
                     <div class="shoe-actions">
                         <button class="btn-primary">CHECK PRICES</button>
                     </div>
@@ -449,8 +471,8 @@
                     <div class="shoe-header">
                         <h3>Nike Vaporfly 3</h3>
                         <div class="social-actions">
-                            <span class="like"><i class="far fa-heart"></i> 245</span>
-                            <span class="comment"><i class="far fa-comment"></i> 32</span>
+                            <span class="like"><i class="far fa-heart"></i> <span class="count">245</span></span>
+                            <span class="comment"><i class="far fa-comment"></i> <span class="count">32</span></span>
                         </div>
                     </div>
                     <div class="shoe-tags">
@@ -464,6 +486,17 @@
                         <a href="#" class="global-rating" data-rating="4.7">Global Rating: 4.7 <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <p class="ai-summary"><em>Jane's Review Summary:</em> "Incredible race day shoe with exceptional energy return and lightweight feel."</p>
+                    
+                    <!-- Comment Section -->
+                    <div class="comment-section" id="comments-nike-vaporfly">
+                        <div class="comments-list">
+                            <!-- Sample comments will be added here dynamically -->
+                        </div>
+                        <form class="comment-form">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." required>
+                            <button type="submit" class="comment-submit">Post</button>
+                        </form>
+                    </div>
                     <div class="shoe-actions">
                         <button class="btn-primary">CHECK PRICES</button>
                     </div>
@@ -532,8 +565,8 @@
                     <div class="shoe-header">
                         <h3>Hoka Bondi 8</h3>
                         <div class="social-actions">
-                            <span class="like"><i class="far fa-heart"></i> 189</span>
-                            <span class="comment"><i class="far fa-comment"></i> 27</span>
+                            <span class="like"><i class="far fa-heart"></i> <span class="count">189</span></span>
+                            <span class="comment"><i class="far fa-comment"></i> <span class="count">18</span></span>
                         </div>
                     </div>
                     <div class="shoe-tags">
@@ -547,6 +580,17 @@
                         <a href="#" class="global-rating">Global Rating: 4.5 <i class="fas fa-star"></i> <i class="fas fa-external-link-alt"></i></a>
                     </div>
                     <p class="ai-summary"><em>Jane's Review Summary:</em> "Ultra-cushioned shoe perfect for recovery days and easy miles."</p>
+                    
+                    <!-- Comment Section -->
+                    <div class="comment-section" id="comments-hoka-bondi">
+                        <div class="comments-list">
+                            <!-- Sample comments will be added here dynamically -->
+                        </div>
+                        <form class="comment-form">
+                            <input type="text" class="comment-input" placeholder="Add a comment..." required>
+                            <button type="submit" class="comment-submit">Post</button>
+                        </form>
+                    </div>
                     <div class="shoe-actions">
                         <button class="btn-primary">CHECK PRICES</button>
                     </div>
@@ -617,7 +661,118 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Toggle comments section
+            // Toggle comment sections when clicking comment buttons
+            document.querySelectorAll('.comment').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const shoeCard = this.closest('.shoe-card-detailed');
+                    const commentSection = shoeCard.querySelector('.comment-section');
+                    
+                    // Hide all other comment sections
+                    document.querySelectorAll('.comment-section').forEach(section => {
+                        if (section !== commentSection) {
+                            section.classList.remove('visible');
+                        }
+                    });
+                    
+                    // Toggle current comment section
+                    if (commentSection) {
+                        commentSection.classList.toggle('visible');
+                        
+                        // Scroll to show the comment section if it was just made visible
+                        if (commentSection.classList.contains('visible')) {
+                            commentSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                            
+                            // Focus the comment input if it's a form
+                            const commentInput = commentSection.querySelector('.comment-input');
+                            if (commentInput) {
+                                setTimeout(() => commentInput.focus(), 300);
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Handle comment form submission
+            document.querySelectorAll('.comment-form').forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const input = this.querySelector('.comment-input');
+                    const commentText = input.value.trim();
+                    
+                    if (commentText) {
+                        const commentSection = this.closest('.comment-section');
+                        const commentsList = commentSection ? commentSection.querySelector('.comments-list') : null;
+                        if (commentsList) {
+                            // Create new comment element
+                            const commentElement = document.createElement('div');
+                            commentElement.className = 'comment';
+                            commentElement.innerHTML = `
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=faces" alt="You" class="comment-avatar">
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <span class="comment-author">You</span>
+                                        <span class="comment-time">Just now</span>
+                                    </div>
+                                    <p class="comment-text">${commentText}</p>
+                                </div>
+                            `;
+                            
+                            // Add the new comment to the top of the list
+                            commentsList.prepend(commentElement);
+                            
+                            // Clear the input
+                            input.value = '';
+                            
+                            // Update comment count
+                            const commentButton = this.closest('.shoe-card-detailed').querySelector('.comment');
+                            if (commentButton) {
+                                const countSpan = commentButton.querySelector('.count');
+                                if (countSpan) {
+                                    const currentCount = parseInt(countSpan.textContent) || 0;
+                                    countSpan.textContent = currentCount + 1;
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+            
+            // Close comment section when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.comment') && !e.target.closest('.comment-section')) {
+                    document.querySelectorAll('.comment-section.visible').forEach(section => {
+                        section.classList.remove('visible');
+                    });
+                }
+            });
+            
+            // Like button functionality
+            document.querySelectorAll('.like').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const countSpan = this.querySelector('.count');
+                    if (countSpan) {
+                        let count = parseInt(countSpan.textContent) || 0;
+                        const isLiked = this.classList.toggle('liked');
+                        const icon = this.querySelector('i');
+                        
+                        if (isLiked) {
+                            count += 1;
+                            icon.className = 'fas fa-heart';
+                        } else {
+                            count -= 1;
+                            icon.className = 'far fa-heart';
+                        }
+                        
+                        countSpan.textContent = count;
+                    }
+                });
+            });
+            
+            // Original comments section toggle (keeping it as is)
             const toggleCommentsBtn = document.getElementById('toggle-comments');
             const closeCommentsBtn = document.getElementById('close-comments');
             const commentsSection = document.querySelector('.comments-section');
@@ -633,85 +788,6 @@
                 closeCommentsBtn.addEventListener('click', () => {
                     commentsSection.classList.remove('expanded');
                 });
-            }
-            
-            // Like button functionality
-            const likeButton = document.querySelector('.like-stat .stat-button');
-            if (likeButton) {
-                likeButton.addEventListener('click', function() {
-                    const countElement = this.querySelector('.count');
-                    if (countElement) {
-                        let count = parseInt(countElement.textContent);
-                        const isLiked = this.classList.toggle('liked');
-                        const icon = this.querySelector('i');
-                        
-                        if (isLiked) {
-                            count += 1;
-                            icon.className = 'fas fa-heart';
-                        } else {
-                            count -= 1;
-                            icon.className = 'far fa-heart';
-                        }
-                        
-                        countElement.textContent = count;
-                    }
-                });
-            }
-            
-            // Post comment functionality
-            const postButton = document.querySelector('.post-comment');
-            const commentInput = document.querySelector('.comment-input');
-            const commentsList = document.querySelector('.comments-list');
-            const commentCount = document.querySelector('.comment-count');
-            
-            if (postButton && commentInput) {
-                postButton.addEventListener('click', postComment);
-                commentInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        postComment();
-                    }
-                });
-                
-                function postComment() {
-                    const text = commentInput.value.trim();
-                    if (text) {
-                        const now = new Date();
-                        const timeString = 'Just now';
-                        
-                        const commentHtml = `
-                            <div class="comment">
-                                <img src="${document.querySelector('.current-user-avatar').src}" alt="You" class="comment-avatar">
-                                <div class="comment-content">
-                                    <div class="comment-header">
-                                        <span class="comment-author">You</span>
-                                        <span class="comment-time">${timeString}</span>
-                                    </div>
-                                    <p class="comment-text">${text}</p>
-                                </div>
-                            </div>
-                        `;
-                        
-                        commentsList.insertAdjacentHTML('afterbegin', commentHtml);
-                        
-                        // Update comment count
-                        if (commentCount) {
-                            const count = parseInt(commentCount.textContent) + 1;
-                            commentCount.textContent = count;
-                            
-                            // Update the comment button count
-                            const commentButtonCount = document.querySelector('.comment-stat .count');
-                            if (commentButtonCount) {
-                                commentButtonCount.textContent = count;
-                            }
-                        }
-                        
-                        // Clear input
-                        commentInput.value = '';
-                        
-                        // Ensure comments section is expanded
-                        commentsSection.classList.add('expanded');
-                    }
-                }
             }
         });
         
