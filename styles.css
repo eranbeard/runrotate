@@ -732,6 +732,45 @@ button.btn-ghost:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Future Race Styling */
+.race-item.future-race {
+    background: #f8f9ff;
+    border-left: 4px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.race-item.future-race::after {
+    content: 'UPCOMING';
+    position: absolute;
+    top: 10px;
+    right: -25px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 30px;
+    transform: rotate(45deg);
+    transform-origin: center;
+    opacity: 0.9;
+}
+
+.race-item.future-race .race-date {
+    opacity: 0.8;
+}
+
+.race-item.future-race .upcoming {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.race-item.future-race .goal-time {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+}
+
 .race-date {
     display: flex;
     flex-direction: column;
