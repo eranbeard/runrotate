@@ -6,6 +6,7 @@
     <title>Edit Profile - RunRotate</title>
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="edit-profile.css">
+    <link rel="stylesheet" href="section-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -229,7 +230,10 @@
                 <!-- Personal Bests -->
                 <div class="form-section personal-bests">
                     <div class="section-header">
-                        <h3>Personal Bests</h3>
+                        <div>
+                            <h3>Personal Bests</h3>
+                            <p class="section-subtitle">Keep track of all your fastest times in one place.</p>
+                        </div>
                         <button type="button" class="btn-text" id="add-pr">
                             <i class="fas fa-plus"></i> Add Personal Best
                         </button>
@@ -261,7 +265,12 @@
 
                 <!-- Recent Events -->
                 <div class="form-section recent-events">
-                    <h3>Recent Events</h3>
+                    <div class="section-header">
+                        <div>
+                            <h3>Running Events (Past & Future)</h3>
+                            <p class="section-subtitle">Got any fun events coming up? Or maybe you've already done them? Record them all here.</p>
+                        </div>
+                    </div>
                     <div class="event-list">
                         <div class="event-item">
                             <div class="event-grid">
@@ -274,7 +283,7 @@
                                     <input type="text" class="form-input" placeholder="e.g., Boston, MA">
                                 </div>
                                 <div class="form-group">
-                                    <label>Date</label>
+                                    <label>Date (Past or Future)</label>
                                     <input type="date" class="form-input">
                                 </div>
                                 <div class="form-group">
@@ -298,7 +307,12 @@
 
                 <!-- Goals -->
                 <div class="form-section goals">
-                    <h3>Goals</h3>
+                    <div class="section-header">
+                        <div>
+                            <h3>Goals</h3>
+                            <p class="section-subtitle">Make a note of your running goals to stay motivated.</p>
+                        </div>
+                    </div>
                     <textarea id="goals" class="form-textarea" rows="4" placeholder="What are your running goals? (e.g., Run a sub-4 hour marathon, Complete an ultra, Run 3 times a week)"></textarea>
                 </div>
 
