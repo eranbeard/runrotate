@@ -18,7 +18,31 @@
             </div>
 
             <form class="profile-edit-form">
-<!-- Profile Photo -->
+                <!-- Profile Completion -->
+                <div class="profile-completion">
+                    <div class="completion-header">
+                        <h3>Profile Completion</h3>
+                        <span class="completion-percentage">25%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%;"></div>
+                    </div>
+                    <p class="completion-hint">Complete more sections to reach 100%</p>
+                </div>
+                
+                <!-- Strava Connection -->
+                <div class="form-section strava-connect">
+                    <button type="button" class="btn-strava" id="connect-strava">
+                        <svg class="strava-logo" viewBox="0 0 82 82" fill="#FC4C02" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M41.1 0C18.4 0 0 18.4 0 41.1S18.4 82 41.1 82C63.7 82 82 63.7 82 41.1 82 18.4 63.7 0 41.1 0zm0 76.9C21.7 76.9 5.9 60.5 5.9 41.1 5.9 21.7 21.7 5.9 41.1 5.9c19.4 0 35.1 15.8 35.1 35.2 0 19.4-15.7 35.8-35.1 35.8z"/>
+                            <path d="M54.6 49.1l-6.1-11.5-6.1 11.5h-5.4l9.8-18.6h6.5l9.8 18.6h-6.5zM47.4 33.8l-2.5-5.2-2.5 5.2h5z"/>
+                        </svg>
+                        Connect to Strava
+                    </button>
+                    <p class="strava-description">Connect RunRotate with your Strava profile for automatic shoe mileage logging, average weekly running stats and more.</p>
+                </div>
+
+                <!-- Profile Photo -->
                 <div class="form-section">
                     <h3>Profile Photo</h3>
                     <div class="profile-photo-upload">
@@ -66,14 +90,7 @@
                     </div>
                 </div>
 
-                <!-- Strava Connection -->
-                <div class="form-section strava-connect">
-                    <button type="button" class="btn-strava" id="connect-strava">
-                        <img src="https://strava.github.io/api/logo.png" alt="Strava" class="strava-logo">
-                        Connect to Strava
-                    </button>
-                    <p class="strava-description">Connect RunRotate with your Strava profile for automatic shoe mileage logging, average weekly running stats and more.</p>
-                </div>
+
 
                 <!-- Bio -->
                 <div class="form-section">
@@ -420,5 +437,7 @@
             console.log('Connect to Strava');
         });
     </script>
+    <script src="edit-profile.js"></script>
+    <script src="profile-completion.js"></script>
 </body>
 </html>
