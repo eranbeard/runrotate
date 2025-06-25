@@ -957,8 +957,29 @@ button.btn-ghost:hover {
 .rotation-title {
     display: flex;
     align-items: center;
-    gap: 16px;
+    justify-content: space-between;
     width: 100%;
+}
+
+.rotation-title-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-image {
+    height: 60px; /* Increased height to make logo more prominent */
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Add some spacing from the content */
+}
+
+.logo-image img {
+    height: 100%;
+    width: auto;
+    max-width: none; /* Allow the logo to use its natural aspect ratio */
+    object-fit: contain;
+    display: block;
 }
 
 .rotation-avatar {
