@@ -958,6 +958,7 @@ button.btn-ghost:hover {
     display: flex;
     align-items: center;
     gap: 16px;
+    width: 100%;
 }
 
 .rotation-avatar {
@@ -966,6 +967,22 @@ button.btn-ghost:hover {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #f0f0f0;
+}
+
+.logo-text {
+    margin-left: auto;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.logo-text:hover {
+    opacity: 1;
 }
 
 .rotation-name {
@@ -992,10 +1009,13 @@ button.btn-ghost:hover {
 .shoe-image {
     position: relative;
     width: 100%;
-    padding-bottom: 66.67%; /* 2:3 aspect ratio (height/width) */
+    padding-bottom: 66.67%; /* 3:2 aspect ratio (height/width) */
     background: #f0f2f5;
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .shoe-image i {
@@ -1009,12 +1029,12 @@ button.btn-ghost:hover {
 
 .shoe-role {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    font-size: 13px;
-    font-weight: 800;
-    padding: 6px 12px;
-    border-radius: 16px;
+    top: 10px;
+    right: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 12px;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     background: white !important;
@@ -1024,6 +1044,7 @@ button.btn-ghost:hover {
     transform: translateZ(0);
     will-change: transform;
     transition: all 0.2s ease;
+    opacity: 0.9;
 }
 
 .shoe-role:hover {
@@ -1037,11 +1058,20 @@ button.btn-ghost:hover {
 .shoe-role.recovery { background-color: #7f8c8d; }
 
 .shoe-name {
-    padding: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px;
     text-align: center;
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-primary);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
 }
 
 .rotation-footer {
