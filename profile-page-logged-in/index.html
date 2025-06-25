@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - RunRotate</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Additional styles for empty states */
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+        
+        .empty-state i {
+            font-size: 48px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            opacity: 0.7;
+        }
+        
+        .empty-state h3 {
+            margin-bottom: 15px;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+        }
+        
+        .empty-state p {
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 20px;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+        
+        .placeholder-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px auto 0;
+            max-width: 500px;
+        }
+        
+        .placeholder-item {
+            aspect-ratio: 1;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- User Profile Section -->
+        <header class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-placeholder">JS</div>
+                        <span class="online-status"></span>
+                    </div>
+                    <div class="profile-actions">
+                        <div class="social-stats">
+                            <span class="stat">0 <span class="stat-label">Followers</span></span>
+                            <span class="stat">0 <span class="stat-label">Following</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-info">
+                    <div class="profile-name">
+                        <div class="name-with-badge">
+                            <h1>Jane Smith</h1>
+                            <span class="strava-verified">
+                                <span class="strava-logo-circle">
+                                    <svg viewBox="0 0 24 24" width="10" height="10">
+                                        <path fill="white" d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.817h4.169"/>
+                                    </svg>
+                                </span>
+                                <span>Strava Verified</span>
+                            </span>
+                        </div>
+                        <div class="profile-meta">
+                            <span class="location"><i class="fas fa-map-marker-alt"></i> New York, USA</span>
+                            <span class="member-since"><i class="far fa-calendar-alt"></i> Member since Jun 2025</span>
+                        </div>
+                        <div class="profile-badges">
+                            <div class="badge runner-type">
+                                <i class="fas fa-running"></i>
+                                <span>Runner</span>
+                            </div>
+                        </div>
+                        <div class="profile-bio">
+                            <p>Welcome to your running profile! Add your bio, personal bests, and race history to share your running journey with the community.</p>
+                        </div>
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">0<small>KM</small></span>
+                                <span class="stat-label">Total</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value">0<small>KM</small></span>
+                                <span class="stat-label">This Week</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-edit">
+                        <i class="fas fa-edit"></i> EDIT PROFILE
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Shoe Rotation Section -->
+        <section class="shoe-rotation">
+            <div class="section-header">
+                <h2>Shoe Rotation</h2>
+                <div class="section-actions">
+                    <button class="btn-ghost">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                </div>
+            </div>
+            
+            <div class="empty-state">
+                <i class="fas fa-shoe-prints"></i>
+                <h3>Your Shoe Rotation is Empty</h3>
+                <p>Add your first pair of running shoes to create your personalized rotation.</p>
+                <button class="btn-primary">
+                    <i class="fas fa-plus"></i> ADD SHOES
+                </button>
+            </div>
+        </section>
+
+        <!-- Individual Shoe Reviews -->
+        <section class="shoe-cards">
+            <div class="section-header">
+                <h2>Your Running Shoes</h2>
+                <div class="section-actions">
+                    <button class="btn-ghost">
+                        <i class="fas fa-plus"></i> Add Shoes
+                    </button>
+                </div>
+            </div>
+            
+            <div class="empty-state">
+                <i class="fas fa-running"></i>
+                <h3>No Shoes Added Yet</h3>
+                <p>Track your running shoes to monitor their mileage and condition.</p>
+                <button class="btn-primary">
+                    <i class="fas fa-plus"></i> ADD SHOES
+                </button>
+            </div>
+        </section>
+
+        <!-- Find Your Next Running Shoe -->
+        <section class="recommendations">
+            <div class="section-header">
+                <h2>Find Your Next Running Shoe</h2>
+            </div>
+            
+            <div class="empty-state">
+                <i class="fas fa-shoe-prints"></i>
+                <h3>Get Personalized Shoe Recommendations</h3>
+                <p>Add your current running shoes to receive personalized recommendations for your next pair.</p>
+                
+                <div class="placeholder-grid">
+                    <div class="placeholder-item">?</div>
+                    <div class="placeholder-item">?</div>
+                    <div class="placeholder-item">?</div>
+                    <div class="placeholder-item">?</div>
+                </div>
+                
+                <button class="btn-primary" style="margin-top: 20px;">
+                    <i class="fas fa-magic"></i> GET RECOMMENDATIONS
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add any interactive functionality here
+        });
+    </script>
+</body>
+</html>
