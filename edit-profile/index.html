@@ -4,77 +4,371 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Profile - RunRotate</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="../styles.css">
-    
-    <style>
-        /* Page-specific styles */
-        .edit-profile-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            margin-bottom: 24px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .back-button i {
-            margin-right: 8px;
-        }
-        
-        .edit-profile-header {
-            margin-bottom: 32px;
-        }
-        
-        .edit-profile-header h1 {
-            margin: 0 0 8px;
-            font-size: 28px;
-            color: var(--text-primary);
-        }
-        
-        .edit-profile-header p {
-            margin: 0;
-            color: var(--text-secondary);
-            font-size: 15px;
-        }
-    </style>
+    <link rel="stylesheet" href="edit-profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="edit-profile-container">
-            <a href="../profile-page-logged-in/" class="back-button">
-                <i class="fas fa-arrow-left"></i> Back to Profile
-            </a>
-            
-            <div class="edit-profile-header">
-                <h1>Edit Profile</h1>
-                <p>Update your personal information and preferences</p>
+        <div class="profile-edit-container">
+            <div class="profile-edit-header">
+                <h1>Tell the Community About Yourself</h1>
+                <p class="subtitle">Add your bio, race history, and personal records to complete your profile.</p>
             </div>
-            
-            <!-- Profile edit form will go here -->
-            
+
+            <form class="profile-edit-form">
+<!-- Profile Photo -->
+                <div class="form-section">
+                    <div class="profile-photo-upload">
+                        <div class="avatar-preview">
+                            <img src="https://via.placeholder.com/150" alt="Profile" id="profile-photo-preview">
+                        </div>
+                        <div class="upload-actions">
+                            <button type="button" class="btn-secondary" id="upload-photo">Upload a profile photo</button>
+                            <button type="button" class="btn-text" id="edit-photo">Edit profile photo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basic Info -->
+                <div class="form-section">
+                    <label for="first-name" class="form-label">First Name</label>
+                    <input type="text" id="first-name" class="form-input" value="Jane" required>
+
+                    <label for="last-name" class="form-label">Last Name</label>
+                    <input type="text" id="last-name" class="form-input" value="Smith" required>
+
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-input" value="jane@example.com" required>
+
+
+                    <label for="country" class="form-label">Country</label>
+                    <select id="country" class="form-select" required>
+                        <option value="">Select a country</option>
+                        <option value="US" selected>United States</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="AU">Australia</option>
+                        <option value="CA">Canada</option>
+                        <option value="NZ">New Zealand</option>
+                        <!-- Add more countries as needed -->
+                    </select>
+                </div>
+
+
+                <!-- Strava Connection -->
+                <div class="form-section strava-connect">
+                    <button type="button" class="btn-strava" id="connect-strava">
+                        <img src="https://strava.github.io/api/logo.png" alt="Strava" class="strava-logo">
+                        Connect to Strava
+                    </button>
+                    <p class="strava-description">Connect RunRotate with your Strava profile for automatic shoe mileage logging, average weekly running stats and more.</p>
+                </div>
+
+                <!-- Bio -->
+                <div class="form-section">
+                    <label for="bio" class="form-label">Bio</label>
+                    <textarea id="bio" class="form-textarea" rows="4" placeholder="Recreational runner based in Melbourne, mostly logging road miles with the occasional trail adventure. Training for my second half marathon."></textarea>
+                </div>
+
+                <!-- Average Weekly -->
+                <div class="form-section">
+                    <label for="weekly-distance" class="form-label">How much do you run per week? <span class="unit-display">(km)</span></label>
+                    <input type="number" id="weekly-distance" class="form-input" min="0" step="0.1">
+                </div>
+
+                <!-- Running Focus -->
+                <div class="form-section">
+                    <label class="form-label">Running Focus (Select all that apply)</label>
+                    <div class="focus-grid">
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="road">
+                            <span class="focus-label">Road Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="trail">
+                            <span class="focus-label">Trail Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="ultra">
+                            <span class="focus-label">Ultra Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="track">
+                            <span class="focus-label">Track Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="marathon">
+                            <span class="focus-label">Marathoner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="sprinter">
+                            <span class="focus-label">Sprinter</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="parkrun">
+                            <span class="focus-label">Parkrunner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="commuter">
+                            <span class="focus-label">Run Commuter</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="beginner">
+                            <span class="focus-label">Beginner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="weekend">
+                            <span class="focus-label">Weekend Warrior</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="social">
+                            <span class="focus-label">Social Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="club">
+                            <span class="focus-label">Club Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="triathlete">
+                            <span class="focus-label">Triathlete</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="comeback">
+                            <span class="focus-label">Comeback Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="adventure">
+                            <span class="focus-label">Adventure Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="everyday">
+                            <span class="focus-label">Everyday Runner</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="treadmill">
+                            <span class="focus-label">Treadmill Warrior</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="coach">
+                            <span class="focus-label">Coach</span>
+                        </label>
+                        <label class="focus-option">
+                            <input type="checkbox" name="focus" value="pacer">
+                            <span class="focus-label">Pacer</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Personal Bests -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <h3>Personal Bests</h3>
+                        <button type="button" class="btn-text" id="add-pr">+ Add Custom Distance</button>
+                    </div>
+                    <div class="pr-list">
+                        <div class="pr-item">
+                            <select class="form-select pr-distance">
+                                <option value="5k">5K</option>
+                                <option value="10k">10K</option>
+                                <option value="half">Half Marathon</option>
+                                <option value="marathon">Marathon</option>
+                                <option value="50k">50K</option>
+                                <option value="100k">100K</option>
+                                <option value="half-ironman">Half Ironman</option>
+                                <option value="ironman">Ironman</option>
+                            </select>
+                            <input type="text" class="form-input pr-time" placeholder="HH:MM:SS">
+                            <button type="button" class="btn-icon" title="Remove">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Events -->
+                <div class="form-section">
+                    <h3>Recent Events</h3>
+                    <div class="event-list">
+                        <div class="event-item">
+                            <div class="event-grid">
+                                <div class="form-group">
+                                    <label>Event Name</label>
+                                    <input type="text" class="form-input" placeholder="e.g., Boston Marathon">
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" class="form-input" placeholder="e.g., Boston, MA">
+                                </div>
+                                <div class="form-group">
+                                    <label>Date</label>
+                                    <input type="date" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Distance <span class="unit-display">(km)</span></label>
+                                    <input type="number" class="form-input" min="0" step="0.1">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label>Notes (Optional)</label>
+                                    <textarea class="form-input" rows="2" placeholder="Any personal notes about this event"></textarea>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-icon remove-event" title="Remove event">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-text" id="add-event">
+                        <i class="fas fa-plus"></i> Add Another Event
+                    </button>
+                </div>
+
+                <!-- Goals -->
+                <div class="form-section">
+                    <label for="goals" class="form-label">Goals</label>
+                    <textarea id="goals" class="form-textarea" rows="4" placeholder="What are your running goals? (e.g., Run a sub-4 hour marathon, Complete an ultra, Run 3 times a week)"></textarea>
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Save Changes</button>
+                </div>
+            </form>
         </div>
     </div>
 
     <script>
-        // Add any JavaScript functionality here
-        document.addEventListener('DOMContentLoaded', function() {
-            // Initialize any interactive elements
+        // Units Toggle
+        const unitOptions = document.querySelectorAll('.unit-option');
+        unitOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                unitOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+                
+                // Update all unit displays
+                const unit = option.dataset.unit === 'km' ? 'km' : 'mi';
+                document.querySelectorAll('.unit-display').forEach(el => {
+                    el.textContent = `(${unit})`;
+                });
+            });
+        });
+
+        // Set default unit based on country
+        const countrySelect = document.getElementById('country');
+        const setDefaultUnit = () => {
+            const milesCountries = ['US', 'GB', 'LR'];
+            const shouldUseMiles = milesCountries.includes(countrySelect.value);
+            const targetUnit = shouldUseMiles ? 'mi' : 'km';
+            
+            document.querySelectorAll('.unit-option').forEach(opt => {
+                opt.classList.toggle('active', opt.dataset.unit === targetUnit);
+            });
+            
+            document.querySelectorAll('.unit-display').forEach(el => {
+                el.textContent = `(${targetUnit})`;
+            });
+        };
+        
+        countrySelect.addEventListener('change', setDefaultUnit);
+        setDefaultUnit(); // Initialize
+
+        // Add PR
+        document.getElementById('add-pr').addEventListener('click', () => {
+            const prList = document.querySelector('.pr-list');
+            const newPr = document.createElement('div');
+            newPr.className = 'pr-item';
+            newPr.innerHTML = `
+                <select class="form-select pr-distance">
+                    <option value="5k">5K</option>
+                    <option value="10k">10K</option>
+                    <option value="half">Half Marathon</option>
+                    <option value="marathon">Marathon</option>
+                    <option value="50k">50K</option>
+                    <option value="100k">100K</option>
+                    <option value="half-ironman">Half Ironman</option>
+                    <option value="ironman">Ironman</option>
+                </select>
+                <input type="text" class="form-input pr-time" placeholder="HH:MM:SS">
+                <button type="button" class="btn-icon" title="Remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            prList.appendChild(newPr);
+            
+            // Add event listener to the new remove button
+            newPr.querySelector('.btn-icon').addEventListener('click', () => {
+                if (document.querySelectorAll('.pr-item').length > 1) {
+                    newPr.remove();
+                }
+            });
+        });
+
+        // Add event
+        document.getElementById('add-event').addEventListener('click', () => {
+            const eventList = document.querySelector('.event-list');
+            const newEvent = document.createElement('div');
+            newEvent.className = 'event-item';
+            newEvent.innerHTML = `
+                <div class="event-grid">
+                    <div class="form-group">
+                        <label>Event Name</label>
+                        <input type="text" class="form-input" placeholder="e.g., Boston Marathon">
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" class="form-input" placeholder="e.g., Boston, MA">
+                    </div>
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Distance <span class="unit-display">(km)</span></label>
+                        <input type="number" class="form-input" min="0" step="0.1">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Notes (Optional)</label>
+                        <textarea class="form-input" rows="2" placeholder="Any personal notes about this event"></textarea>
+                    </div>
+                </div>
+                <button type="button" class="btn-icon remove-event" title="Remove event">
+                    <i class="fas fa-times"></i>
+                </button>
+            `;
+            eventList.appendChild(newEvent);
+            
+            // Add event listener to the remove button
+            newEvent.querySelector('.remove-event').addEventListener('click', () => {
+                newEvent.remove();
+            });
+        });
+
+        // Remove event
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.remove-event') || e.target.classList.contains('remove-event')) {
+                const eventItem = e.target.closest('.event-item');
+                if (eventItem && document.querySelectorAll('.event-item').length > 1) {
+                    eventItem.remove();
+                }
+            }
+        });
+
+        // Profile photo upload (simplified example)
+        document.getElementById('upload-photo').addEventListener('click', () => {
+            // In a real app, this would open a file picker
+            console.log('Open file picker to upload photo');
+        });
+
+        document.getElementById('edit-photo').addEventListener('click', () => {
+            // In a real app, this would open a file picker or photo editor
+            console.log('Open photo editor');
+        });
+
+        // Connect to Strava
+        document.getElementById('connect-strava').addEventListener('click', () => {
+            // In a real app, this would initiate OAuth flow
+            console.log('Connect to Strava');
         });
     </script>
 </body>
