@@ -423,6 +423,42 @@
                         </div>
                     </div>
                 </div>
+                <!-- Comment Section -->
+                <div class="shoe-comment-section" style="display: none;">
+                    <div class="comments-header">
+                        <h4>Comments <span class="comment-count">24</span></h4>
+                    </div>
+                    <div class="comments-list">
+                        <!-- Sample comments will be added here dynamically -->
+                        <div class="comment">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="comment-avatar">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">Sarah Johnson</span>
+                                    <span class="comment-time">2h ago</span>
+                                </div>
+                                <p class="comment-text">Love this shoe! The cushioning is amazing for long runs.</p>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="comment-avatar">
+                            <div class="comment-content">
+                                <div class="comment-header">
+                                    <span class="comment-author">Mike Chen</span>
+                                    <span class="comment-time">5h ago</span>
+                                </div>
+                                <p class="comment-text">Great for recovery days. Very comfortable!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-comment">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=faces" alt="You" class="current-user-avatar">
+                        <div class="comment-input-container">
+                            <input type="text" placeholder="Add a comment..." class="comment-input">
+                            <button class="post-comment">Post</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -569,7 +605,8 @@
         // Toggle more details
         document.querySelectorAll('.toggle-details').forEach(button => {
             button.addEventListener('click', function() {
-                const content = this.closest('.shoe-card-detailed').querySelector('.more-details .details-content');
+                const shoeCard = this.closest('.shoe-card-detailed');
+                const content = shoeCard.querySelector('.more-details .details-content');
                 const icon = this.querySelector('i');
                 const isExpanded = this.getAttribute('aria-expanded') === 'true';
                 
@@ -577,10 +614,48 @@
                     content.style.display = 'none';
                     this.setAttribute('aria-expanded', 'false');
                     icon.className = 'fas fa-chevron-down';
+                    
+                    // Move comment section after the collapsed content
+                    const commentSection = shoeCard.querySelector('.shoe-comment-section');
+                    if (commentSection && commentSection.style.display === 'block') {
+                        shoeCard.querySelector('.more-details').insertAdjacentElement('afterend', commentSection);
+                    }
                 } else {
                     content.style.display = 'block';
                     this.setAttribute('aria-expanded', 'true');
                     icon.className = 'fas fa-chevron-up';
+                    
+                    // Move comment section after the expanded content
+                    const commentSection = shoeCard.querySelector('.shoe-comment-section');
+                    if (commentSection && commentSection.style.display === 'block') {
+                        shoeCard.querySelector('.more-details').insertAdjacentElement('afterend', commentSection);
+                    }
+                }
+            });
+        });
+        
+        // Toggle comment section
+        document.querySelectorAll('.shoe-card-detailed .comment').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const shoeCard = this.closest('.shoe-card-detailed');
+                const commentSection = shoeCard.querySelector('.shoe-comment-section');
+                const isExpanded = commentSection.style.display === 'block';
+                
+                if (isExpanded) {
+                    commentSection.style.display = 'none';
+                } else {
+                    commentSection.style.display = 'block';
+                    // Make sure comment section is in the right position based on expanded state
+                    const isDetailsExpanded = shoeCard.querySelector('.toggle-details').getAttribute('aria-expanded') === 'true';
+                    if (isDetailsExpanded) {
+                        shoeCard.querySelector('.more-details').insertAdjacentElement('afterend', commentSection);
+                    } else {
+                        // If details are collapsed, insert after the shoe-actions div
+                        shoeCard.querySelector('.shoe-actions').insertAdjacentElement('afterend', commentSection);
+                    }
                 }
             });
         });

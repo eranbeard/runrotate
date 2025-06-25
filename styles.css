@@ -1587,6 +1587,126 @@ button.btn-ghost:hover {
     color: var(--text-primary);
 }
 
+/* Shoe Comment Section */
+.shoe-comment-section {
+    margin-top: 20px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    width: 100%;
+}
+
+.shoe-comment-section .comments-header {
+    margin-bottom: 15px;
+}
+
+.shoe-comment-section .comments-header h4 {
+    font-size: 16px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.shoe-comment-section .comments-list {
+    margin-bottom: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.shoe-comment-section .comment {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.shoe-comment-section .comment-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.shoe-comment-section .comment-content {
+    flex: 1;
+}
+
+.shoe-comment-section .comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.shoe-comment-section .comment-author {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+
+.shoe-comment-section .comment-time {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.shoe-comment-section .comment-text {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.shoe-comment-section .add-comment {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color);
+}
+
+.shoe-comment-section .current-user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.shoe-comment-section .comment-input-container {
+    flex: 1;
+    display: flex;
+    gap: 8px;
+}
+
+.shoe-comment-section .comment-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.shoe-comment-section .comment-input:focus {
+    border-color: var(--primary-color);
+}
+
+.shoe-comment-section .post-comment {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.shoe-comment-section .post-comment:hover {
+    background: #3a5a8c;
+}
+
 /* Shoe Actions */
 .shoe-actions {
     display: flex;
