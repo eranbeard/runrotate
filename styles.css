@@ -1719,9 +1719,24 @@ button.btn-ghost:hover {
 
 .details-content {
     display: none;
-    padding-top: 15px;
+    padding: 20px 15px 15px;
     border-top: 1px solid var(--border-color);
     margin-top: 10px;
+}
+
+.review-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.review-section-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    font-weight: 600;
 }
 
 .user-review-summary {
