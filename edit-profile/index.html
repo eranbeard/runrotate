@@ -103,8 +103,16 @@
 
                 <!-- Average Weekly -->
                 <div class="form-section">
-                    <label for="weekly-distance" class="form-label">How much do you run per week? <span class="unit-display">(km)</span></label>
-                    <input type="number" id="weekly-distance" class="form-input" min="0" step="0.1">
+                    <div class="distance-input-container">
+                        <label for="weekly-distance" class="form-label">How much do you run per week?</label>
+                        <div class="unit-toggle-container">
+                            <div class="unit-toggle">
+                                <button type="button" class="unit-option active" data-unit="km">KM</button>
+                                <button type="button" class="unit-option" data-unit="mi">Miles</button>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="number" id="weekly-distance" class="form-input" min="0" step="0.1" placeholder="Enter distance">
                 </div>
 
                 <!-- Running Badges -->
@@ -251,7 +259,7 @@
                                     <input type="date" class="form-input">
                                 </div>
                                 <div class="form-group">
-                                    <label>Distance <span class="unit-display">(km)</span></label>
+                                    <label>Distance <span class="unit-display" data-km="km" data-mi="mi">(km)</span></label>
                                     <input type="number" class="form-input" min="0" step="0.1">
                                 </div>
                                 <div class="form-group full-width">
@@ -290,39 +298,90 @@
     </div>
 
     <script>
-        // Units Toggle
-        const unitOptions = document.querySelectorAll('.unit-option');
-        unitOptions.forEach(option => {
-            option.addEventListener('click', () => {
-                unitOptions.forEach(opt => opt.classList.remove('active'));
-                option.classList.add('active');
-                
-                // Update all unit displays
-                const unit = option.dataset.unit === 'km' ? 'km' : 'mi';
-                document.querySelectorAll('.unit-display').forEach(el => {
-                    el.textContent = `(${unit})`;
-                });
+        // Unit conversion functions
+        const convertKmToMi = (km) => (km * 0.621371).toFixed(1);
+        const convertMiToKm = (mi) => (mi * 1.60934).toFixed(1);
+        
+        // Unit toggle functionality
+        function updateDisplayedUnits(unit) {
+            // Update unit display text
+            document.querySelectorAll('.unit-display').forEach(el => {
+                el.textContent = `(${unit === 'km' ? 'km' : 'mi'})`;
+            });
+            
+            // Convert distance values in the weekly distance field
+            const weeklyDistanceInput = document.getElementById('weekly-distance');
+            if (weeklyDistanceInput && weeklyDistanceInput.value) {
+                const currentValue = parseFloat(weeklyDistanceInput.value);
+                if (!isNaN(currentValue)) {
+                    if (unit === 'mi' && weeklyDistanceInput.dataset.unit === 'km') {
+                        weeklyDistanceInput.value = convertKmToMi(currentValue);
+                        weeklyDistanceInput.dataset.unit = 'mi';
+                    } else if (unit === 'km' && weeklyDistanceInput.dataset.unit === 'mi') {
+                        weeklyDistanceInput.value = convertMiToKm(currentValue);
+                        weeklyDistanceInput.dataset.unit = 'km';
+                    }
+                }
+            }
+            
+            // Convert distance values in the running events
+            document.querySelectorAll('.event-item input[type="number"]').forEach(input => {
+                if (input.value) {
+                    const currentValue = parseFloat(input.value);
+                    if (!isNaN(currentValue)) {
+                        if (unit === 'mi' && input.dataset.unit === 'km') {
+                            input.value = convertKmToMi(currentValue);
+                            input.dataset.unit = 'mi';
+                        } else if (unit === 'km' && input.dataset.unit === 'mi') {
+                            input.value = convertMiToKm(currentValue);
+                            input.dataset.unit = 'km';
+                        }
+                    }
+                } else {
+                    // Set initial unit
+                    input.dataset.unit = unit;
+                }
+            });
+            
+            // Update active state of toggle buttons
+            document.querySelectorAll('.unit-option').forEach(opt => {
+                opt.classList.toggle('active', opt.dataset.unit === unit);
+            });
+        }
+        
+        // Unit toggle event listeners
+        document.querySelectorAll('.unit-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const unit = this.dataset.unit;
+                updateDisplayedUnits(unit);
+                // Store preference in localStorage
+                localStorage.setItem('preferredUnit', unit);
             });
         });
-
-        // Set default unit based on country
+        
+        // Set default unit based on country or saved preference
         const countrySelect = document.getElementById('country');
         const setDefaultUnit = () => {
             const milesCountries = ['US', 'GB', 'LR'];
-            const shouldUseMiles = milesCountries.includes(countrySelect.value);
-            const targetUnit = shouldUseMiles ? 'mi' : 'km';
+            const countryBasedUnit = milesCountries.includes(countrySelect.value) ? 'mi' : 'km';
+            const savedUnit = localStorage.getItem('preferredUnit');
+            const targetUnit = savedUnit || countryBasedUnit;
             
-            document.querySelectorAll('.unit-option').forEach(opt => {
-                opt.classList.toggle('active', opt.dataset.unit === targetUnit);
-            });
-            
-            document.querySelectorAll('.unit-display').forEach(el => {
-                el.textContent = `(${targetUnit})`;
-            });
+            updateDisplayedUnits(targetUnit);
         };
         
         countrySelect.addEventListener('change', setDefaultUnit);
-        setDefaultUnit(); // Initialize
+        
+        // Initialize units
+        document.addEventListener('DOMContentLoaded', () => {
+            setDefaultUnit();
+            
+            // Set initial unit for existing distance inputs
+            const initialUnit = localStorage.getItem('preferredUnit') || 'km';
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+                input.dataset.unit = initialUnit;
+            });
+        });
 
         // Add PR
         document.getElementById('add-pr').addEventListener('click', () => {

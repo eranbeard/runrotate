@@ -47,6 +47,56 @@
     border-color: var(--primary-dark);
 }
 
+/* Distance Input with Unit Toggle */
+.distance-input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.unit-toggle-container {
+    margin-left: 1rem;
+}
+
+.unit-toggle {
+    display: flex;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    padding: 2px;
+    height: 32px;
+}
+
+.unit-option {
+    padding: 0 0.75rem;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.unit-option.active {
+    background: white;
+    color: var(--primary-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.unit-option:not(.active):hover {
+    color: var(--text-primary);
+}
+
+/* Adjust form label spacing */
+.form-label {
+    margin-bottom: 0;
+}
+
 /* Badges Section */
 .badges-grid {
     display: grid;
