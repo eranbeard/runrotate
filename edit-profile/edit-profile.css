@@ -142,6 +142,11 @@
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: var(--shadow);
+    display: block;
+}
+
+/* Specific sections that should use grid layout */
+.form-section:not(.badges-section):not(.personal-bests):not(.recent-events):not(.goals) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem 2rem;
@@ -154,9 +159,67 @@
     color: var(--text-primary);
 }
 
-/* Override for badges section */
-.badges-section {
+/* Override for specific sections */
+.badges-section,
+.personal-bests,
+.recent-events,
+.goals {
     display: block;
+}
+
+/* Ensure form groups in single-column sections take full width */
+.personal-bests .form-group,
+.recent-events .form-group,
+.goals .form-group {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+/* Style for PR list items */
+.pr-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pr-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Style for event items */
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.event-item {
+    position: relative;
+    padding: 1.25rem;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Remove button styling */
+.remove-event {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.remove-event:hover {
+    color: var(--danger);
 }
 
 .badges-section h3 {
