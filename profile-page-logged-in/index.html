@@ -199,8 +199,9 @@
                 
                 const avatar = document.getElementById('user-avatar');
                 avatar.textContent = initials;
-                avatar.style.backgroundColor = colors[colorIndex];
-                avatar.style.color = 'white';
+                avatar.style.backgroundColor = 'transparent';
+                avatar.style.border = `2px solid ${colors[colorIndex]}`;
+                avatar.style.color = colors[colorIndex];
                 avatar.style.display = 'flex';
                 avatar.style.alignItems = 'center';
                 avatar.style.justifyContent = 'center';
