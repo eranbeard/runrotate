@@ -23,38 +23,47 @@
                     <div class="profile-photo-upload">
                         <div class="avatar-preview">
                             <img src="https://via.placeholder.com/150" alt="Profile" id="profile-photo-preview">
+                            <div class="upload-overlay">
+                                <i class="fas fa-camera"></i>
+                                <span>Upload</span>
+                            </div>
                         </div>
                         <div class="upload-actions">
                             <button type="button" class="btn-secondary" id="upload-photo">Upload a profile photo</button>
-                            <button type="button" class="btn-text" id="edit-photo">Edit profile photo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Basic Info -->
                 <div class="form-section">
-                    <label for="first-name" class="form-label">First Name</label>
-                    <input type="text" id="first-name" class="form-input" value="Jane" required>
+                    <h3>Basic Information</h3>
+                    <div class="form-group">
+                        <label for="first-name" class="form-label">First Name</label>
+                        <input type="text" id="first-name" class="form-input" value="Jane" required>
+                    </div>
 
-                    <label for="last-name" class="form-label">Last Name</label>
-                    <input type="text" id="last-name" class="form-input" value="Smith" required>
+                    <div class="form-group">
+                        <label for="last-name" class="form-label">Last Name</label>
+                        <input type="text" id="last-name" class="form-input" value="Smith" required>
+                    </div>
 
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" id="email" class="form-input" value="jane@example.com" required>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-input" value="jane@example.com" required>
+                    </div>
 
-
-                    <label for="country" class="form-label">Country</label>
-                    <select id="country" class="form-select" required>
-                        <option value="">Select a country</option>
-                        <option value="US" selected>United States</option>
-                        <option value="GB">United Kingdom</option>
-                        <option value="AU">Australia</option>
-                        <option value="CA">Canada</option>
-                        <option value="NZ">New Zealand</option>
-                        <!-- Add more countries as needed -->
-                    </select>
+                    <div class="form-group">
+                        <label for="country" class="form-label">Country</label>
+                        <select id="country" class="form-select" required>
+                            <option value="">Select a country</option>
+                            <option value="US" selected>United States</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="CA">Canada</option>
+                            <option value="NZ">New Zealand</option>
+                            <!-- Add more countries as needed -->
+                        </select>
+                    </div>
                 </div>
-
 
                 <!-- Strava Connection -->
                 <div class="form-section strava-connect">
