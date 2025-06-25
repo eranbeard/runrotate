@@ -780,6 +780,22 @@ button.btn-ghost:hover {
     flex-shrink: 0;
 }
 
+.rotation-footer {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.rotation-footer .footer-logo {
+    height: 20px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.rotation-footer .footer-logo:hover {
+    opacity: 1;
+}
+
 .race-date .month {
     font-size: 11px;
     font-weight: 700;
@@ -919,7 +935,7 @@ button.btn-ghost:hover {
 }
 
 .rotation-grid {
-    background: #f5f7fa;
+    background: #495057;
     border-radius: 12px;
     padding: 24px;
     display: grid;
@@ -955,13 +971,13 @@ button.btn-ghost:hover {
 .rotation-name {
     font-size: 18px;
     font-weight: 600;
-    color: var(--text-primary);
+    color: #ffffff;
     line-height: 1.2;
 }
 
 .rotation-date {
     font-size: 14px;
-    color: var(--text-secondary);
+    color: #e9ecef;
     margin-top: 4px;
 }
 
