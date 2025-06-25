@@ -67,7 +67,7 @@
             <div class="profile-header">
                 <div class="profile-avatar">
                     <div class="avatar-wrapper">
-                        <div class="avatar-placeholder">JS</div>
+                        <div class="avatar-placeholder" id="user-avatar"></div>
                         <span class="online-status"></span>
                     </div>
                     <div class="profile-actions">
@@ -82,41 +82,20 @@
                     <div class="profile-name">
                         <div class="name-with-badge">
                             <h1>Jane Smith</h1>
-                            <span class="strava-verified">
-                                <span class="strava-logo-circle">
-                                    <svg viewBox="0 0 24 24" width="10" height="10">
-                                        <path fill="white" d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.817h4.169"/>
-                                    </svg>
-                                </span>
-                                <span>Strava Verified</span>
-                            </span>
                         </div>
                         <div class="profile-meta">
                             <span class="location"><i class="fas fa-map-marker-alt"></i> New York, USA</span>
                             <span class="member-since"><i class="far fa-calendar-alt"></i> Member since Jun 2025</span>
                         </div>
                         <div class="profile-badges">
-                            <div class="badge runner-type">
-                                <i class="fas fa-running"></i>
-                                <span>Runner</span>
-                            </div>
+                            <!-- Badges will be added here -->
                         </div>
                         <div class="profile-bio">
                             <p>Welcome to your running profile! Add your bio, personal bests, and race history to share your running journey with the community.</p>
                         </div>
-                        <div class="profile-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">0<small>KM</small></span>
-                                <span class="stat-label">Total</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">0<small>KM</small></span>
-                                <span class="stat-label">This Week</span>
-                            </div>
-                        </div>
                     </div>
                     
-                    <button class="btn-edit">
+                    <button class="btn-secondary" style="margin-top: 15px;">
                         <i class="fas fa-edit"></i> EDIT PROFILE
                     </button>
                 </div>
@@ -192,7 +171,44 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Add any interactive functionality here
+            // Generate avatar with initials
+            function generateAvatar() {
+                const name = 'Jane Smith'; // Get user's full name
+                const initials = name
+                    .split(' ')
+                    .map(word => word[0])
+                    .join('')
+                    .toUpperCase();
+                
+                // Generate a consistent color based on the name
+                const colors = [
+                    '#4a6fa5', // Primary blue
+                    '#6b8cae', // Secondary blue
+                    '#ff6b6b', // Accent color
+                    '#4caf50', // Green
+                    '#9c27b0', // Purple
+                    '#ff9800', // Orange
+                    '#e91e63'  // Pink
+                ];
+                const colorIndex = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % colors.length;
+                
+                const avatar = document.getElementById('user-avatar');
+                avatar.textContent = initials;
+                avatar.style.backgroundColor = colors[colorIndex];
+                avatar.style.color = 'white';
+                avatar.style.display = 'flex';
+                avatar.style.alignItems = 'center';
+                avatar.style.justifyContent = 'center';
+                avatar.style.borderRadius = '50%';
+                avatar.style.width = '120px';
+                avatar.style.height = '120px';
+                avatar.style.fontSize = '48px';
+                avatar.style.fontWeight = '600';
+                avatar.style.margin = '0 auto 20px';
+            }
+            
+            // Initialize avatar
+            generateAvatar();
         });
     </script>
 </body>
