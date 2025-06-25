@@ -230,6 +230,9 @@
                 <div class="form-section personal-bests">
                     <div class="section-header">
                         <h3>Personal Bests</h3>
+                        <button type="button" class="btn-text" id="add-pr">
+                            <i class="fas fa-plus"></i> Add Personal Best
+                        </button>
                     </div>
                     <div class="pr-list">
                         <div class="pr-item">
@@ -242,7 +245,12 @@
                                 <option value="100k">100K</option>
                                 <option value="half-ironman">Half Ironman</option>
                                 <option value="ironman">Ironman</option>
+                                <option value="custom">Custom distance</option>
                             </select>
+                            <div class="custom-distance-container" style="display: none;">
+                                <input type="number" class="form-input custom-distance" placeholder="Distance" min="0" step="0.01">
+                                <span class="unit-display">km</span>
+                            </div>
                             <input type="text" class="form-input pr-time" placeholder="HH:MM:SS">
                             <button type="button" class="btn-icon" title="Remove">
                                 <i class="fas fa-times"></i>
@@ -435,6 +443,81 @@
             // In a real app, this would initiate OAuth flow
             console.log('Connect to Strava');
         });
+    </script>
+    <script>
+    // Handle custom distance selection
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Script loaded');
+        
+        // Function to handle distance selection change
+        function handleDistanceChange(selectElement) {
+            console.log('Distance changed:', selectElement.value);
+            const container = selectElement.closest('.pr-item').querySelector('.custom-distance-container');
+            if (selectElement.value === 'custom') {
+                container.style.display = 'flex';
+                container.querySelector('.custom-distance').focus();
+            } else {
+                container.style.display = 'none';
+            }
+        }
+
+        // Add event listener to existing distance select
+        document.querySelectorAll('.pr-distance').forEach(select => {
+            select.addEventListener('change', function() {
+                handleDistanceChange(this);
+            });
+        });
+
+        // Add new PR item
+        const addPrBtn = document.getElementById('add-pr');
+        const prList = document.querySelector('.pr-list');
+        
+        if (addPrBtn && prList) {
+            addPrBtn.addEventListener('click', function() {
+                const newPr = document.createElement('div');
+                newPr.innerHTML = `
+                    <div class="pr-item">
+                        <select class="form-select pr-distance">
+                            <option value="5k">5K</option>
+                            <option value="10k">10K</option>
+                            <option value="half">Half Marathon</option>
+                            <option value="marathon">Marathon</option>
+                            <option value="50k">50K</option>
+                            <option value="100k">100K</option>
+                            <option value="half-ironman">Half Ironman</option>
+                            <option value="ironman">Ironman</option>
+                            <option value="custom">Custom distance</option>
+                        </select>
+                        <div class="custom-distance-container" style="display: none;">
+                            <input type="number" class="form-input custom-distance" placeholder="Distance" min="0" step="0.01">
+                            <span class="unit-display">km</span>
+                        </div>
+                        <input type="text" class="form-input pr-time" placeholder="HH:MM:SS">
+                        <button type="button" class="btn-icon remove-pr" title="Remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>`;
+                
+                prList.appendChild(newPr.firstElementChild);
+                
+                // Add event listener to the new distance select
+                const newSelect = newPr.querySelector('.pr-distance');
+                if (newSelect) {
+                    newSelect.addEventListener('change', function() {
+                        handleDistanceChange(this);
+                    });
+                }
+                
+                // Add event listener to the remove button
+                const removeBtn = newPr.querySelector('.remove-pr');
+                if (removeBtn) {
+                    removeBtn.addEventListener('click', function() {
+                        this.closest('.pr-item').remove();
+                    });
+                }
+            });
+        }
+    });
     </script>
     <script src="edit-profile.js"></script>
     <script src="profile-completion.js"></script>
