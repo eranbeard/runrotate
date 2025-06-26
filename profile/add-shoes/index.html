@@ -31,6 +31,21 @@
             background-color: #39FFA8;
             color: #000;
         }
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: #39FFA8;
+            color: black;
+            font-weight: bold;
+            border-radius: 50%;
+            margin-right: 12px;
+            font-size: 16px;
+            line-height: 1;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-50" x-data="app()" x-init="init()" x-cloak>
@@ -43,7 +58,10 @@
 
         <!-- Image Upload -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-4">Upload a Photo of your Shoes</h2>
+            <h2 class="text-xl font-semibold mb-4 flex items-center">
+                <span class="step-number">1</span>
+                Upload a Photo of your Shoes
+            </h2>
             <p class="text-gray-600 text-sm mb-4">Side profile works best. Place the shoe on a flat surface with good lighting.</p>
             
             <div class="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-blue-400 transition-colors cursor-pointer" 
@@ -73,7 +91,10 @@
 
         <!-- Shoe Details -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-4">Shoe Details</h2>
+            <h2 class="text-xl font-semibold mb-4 flex items-center">
+                <span class="step-number">2</span>
+                Shoe Details
+            </h2>
             <div class="space-y-4">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Brand</label>
@@ -97,7 +118,10 @@
 
         <!-- Rotation Role -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-2">Shoe Rotation Role</h2>
+            <h2 class="text-xl font-semibold mb-2 flex items-center">
+                <span class="step-number">3</span>
+                Shoe Rotation Role
+            </h2>
             <p class="text-gray-600 text-sm mb-4">What kind of runs do you use this shoe for? This helps others understand how you use it.</p>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -116,7 +140,10 @@
 
         <!-- Review Your Shoes -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-2">Review Your Shoes</h2>
+            <h2 class="text-xl font-semibold mb-2 flex items-center">
+                <span class="step-number">4</span>
+                Review Your Shoes
+            </h2>
             <p class="text-gray-600 text-sm mb-6">Share your thoughts about these shoes to help other runners. All fields are optional but we encourage you to be as detailed as possible.</p>
             
             <div class="space-y-8">
@@ -392,8 +419,8 @@
         <!-- AI-Generated Summary -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8 border-2 border-blue-100">
             <div class="flex items-center mb-2">
-                <i class="fas fa-robot text-blue-500 mr-2 text-xl"></i>
-                <h2 class="text-xl font-semibold text-gray-800">Auto-Generated Summary</h2>
+                <span class="step-number">5</span>
+                <h2 class="text-xl font-semibold text-gray-800 ml-2">Auto-Generated Summary</h2>
             </div>
             <p class="text-gray-600 text-sm mb-4">Based on what you've entered, here's a quick summary. You can tweak it however you like.</p>
             
@@ -422,10 +449,10 @@
         <!-- Action Buttons -->
         <div class="mt-8">
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors flex-1 max-w-xs">
+                <button type="button" class="px-6 py-3 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300 transition-colors">
                     <i class="far fa-save mr-2"></i> Save as Draft
                 </button>
-                <button class="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors flex-1 max-w-xs">
+                <button type="button" class="px-6 py-3 bg-black text-white rounded-md hover:bg-gray-800 transition-colors">
                     <i class="fas fa-save mr-2"></i> Save Shoes
                 </button>
             </div>
