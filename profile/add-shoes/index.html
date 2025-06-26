@@ -142,12 +142,12 @@
             </div>
         </section>
 
-        <!-- Quick Review -->
+        <!-- Review Your Shoes -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-2">Quick Review</h2>
-            <p class="text-gray-600 text-sm mb-4">Share your thoughts about these shoes to help other runners.</p>
+            <h2 class="text-xl font-semibold mb-2">Review Your Shoes</h2>
+            <p class="text-gray-600 text-sm mb-6">Share your thoughts about these shoes to help other runners. All fields are optional - skip any details you have no thoughts about.</p>
             
-            <div class="space-y-6">
+            <div class="space-y-8">
                 <!-- Star Rating -->
                 <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
                     <label class="block text-sm font-medium text-gray-700 mb-3 text-center">
@@ -235,36 +235,53 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Detailed Review -->
-        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-4">Detailed Review <span class="text-sm font-normal text-gray-500">(Optional)</span></h2>
-            <p class="text-gray-600 text-sm mb-6">Go deeper into how the shoe performs. All fields are optional.</p>
-                
-                <div class="space-y-6">
-                    <div x-data="{ value: 5 }" class="space-y-2">
-                        <div class="flex justify-between">
-                            <span class="text-sm font-medium">Cushioning</span>
-                            <span class="text-sm text-gray-500" x-text="value + '/10'"></span>
+            
+                <div class="pt-4 border-t border-gray-100 space-y-6">
+                    <!-- Cushioning Rating -->
+                    <div x-data="{ active: false, value: 5 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm font-medium" :class="{ 'text-gray-600': !active, 'text-gray-900': active }">Cushioning</span>
+                            <span class="text-sm font-medium px-2 py-0.5 rounded" :class="{ 'text-gray-400': !active, 'text-white bg-blue-500': active }" x-text="active ? (value + '/10') : 'Rate this'"></span>
                         </div>
-                        <input type="range" min="0" max="10" step="0.5" x-model="value" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                        <p class="text-xs text-gray-500">How soft or shock-absorbing the shoe feels</p>
+                        <div class="relative pt-1">
+                            <input 
+                                type="range" 
+                                min="0" 
+                                max="10" 
+                                step="0.5" 
+                                x-model="value" 
+                                :class="{ 'opacity-50': !active, 'opacity-100': active }"
+                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                @focus="active = true"
+                                @blur="active = false">
+                        </div>
+                        <p class="text-xs mt-1" :class="{ 'text-gray-400': !active, 'text-gray-600': active }">How soft or shock-absorbing the shoe feels</p>
                     </div>
                     
-                    <!-- Repeat for other metrics -->
+                    <!-- Other Metrics -->
                     <template x-for="metric in metrics" :key="metric.id">
-                        <div x-data="{ value: 5 }" class="space-y-2">
-                            <div class="flex justify-between">
-                                <span class="text-sm font-medium" x-text="metric.name"></span>
-                                <span class="text-sm text-gray-500" x-text="value + '/10'"></span>
+                        <div x-data="{ active: false, value: 5 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-sm font-medium" :class="{ 'text-gray-600': !active, 'text-gray-900': active }" x-text="metric.name"></span>
+                                <span class="text-sm font-medium px-2 py-0.5 rounded" :class="{ 'text-gray-400': !active, 'text-white bg-blue-500': active }" x-text="active ? (value + '/10') : 'Rate this'"></span>
                             </div>
-                            <input type="range" min="0" max="10" step="0.5" x-model="value" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
-                            <p class="text-xs text-gray-500" x-text="metric.description"></p>
+                            <div class="relative pt-1">
+                                <input 
+                                    type="range" 
+                                    min="0" 
+                                    max="10" 
+                                    step="0.5" 
+                                    x-model="value" 
+                                    :class="{ 'opacity-50': !active, 'opacity-100': active }"
+                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
+                                    @focus="active = true"
+                                    @blur="active = false">
+                            </div>
+                            <p class="text-xs mt-1" :class="{ 'text-gray-400': !active, 'text-gray-600': active }" x-text="metric.description"></p>
                         </div>
                     </template>
                 </div>
+            </div>
         </section>
 
         <!-- Durability Tracker -->
