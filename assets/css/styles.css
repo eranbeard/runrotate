@@ -737,22 +737,6 @@ button.btn-ghost:hover {
     background: #f8f9ff;
     border-left: 4px solid var(--primary-color);
     position: relative;
-    overflow: hidden;
-}
-
-.race-item.future-race::after {
-    content: 'UPCOMING';
-    position: absolute;
-    top: 10px;
-    right: -25px;
-    background: var(--primary-color);
-    color: white;
-    font-size: 10px;
-    font-weight: bold;
-    padding: 2px 30px;
-    transform: rotate(45deg);
-    transform-origin: center;
-    opacity: 0.9;
 }
 
 .race-item.future-race .race-date {
