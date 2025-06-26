@@ -240,13 +240,8 @@
 
         <!-- Detailed Review -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <div class="flex justify-between items-center cursor-pointer" @click="showDetailedReview = !showDetailedReview">
-                <h2 class="text-xl font-semibold">Detailed Review <span class="text-sm font-normal text-gray-500">(Optional)</span></h2>
-                <i class="fas" :class="showDetailedReview ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
-            </div>
-            
-            <div x-show="showDetailedReview" x-transition>
-                <p class="text-gray-600 text-sm my-4">Go deeper into how the shoe performs. All fields are optional.</p>
+            <h2 class="text-xl font-semibold mb-4">Detailed Review <span class="text-sm font-normal text-gray-500">(Optional)</span></h2>
+            <p class="text-gray-600 text-sm mb-6">Go deeper into how the shoe performs. All fields are optional.</p>
                 
                 <div class="space-y-6">
                     <div x-data="{ value: 5 }" class="space-y-2">
@@ -270,7 +265,6 @@
                         </div>
                     </template>
                 </div>
-            </div>
         </section>
 
         <!-- Durability Tracker -->
@@ -349,7 +343,6 @@
             return {
                 isDragover: false,
                 selectedRoles: [],
-                showDetailedReview: false,
                 rating: 0,
                 pros: [],
                 cons: [],
