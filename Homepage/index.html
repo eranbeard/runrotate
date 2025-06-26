@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RunRotate - Track Your Running Shoe Rotation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#03FCBA',
+                    },
+                }
+            }
+        }
+        
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or use system preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            
+            // Toggle theme on button click
+            themeToggle?.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+                updateThemeIcon();
+            });
+            
+            function updateThemeIcon() {
+                const icon = themeToggle.querySelector('i');
+                if (html.classList.contains('dark')) {
+                    icon.dataset.lucide = 'sun';
+                } else {
+                    icon.dataset.lucide = 'moon';
+                }
+                lucide.createIcons();
+            }
+            
+            // Initialize icons
+            lucide.createIcons();
+        });
+    </script>
+    <style>
+        .map-dot {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.8; }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <img src="../assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="h-8 dark:hidden">
+                        <img src="../assets/logos/runrotate_logo_white.svg" alt="RunRotate Logo" class="h-8 hidden dark:block">
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="hover:text-primary transition-colors">Explore</a>
+                    <a href="#" class="hover:text-primary transition-colors">Log In</a>
+                    <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
+                        JOIN FOR FREE
+                    </a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    </button>
+                </nav>
+                <button class="md:hidden p-2" id="mobile-menu-button">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <span class="text-primary font-medium tracking-wider">FROM EASY MILES TO RACE DAYS</span>
+            <h1 class="text-4xl md:text-6xl font-bold mt-4 mb-6 max-w-3xl mx-auto">
+                Discover the shoes runners trust…
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                Track your running shoes, share your rotation, and connect with a global community of runners.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="px-8 py-3 bg-primary text-gray-900 font-medium rounded-md hover:bg-opacity-90 transition-colors">
+                    Get Started
+                </button>
+                <button class="px-8 py-3 border-2 border-white/20 text-white font-medium rounded-md hover:bg-white/10 transition-colors">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Rotations -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">FEATURED ROTATIONS</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Rotation Card 1 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600"></div>
+                    <div class="p-4">
+                        <h3 class="font-medium">Sarah from USA 🇺🇸</h3>
+                        <div class="flex items-center justify-between mt-2 text-sm text-gray-500 dark:text-gray-400">
+                            <span class="flex items-center">
+                                <i data-lucide="heart" class="w-4 h-4 mr-1 fill-current text-red-500"></i>
+                                142
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="message-circle" class="w-4 h-4 mr-1"></i>
+                                24
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rotation Card 2 -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600"></div>
+                    <div class="p-4">
+                        <h3 class="font-medium">James from UK 🇬🇧</h3>
+                        <div class="flex items-center justify-between mt-2 text-sm text-gray-500 dark:text-gray-400">
+                            <span class="flex items-center">
+                                <i data-lucide="heart" class="w-4 h-4 mr-1 fill-current text-red-500"></i>
+                                98
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="message-circle" class="w-4 h-4 mr-1"></i>
+                                12
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more rotation cards -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600"></div>
+                    <div class="p-4">
+                        <h3 class="font-medium">Maria from Spain 🇪🇸</h3>
+                        <div class="flex items-center justify-between mt-2 text-sm text-gray-500 dark:text-gray-400">
+                            <span class="flex items-center">
+                                <i data-lucide="heart" class="w-4 h-4 mr-1 fill-current text-red-500"></i>
+                                76
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="message-circle" class="w-4 h-4 mr-1"></i>
+                                8
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600"></div>
+                    <div class="p-4">
+                        <h3 class="font-medium">Hiroshi from Japan 🇯🇵</h3>
+                        <div class="flex items-center justify-between mt-2 text-sm text-gray-500 dark:text-gray-400">
+                            <span class="flex items-center">
+                                <i data-lucide="heart" class="w-4 h-4 mr-1 fill-current text-red-500"></i>
+                                210
+                            </span>
+                            <span class="flex items-center">
+                                <i data-lucide="message-circle" class="w-4 h-4 mr-1"></i>
+                                32
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Shoes -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">POPULAR SHOES</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Shoe Card 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-700"></div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Nike Pegasus 40</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gray-300 fill-current"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- More shoe cards -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-700"></div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Hoka Clifton 9</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gray-300 fill-current"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">4.6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-700"></div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Saucony Endorphin Speed 3</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">4.9</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                    <div class="aspect-square bg-gray-100 dark:bg-gray-700"></div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Brooks Ghost 15</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gray-300 fill-current"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">4.7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join RunRotate? -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">WHY JOIN RUNROTATE?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="activity" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Track Every Stride</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Log your runs and see detailed stats about your shoe usage over time.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="layers" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Showcase Your Rotation</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Share your perfect shoe rotation with the community and get inspired by others.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="users" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Join the Community</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Connect with runners worldwide and share your passion for running.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">In-Depth Analytics</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Get insights into your running habits and shoe performance.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="award" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Achievements</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Earn badges and milestones for your running accomplishments.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                        <i data-lucide="bell" class="w-6 h-6 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Smart Reminders</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Get notified when it's time to rotate or replace your shoes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Community Map -->
+    <section class="py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-12">JOIN A GLOBAL COMMUNITY</h2>
+            <div class="relative h-96 bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden">
+                <!-- Simple world map with dots -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="relative w-full h-full">
+                        <!-- World map placeholder -->
+                        <div class="absolute inset-0 flex items-center justify-center text-gray-300 dark:text-gray-600">
+                            <i data-lucide="globe" class="w-48 h-48"></i>
+                        </div>
+                        <!-- Pulsing dots -->
+                        <div class="map-dot absolute w-4 h-4 bg-primary rounded-full" style="top: 30%; left: 25%;"></div>
+                        <div class="map-dot absolute w-4 h-4 bg-primary rounded-full" style="top: 35%; left: 50%; animation-delay: 0.3s;"></div>
+                        <div class="map-dot absolute w-4 h-4 bg-primary rounded-full" style="top: 40%; left: 70%; animation-delay: 0.6s;"></div>
+                        <div class="map-dot absolute w-4 h-4 bg-primary rounded-full" style="top: 60%; left: 20%; animation-delay: 0.9s;"></div>
+                        <div class="map-dot absolute w-4 h-4 bg-primary rounded-full" style="top: 65%; left: 80%; animation-delay: 1.2s;"></div>
+                        <div class="map-dot absolute w-4 h-4 bg-primary rounded-full" style="top: 70%; left: 40%; animation-delay: 1.5s;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-sm text-gray-500 dark:text-gray-400 mb-4 md:mb-0">
+                    Made with ❤️ in Australia
+                </div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 mb-4 md:mb-0">
+                    © 2025 RunRotate.com. All rights reserved.
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">About</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button')?.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu?.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
