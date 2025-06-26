@@ -36,9 +36,9 @@
 <body class="bg-gray-50" x-data="app()" x-init="init()" x-cloak>
     <div class="max-w-2xl mx-auto px-4 py-8">
         <!-- Header Section -->
-        <header class="mb-8">
+        <header class="mb-8 text-center">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Add a Shoe to Your Rotation</h1>
-            <p class="text-gray-600">Upload a photo, share your thoughts, and track how it performs over time.</p>
+            <p class="text-gray-600 max-w-2xl mx-auto">Upload a photo, share your thoughts, and track how it performs over time.</p>
         </header>
 
         <!-- Image Upload -->
@@ -63,13 +63,13 @@
         </section>
 
         <!-- Rotation Selector -->
-        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-4">Choose which rotation this shoe belongs to</h2>
-            <select class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+        <div class="bg-white p-4 rounded-lg shadow-sm mb-8">
+            <label class="block text-sm font-medium text-gray-500 mb-1">Add to rotation</label>
+            <select class="w-full text-sm p-2 border border-gray-200 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                 <option value="rotation1">Rotation 1: 12 June 2025</option>
                 <option value="rotation2" selected>Rotation 2: 15 July 2025</option>
             </select>
-        </section>
+        </div>
 
         <!-- Shoe Details -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
