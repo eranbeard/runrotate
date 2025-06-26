@@ -284,8 +284,15 @@
             </div>
         </section>
 
+        <!-- Personal Notes -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-2">Overall Experience / Personal Notes</h2>
+            <textarea class="w-full p-3 border border-gray-300 rounded-md h-32" placeholder="Go as in-depth as you want. Tell the community everything you think about these shoes."></textarea>
+        </section>
+
         <!-- Durability Tracker -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8" x-data="{
+            isOpen: false,
             entries: [],
             newEntry: { distance: '', notes: '', date: new Date().toISOString().split('T')[0] },
             distanceOptions: [0, 50, 100, 200, 300, 500, 750, 1000],
@@ -318,11 +325,14 @@
                 });
             }
         }" x-init="">
-            <h2 class="text-xl font-semibold mb-2">Durability Tracker</h2>
+            <div class="flex justify-between items-center cursor-pointer" @click="isOpen = !isOpen">
+                <h2 class="text-xl font-semibold">Durability Tracker <span class="text-sm font-normal text-gray-500">(optional)</span></h2>
+                <i class="fas" :class="{'fa-chevron-down': !isOpen, 'fa-chevron-up': isOpen}"></i>
+            </div>
             <p class="text-gray-600 text-sm mb-6">Log how the shoe feels as the kilometres add up. You can add new entries anytime.</p>
             
             <!-- Timeline Cards -->
-            <div class="space-y-4 mb-6">
+            <div x-show="isOpen" x-transition class="space-y-4 mb-6">
                 <template x-for="(entry, index) in entries" :key="entry.id" class="space-y-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                         <div class="flex justify-between items-start mb-3">
@@ -344,9 +354,7 @@
             </div>
             
             <!-- Add New Entry Form -->
-            <div class="border-t border-gray-100 pt-6">
-                <h3 class="text-sm font-medium text-gray-900 mb-4">Add New Entry</h3>
-                
+            <div x-show="isOpen" x-transition class="border-t border-gray-100 pt-6">
                 <div class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Distance (km)</label>
@@ -386,19 +394,13 @@
                         <button 
                             @click="addEntry()"
                             :disabled="!newEntry.distance || !newEntry.notes.trim()"
-                            class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                            class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                             <i class="fas fa-plus mr-1"></i>
                             <span>Add Entry</span>
                         </button>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Personal Notes -->
-        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-2">Overall Experience / Personal Notes</h2>
-            <textarea class="w-full p-3 border border-gray-300 rounded-md h-32" placeholder="Go as in-depth as you want. Tell the community everything you think about these shoes."></textarea>
         </section>
 
         <!-- AI-Generated Summary -->
