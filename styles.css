@@ -968,7 +968,7 @@ button.btn-ghost:hover {
 }
 
 .logo-image {
-    height: 48px; /* Reduced by 20% from original 60px */
+    height: 41px; /* Reduced by 15% from 48px */
     display: flex;
     align-items: center;
     margin-left: 15px;
