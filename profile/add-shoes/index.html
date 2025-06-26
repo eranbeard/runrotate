@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Shoe to Your Rotation - RunRotate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        [x-cloak] { display: none !important; }
+        .rating input {
+            display: none;
+        }
+        .rating label {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #e2e8f0;
+        }
+        .rating input:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: #ffd700;
+        }
+        .rating input:checked ~ label {
+            color: #ffd700;
+        }
+        .role-option {
+            transition: all 0.2s ease;
+        }
+        .role-option.selected {
+            background-color: #39FFA8;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50" x-data="app()" x-init="init()" x-cloak>
+    <div class="max-w-2xl mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Add a Shoe to Your Rotation</h1>
+            <p class="text-gray-600">Upload a photo, share your thoughts, and track how it performs over time.</p>
+        </header>
+
+        <!-- Image Upload -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-4">Upload a Photo of your Shoes</h2>
+            <p class="text-gray-600 text-sm mb-4">Side profile works best. Place the shoe on a flat surface with good lighting.</p>
+            
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-blue-400 transition-colors cursor-pointer" 
+                 @click="document.getElementById('shoe-upload').click()"
+                 @dragover.prevent="isDragover = true"
+                 @dragleave.prevent="isDragover = false"
+                 @drop.prevent="handleDrop($event)"
+                 :class="{'border-blue-500 bg-blue-50': isDragover}">
+                <input type="file" id="shoe-upload" class="hidden" accept="image/*" @change="handleFileSelect">
+                <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-2"></i>
+                <p class="text-gray-600">Drag & drop a photo here, or click to select</p>
+                <p class="text-sm text-gray-400 mt-1">JPG, PNG up to 5MB</p>
+            </div>
+            <div id="preview" class="mt-4 hidden">
+                <img id="image-preview" class="max-h-48 rounded" src="" alt="Shoe preview">
+            </div>
+        </section>
+
+        <!-- Rotation Selector -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-4">Choose which rotation this shoe belongs to</h2>
+            <select class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                <option value="rotation1">Rotation 1: 12 June 2025</option>
+                <option value="rotation2" selected>Rotation 2: 15 July 2025</option>
+            </select>
+        </section>
+
+        <!-- Shoe Details -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-4">Shoe Details</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Brand</label>
+                    <input type="text" list="brands" class="w-full p-3 border border-gray-300 rounded-md" placeholder="e.g., Nike, Adidas, etc.">
+                    <datalist id="brands">
+                        <option value="Nike">
+                        <option value="Adidas">
+                        <option value="Asics">
+                        <option value="New Balance">
+                        <option value="Brooks">
+                        <option value="Hoka">
+                        <option value="Saucony">
+                    </datalist>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Model</label>
+                    <input type="text" class="w-full p-3 border border-gray-300 rounded-md" placeholder="e.g., Pegasus 39, Clifton 8, etc.">
+                </div>
+            </div>
+        </section>
+
+        <!-- Rotation Role -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-2">Shoe Rotation Role</h2>
+            <p class="text-gray-600 text-sm mb-4">What kind of runs do you use this shoe for? This helps others understand how you use it.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <template x-for="role in roles" :key="role.id">
+                    <div 
+                        @click="toggleRole(role.id)"
+                        :class="{'role-option selected': selectedRoles.includes(role.id)}"
+                        class="role-option p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                        <div class="font-medium" x-text="role.name"></div>
+                        <div class="text-sm text-gray-500" x-text="role.description"></div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <!-- Usage Tracking -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-2">Usage Tracking <span class="text-sm font-normal text-gray-500">(optional)</span></h2>
+            <p class="text-gray-600 text-sm mb-4">Add mileage, purchase details, or connect Strava to import your shoe mileage automatically.</p>
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-32">
+                        <input type="number" class="w-full p-2 border border-gray-300 rounded-md" placeholder="Mileage">
+                    </div>
+                    <div class="h-10 flex items-center">
+                        <span class="text-gray-400 mr-1">or</span>
+                        <button class="flex items-center justify-center gap-2 px-4 h-full border-2 border-orange-500 text-orange-500 rounded-md hover:bg-orange-50 transition-colors" style="border-color: #f97316 !important;">
+                            <img src="../../assets/logos/strava-2.svg" alt="Strava" class="h-4 w-auto">
+                            <span class="text-sm">Import from Strava</span>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Purchase Date</label>
+                    <input type="date" class="w-full p-3 border border-gray-300 rounded-md">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Purchase Location</label>
+                    <input type="text" class="w-full p-3 border border-gray-300 rounded-md" placeholder="e.g., Nike Store, Amazon, etc.">
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Review -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-2">Quick Review</h2>
+            <p class="text-gray-600 text-sm mb-4">Rate the shoe and add a quick note on what you liked and didn't.</p>
+            
+            <div class="space-y-4">
+                <div class="rating flex justify-center space-x-1 my-4">
+                    <template x-for="i in 5" :key="i">
+                        <div>
+                            <input type="radio" :id="'star' + i" :value="i" x-model="rating">
+                            <label :for="'star' + i">
+                                <i :class="i <= rating ? 'fas' : 'far'" class="fa-star text-2xl"></i>
+                            </label>
+                        </div>
+                    </template>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Pros</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md h-24" placeholder="What do you love about these shoes?"></textarea>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Cons</label>
+                        <textarea class="w-full p-3 border border-gray-300 rounded-md h-24" placeholder="Any drawbacks or issues?"></textarea>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Review -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <div class="flex justify-between items-center cursor-pointer" @click="showDetailedReview = !showDetailedReview">
+                <h2 class="text-xl font-semibold">Detailed Review <span class="text-sm font-normal text-gray-500">(Optional)</span></h2>
+                <i class="fas" :class="showDetailedReview ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+            </div>
+            
+            <div x-show="showDetailedReview" x-transition>
+                <p class="text-gray-600 text-sm my-4">Go deeper into how the shoe performs. All fields are optional.</p>
+                
+                <div class="space-y-6">
+                    <div x-data="{ value: 5 }" class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-sm font-medium">Cushioning</span>
+                            <span class="text-sm text-gray-500" x-text="value + '/10'"></span>
+                        </div>
+                        <input type="range" min="0" max="10" step="0.5" x-model="value" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <p class="text-xs text-gray-500">How soft or shock-absorbing the shoe feels</p>
+                    </div>
+                    
+                    <!-- Repeat for other metrics -->
+                    <template x-for="metric in metrics" :key="metric.id">
+                        <div x-data="{ value: 5 }" class="space-y-2">
+                            <div class="flex justify-between">
+                                <span class="text-sm font-medium" x-text="metric.name"></span>
+                                <span class="text-sm text-gray-500" x-text="value + '/10'"></span>
+                            </div>
+                            <input type="range" min="0" max="10" step="0.5" x-model="value" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            <p class="text-xs text-gray-500" x-text="metric.description"></p>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- Durability Tracker -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-2">Durability Tracker</h2>
+            <p class="text-gray-600 text-sm mb-4">Add durability notes over time as your shoe breaks in.</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <div class="flex justify-between text-sm text-gray-700 mb-1">
+                        <span>0km</span>
+                        <span>1000km+</span>
+                    </div>
+                    <input type="range" min="0" max="1000" step="1" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Notes</label>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md h-24" placeholder="Add your notes about durability here..."></textarea>
+                    <p class="text-xs text-gray-500 mt-1">Example: "0km: Fresh out the box – amazing feel! 100km: Breaking in nicely..."</p>
+                </div>
+                
+                <button class="flex items-center text-blue-500 hover:text-blue-600">
+                    <i class="fas fa-plus mr-1"></i>
+                    <span>Add a durability update</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Personal Notes -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-2">Overall Experience / Personal Notes</h2>
+            <textarea class="w-full p-3 border border-gray-300 rounded-md h-32" placeholder="Go as in-depth as you want. Tell the community everything you think about these shoes."></textarea>
+        </section>
+
+        <!-- AI-Generated Summary -->
+        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
+            <h2 class="text-xl font-semibold mb-2">Auto-Generated Summary</h2>
+            <p class="text-gray-600 text-sm mb-4">Based on what you've entered, here's a quick summary. You can tweak it however you like.</p>
+            
+            <div class="bg-gray-50 p-4 rounded-md mb-4">
+                <p id="ai-summary" class="text-gray-800">This is a sample AI-generated summary based on your input. You can edit this text directly to make any changes.</p>
+            </div>
+            
+            <div class="flex space-x-3">
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
+                    <i class="fas fa-check mr-1"></i> Accept
+                </button>
+                <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-edit mr-1"></i> Edit
+                </button>
+                <button class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors">
+                    <i class="fas fa-sync-alt mr-1"></i> Replace with new summary
+                </button>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-between gap-4 mt-8">
+            <button class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors flex-1">
+                <i class="fas fa-arrow-left mr-2"></i> Return to Dashboard
+            </button>
+            <button class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors flex-1">
+                <i class="far fa-save mr-2"></i> Save as Draft
+            </button>
+            <button class="px-6 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors flex-1">
+                <i class="fas fa-shoe-prints mr-2"></i> Save Shoes
+            </button>
+        </div>
+    </div>
+
+    <!-- Alpine.js -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script>
+        function app() {
+            return {
+                isDragover: false,
+                selectedRoles: [],
+                showDetailedReview: false,
+                rating: 0,
+                roles: [
+                    { id: 'daily', name: 'Daily', description: 'Your go-to shoe for most runs' },
+                    { id: 'easy', name: 'Easy', description: 'For relaxed, low-intensity runs' },
+                    { id: 'tempo', name: 'Tempo', description: 'For moderate-effort runs, near threshold pace' },
+                    { id: 'speed', name: 'Speed', description: 'For intervals, strides, and short fast efforts' },
+                    { id: 'long', name: 'Long', description: 'Cushioned for long-distance comfort and support' },
+                    { id: 'race', name: 'Race', description: 'Designed for peak performance on race day' },
+                    { id: 'recovery', name: 'Recovery', description: 'Prioritizes softness and comfort post-hard sessions' }
+                ],
+                metrics: [
+                    { id: 'fit', name: 'Fit', description: 'How well the shoe hugs your foot without discomfort' },
+                    { id: 'traction', name: 'Traction', description: 'Grip on various surfaces, wet or dry' },
+                    { id: 'stability', name: 'Stability', description: 'Support during uneven terrain or pronation control' },
+                    { id: 'durability', name: 'Durability', description: 'How well the shoe holds up over time' },
+                    { id: 'breathability', name: 'Breathability', description: 'Ventilation and how cool your feet stay' },
+                    { id: 'weight', name: 'Weight', description: 'How light or heavy the shoe feels while running' },
+                    { id: 'responsiveness', name: 'Responsiveness', description: 'How much energy return or "pop" the shoe gives back' }
+                ],
+                init() {
+                    // Initialize any default values or setup
+                },
+                toggleRole(roleId) {
+                    const index = this.selectedRoles.indexOf(roleId);
+                    if (index === -1) {
+                        this.selectedRoles.push(roleId);
+                    } else {
+                        this.selectedRoles.splice(index, 1);
+                    }
+                },
+                handleFileSelect(event) {
+                    const file = event.target.files[0];
+                    if (file) {
+                        this.previewImage(file);
+                    }
+                },
+                handleDrop(event) {
+                    this.isDragover = false;
+                    const file = event.dataTransfer.files[0];
+                    if (file && file.type.match('image.*')) {
+                        this.previewImage(file);
+                    }
+                },
+                previewImage(file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        const preview = document.getElementById('image-preview');
+                        const previewContainer = document.getElementById('preview');
+                        preview.src = e.target.result;
+                        previewContainer.classList.remove('hidden');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+        }
+    </script>
+</body>
+</html>
