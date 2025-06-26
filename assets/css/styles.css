@@ -1,3 +1,6 @@
+/* Import Reset */
+@import url('reset.css');
+
 /* Base Styles & Variables */
 :root {
     --primary-color: #4a6fa5;
@@ -11,12 +14,7 @@
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     --border-radius: 12px;
     --transition: all 0.3s ease;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    font-size: 100%; /* Ensures consistent base font size */
 }
 
 body {
@@ -25,6 +23,8 @@ body {
     color: var(--text-primary);
     background-color: var(--background-color);
     padding: 20px;
+    font-size: 1rem; /* Explicitly set base font size */
+    -webkit-text-size-adjust: 100%; /* Prevent iOS text size adjust */
 }
 
 .container {
