@@ -117,32 +117,12 @@
         <!-- Review Your Shoes -->
         <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
             <h2 class="text-xl font-semibold mb-2">Review Your Shoes</h2>
-            <p class="text-gray-600 text-sm mb-6">Share your thoughts about these shoes to help other runners. All fields are optional - skip any details you have no thoughts about.</p>
+            <p class="text-gray-600 text-sm mb-6">Share your thoughts about these shoes to help other runners. All fields are optional but we encourage you to be as detailed as possible.</p>
             
             <div class="space-y-8">
-                <!-- Star Rating -->
-                <div class="bg-orange-50 p-4 rounded-lg border border-orange-100">
-                    <label class="block text-sm font-medium text-gray-700 mb-3 text-center">
-                        How would you rate these shoes?
-                        <span x-text="rating ? `(${rating} ${rating === 1 ? 'star' : 'stars'})` : ''" class="text-orange-600"></span>
-                    </label>
-                    <div class="rating flex justify-center space-x-2">
-                        <template x-for="i in 5" :key="i">
-                            <div class="transform hover:scale-110 transition-transform">
-                                <input type="radio" :id="'star' + i" :value="i" x-model="rating" class="sr-only">
-                                <label :for="'star' + i" class="cursor-pointer">
-                                    <i :class="i <= rating ? 'fas text-yellow-400' : 'far text-gray-300'" class="fa-star text-3xl"></i>
-                                </label>
-                            </div>
-                        </template>
-                    </div>
-                    <p class="text-xs text-gray-500 text-center mt-2" x-show="!rating">
-                        Click on a star to rate
-                    </p>
-                </div>
-                
-                <!-- Pros & Cons Lists -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Pros & Cons -->
+                <h3 class="text-lg font-semibold text-gray-800 mt-2">Pros & Cons</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
                     <!-- Pros -->
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -209,6 +189,7 @@
                 </div>
             
                 <div class="pt-4 border-t border-gray-100 space-y-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Details</h3>
                     <!-- Cushioning Rating -->
                     <div x-data="{ active: false, value: 5 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
                         <div class="flex justify-between items-center mb-1">
@@ -253,13 +234,14 @@
                         </div>
                     </template>
                 </div>
+                
+                <!-- Personal Notes -->
+                <div class="space-y-2">
+                    <h3 class="text-lg font-semibold text-gray-800">Overall Experience / Personal Notes</h3>
+                    <textarea class="w-full p-3 border border-gray-300 rounded-md h-32" 
+                        placeholder="Go as in-depth as you want. Tell the community everything you think about these shoes."></textarea>
+                </div>
             </div>
-        </section>
-
-        <!-- Personal Notes -->
-        <section class="bg-white p-6 rounded-lg shadow-sm mb-8">
-            <h2 class="text-xl font-semibold mb-2">Overall Experience / Personal Notes</h2>
-            <textarea class="w-full p-3 border border-gray-300 rounded-md h-32" placeholder="Go as in-depth as you want. Tell the community everything you think about these shoes."></textarea>
         </section>
 
         <!-- Usage Tracking -->
