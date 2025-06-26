@@ -968,10 +968,10 @@ button.btn-ghost:hover {
 }
 
 .logo-image {
-    height: 60px; /* Increased height to make logo more prominent */
+    height: 48px; /* Reduced by 20% from original 60px */
     display: flex;
     align-items: center;
-    margin-left: 15px; /* Add some spacing from the content */
+    margin-left: 15px;
 }
 
 .logo-image img {
