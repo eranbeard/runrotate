@@ -1,0 +1,88 @@
+/* Enhanced Dark Mode */
+.dark {
+  --bg-primary: #0f172a;         /* slate-900 */
+  --bg-secondary: #1e293b;      /* slate-800 */
+  --card-bg: #1e293b;           /* slate-800 */
+  --card-border: #334155;       /* slate-700 */
+  --card-hover: #334155;        /* slate-700 */
+  --text-primary: #f8fafc;      /* slate-50 */
+  --text-secondary: #cbd5e1;    /* slate-300 */
+  --border-color: #334155;      /* slate-700 */
+  --divider: #334155;           /* slate-700 */
+  --placeholder-bg: #33415580;  /* slate-700 with 50% opacity */
+}
+
+/* Base background */
+.dark body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Cards */
+.dark .bg-white {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--card-border) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.dark .bg-white:hover {
+  border-color: var(--card-hover) !important;
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+/* Section backgrounds */
+.dark .dark\:bg-gray-900 {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark .dark\:bg-gray-950 {
+  background-color: var(--bg-primary) !important;
+}
+
+/* Text */
+.dark .dark\:text-white,
+.dark .dark\:text-gray-100 {
+  color: var(--text-primary) !important;
+}
+
+.dark .dark\:text-gray-300,
+.dark .dark\:text-gray-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* Borders */
+.dark .dark\:border-gray-700,
+.dark .dark\:border-gray-800 {
+  border-color: var(--border-color) !important;
+}
+
+/* Buttons */
+.dark .dark\:border-gray-700 {
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.dark .dark\:hover\:bg-gray-800:hover {
+  background-color: var(--card-hover) !important;
+}
+
+/* Placeholder images */
+.dark .dark\:bg-gray-600,
+.dark .dark\:bg-gray-700 {
+  background-color: var(--placeholder-bg) !important;
+}
+
+/* Inputs and form elements */
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Dividers */
+.dark .dark\:border-t-gray-800 {
+  border-top-color: var(--divider) !important;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="dark-mode-fix.css">
     <title>RunRotate - Track Your Running Shoe Rotation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -63,9 +64,9 @@
         }
     </style>
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
@@ -80,8 +81,9 @@
                     <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
                         JOIN FOR FREE
                     </a>
-                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
-                        <i data-lucide="moon" class="w-5 h-5"></i>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
                     </button>
                 </nav>
                 <button class="md:hidden p-2" id="mobile-menu-button">
@@ -115,7 +117,7 @@
     </section>
 
     <!-- Featured Rotations -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-12">FEATURED ROTATIONS</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -372,7 +374,7 @@
     </section>
 
     <!-- Popular Shoes -->
-    <section class="py-16">
+    <section class="py-16 dark:bg-gray-950">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-12">POPULAR SHOES</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -456,7 +458,7 @@
     </section>
 
     <!-- Why Join RunRotate? -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+    <section class="py-16 bg-gray-50 dark:bg-gray-900">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-12">WHY JOIN RUNROTATE?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -516,7 +518,7 @@
     <section class="py-16">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold mb-12">JOIN A GLOBAL COMMUNITY</h2>
-            <div class="relative h-96 bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden">
+            <div class="relative h-96 bg-gray-100 dark:bg-gray-900/80 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
                 <!-- Simple world map with dots -->
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="relative w-full h-full">
