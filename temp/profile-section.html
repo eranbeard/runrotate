@@ -561,7 +561,7 @@
                                 <!-- Buttons -->
                                 <div class="flex flex-wrap gap-3 mt-6">
                                     <button class="expand-details-btn flex-1 md:flex-none px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors">
-                                        Full User Review
+                                        Full User Review ▼
                                     </button>
                                     <button class="flex-1 md:flex-none px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
                                         Check Prices
@@ -895,7 +895,7 @@
                                 <!-- Buttons -->
                                 <div class="flex flex-wrap gap-3 mt-6">
                                     <button class="expand-details-btn flex-1 md:flex-none px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors">
-                                        Full User Review
+                                        Full User Review ▼
                                     </button>
                                     <button class="flex-1 md:flex-none px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
                                         Check Prices
@@ -935,8 +935,8 @@
                     // Toggle the expanded state
                     details.classList.toggle('hidden');
                     
-                    // Update button text - fixed to show correct state
-                    this.textContent = isExpanded ? 'Full User Review' : 'Collapse Review';
+                    // Update button text - fixed to show correct state with arrow
+                    this.textContent = isExpanded ? 'Full User Review ▼' : 'Collapse Review';
                     
                     // Scroll to the expanded section if opening
                     if (!isExpanded) {
