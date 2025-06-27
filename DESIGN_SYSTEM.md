@@ -6,6 +6,11 @@
 - **Primary Color**: `#03FCBA` (Bright Teal/Green)
   - Used for: Buttons, active states, accents, and interactive elements
   - Hover: `#02e0a7` (Slightly darker teal)
+- **Emerald Colors**:
+  - `#d1fae5` (emerald-100) - Light emerald used for badges and status indicators
+  - Used for: Badge backgrounds, success states, and interactive elements
+  - Text on emerald: `#111827` (Dark Gray)
+  - Hover: Slightly darker shade for interactive elements
 - **Background**: 
   - Main: `#FFFFFF` (White)
   - Secondary: `#F9FAFB` (Light Gray, used for section backgrounds)
@@ -23,6 +28,11 @@
 - **Background**:
   - Main: `#111827` (Dark Blue-Gray)
   - Secondary: `#1F2937` (Slightly Lighter Blue-Gray, for cards/sections)
+  - Tertiary: `#1F2937` with 50% opacity for layered elements
+- **Emerald Colors**:
+  - `#064e3b` with 30% opacity (emerald-900/30) - Dark emerald for badges in dark mode
+  - Text: `#d1fae5` (emerald-100)
+  - Used for: Badge backgrounds, success states, and interactive elements in dark mode
 - **Text**:
   - Primary: `#F9FAFB` (Off-White)
   - Secondary: `#9CA3AF` (Light Gray)
