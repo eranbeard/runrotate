@@ -325,13 +325,214 @@
                 </div>
             </div>
         </section>
-    </main>
+
+        <!-- Shoe Rotation Section -->
+        <section class="bg-white dark:bg-dark-secondary rounded-xl shadow-card dark:shadow-dark-card overflow-hidden mb-8">
+            <div class="p-6 md:p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                        <i data-lucide="shirt" class="w-6 h-6 mr-2 text-primary"></i>
+                        Shoe Rotation
+                    </h2>
+                    <!-- Carousel Navigation -->
+                    <div class="flex items-center space-x-2">
+                        <button class="shoe-rotation-prev p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Previous rotation">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <span class="text-sm font-medium text-gray-500 dark:text-gray-400">
+                            <span class="current-slide">1</span>/<span class="total-slides">2</span>
+                        </span>
+                        <button class="shoe-rotation-next p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Next rotation">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Shoe Rotation Carousel -->
+                <div class="relative">
+                    <div class="shoe-rotation-carousel overflow-hidden">
+                        <div class="flex transition-transform duration-300" id="shoe-rotation-track" style="transform: translateX(0%);">
+                            <!-- Shoe Rotation Card 1 -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="flex items-center">
+                                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=faces" 
+                                                 alt="User" 
+                                                 class="w-10 h-10 rounded-full mr-3">
+                                            <div>
+                                                <div class="font-medium text-gray-900 dark:text-white">Alex's Running Shoe Rotation</div>
+                                                <div class="text-sm text-gray-500 dark:text-gray-400">Updated today</div>
+                                            </div>
+                                        </div>
+                                        <img src="../assets/logos/runrotate_logo_black.svg" alt="RunRotate" class="h-6 dark:hidden">
+                                        <img src="../assets/logos/runrotate_logo_white.svg" alt="RunRotate" class="h-6 hidden dark:block">
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                                        <!-- Shoe 1 -->
+                                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+                                            <div class="relative mb-3">
+                                                <img src="https://via.placeholder.com/300x200" alt="Running Shoe" class="w-full h-40 object-contain">
+                                                <span class="absolute bottom-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded">Daily Trainer</span>
+                                            </div>
+                                            <h3 class="font-bold text-gray-900 dark:text-white mb-1">Nike Pegasus 40</h3>
+                                            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+                                                <span>256 mi</span>
+                                                <span>Added 2 months ago</span>
+                                            </div>
+                                        </div>
+                                        <!-- Shoe 2 -->
+                                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+                                            <div class="relative mb-3">
+                                                <img src="https://via.placeholder.com/300x200" alt="Running Shoe" class="w-full h-40 object-contain">
+                                                <span class="absolute bottom-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded">Race Day</span>
+                                            </div>
+                                            <h3 class="font-bold text-gray-900 dark:text-white mb-1">Nike Vaporfly Next% 2</h3>
+                                            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+                                                <span>78 mi</span>
+                                                <span>Added 1 month ago</span>
+                                            </div>
+                                        </div>
+                                        <!-- Shoe 3 -->
+                                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+                                            <div class="relative mb-3">
+                                                <img src="https://via.placeholder.com/300x200" alt="Running Shoe" class="w-full h-40 object-contain">
+                                                <span class="absolute bottom-2 left-2 bg-primary text-white text-xs px-2 py-1 rounded">Trail</span>
+                                            </div>
+                                            <h3 class="font-bold text-gray-900 dark:text-white mb-1">Hoka Speedgoat 5</h3>
+                                            <div class="flex justify-between text-sm text-gray-600 dark:text-gray-300">
+                                                <span>120 mi</span>
+                                                <span>Added 3 months ago</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Social Actions -->
+                                    <div class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-4">
+                                        <div class="flex items-center space-x-4">
+                                            <button class="flex items-center text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors">
+                                                <i data-lucide="heart" class="w-5 h-5 mr-1"></i>
+                                                <span class="text-sm font-medium">24</span>
+                                            </button>
+                                            <button class="flex items-center text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary transition-colors comment-toggle">
+                                                <i data-lucide="message-square" class="w-5 h-5 mr-1"></i>
+                                                <span class="text-sm font-medium">8</span>
+                                            </button>
+                                        </div>
+                                        <button class="text-primary text-sm font-medium flex items-center">
+                                            <span>View Full Rotation</span>
+                                            <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+                                        </button>
+                                    </div>
+
+                                    <!-- Comments Section -->
+                                    <div class="comments-container mt-4 hidden">
+                                        <div class="space-y-4 max-h-60 overflow-y-auto pr-2">
+                                            <!-- Comment 1 -->
+                                            <div class="flex">
+                                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-8 h-8 rounded-full mr-3 mt-1">
+                                                <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-3 flex-1">
+                                                    <div class="font-medium text-sm">Michael Chen</div>
+                                                    <p class="text-sm text-gray-700 dark:text-gray-300 mt-1">Great rotation! How do you like the Vaporflys for long runs?</p>
+                                                    <div class="flex items-center text-xs text-gray-500 dark:text-gray-400 mt-1">
+                                                        <span>2h ago</span>
+                                                        <button class="ml-3 hover:text-primary">Reply</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- More comments... -->
+                                        </div>
+                                        <div class="mt-4 flex">
+                                            <input type="text" placeholder="Add a comment..." class="flex-1 bg-gray-100 dark:bg-gray-800 border-0 rounded-l-lg px-4 py-2 text-sm focus:ring-2 focus:ring-primary focus:outline-none">
+                                            <button class="bg-primary text-white px-4 rounded-r-lg text-sm font-medium hover:bg-opacity-90 transition-colors">
+                                                Post
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Shoe Rotation Card 2 (Second Slide) -->
+                            <div class="w-full flex-shrink-0">
+                                <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6">
+                                    <!-- Similar structure as first card -->
+                                    <div class="text-center py-8 text-gray-500 dark:text-gray-400">
+                                        <i data-lucide="plus-circle" class="w-10 h-10 mx-auto mb-2"></i>
+                                        <p>Add another rotation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script>
-        // Theme toggle functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
+    document.addEventListener('DOMContentLoaded', function() {
+        // Carousel functionality
+        const track = document.getElementById('shoe-rotation-track');
+        const prevBtn = document.querySelector('.shoe-rotation-prev');
+        const nextBtn = document.querySelector('.shoe-rotation-next');
+        const currentSlideEl = document.querySelector('.current-slide');
+        const totalSlidesEl = document.querySelector('.total-slides');
+        const slides = document.querySelectorAll('.shoe-rotation-carousel > div > div');
+        
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        
+        // Set total slides count
+        if (totalSlidesEl) {
+            totalSlidesEl.textContent = totalSlides;
+        }
+        
+        // Update slide position
+        function updateSlidePosition() {
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+            if (currentSlideEl) {
+                currentSlideEl.textContent = currentSlide + 1;
+            }
+        }
+        
+        // Event listeners
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlidePosition();
+                }
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlidePosition();
+                }
+            });
+        }
+        
+        // Toggle comments
+        document.querySelectorAll('.comment-toggle').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const commentsContainer = e.target.closest('.bg-gray-50').querySelector('.comments-container');
+                if (commentsContainer) {
+                    commentsContainer.classList.toggle('hidden');
+                }
+            });
+        });
+        
+        // Initialize carousel
+        updateSlidePosition();
+    });
+
+    // Theme toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
             
             // Check for saved theme preference or use system preference
             if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
