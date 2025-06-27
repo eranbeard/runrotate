@@ -815,6 +815,105 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- New Shoe Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 mb-6 mt-6">
+                    <!-- Unexpanded State -->
+                    <div class="p-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <!-- Shoe Image -->
+                            <div class="w-full md:w-1/3 lg:w-1/4">
+                                <div class="aspect-square bg-gray-100 dark:bg-gray-700/50 rounded-lg overflow-hidden flex items-center justify-center">
+                                    <i data-lucide="shoe" class="w-20 h-20 text-gray-300 dark:text-gray-600"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Shoe Info -->
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Nike Vaporfly Next% 2</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">Racing Shoe</p>
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center space-x-1">
+                                            <button class="text-gray-400 hover:text-red-500 transition-colors">
+                                                <i data-lucide="heart" class="w-5 h-5"></i>
+                                            </button>
+                                            <span class="text-sm text-gray-500">42</span>
+                                        </div>
+                                        <div class="flex items-center space-x-1">
+                                            <button class="text-gray-400 hover:text-primary transition-colors comment-toggle" data-shoe-id="vaporfly-next-2">
+                                                <i data-lucide="message-square" class="w-5 h-5"></i>
+                                            </button>
+                                            <span class="text-sm text-gray-500">15</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tags -->
+                                <div class="flex flex-wrap gap-2 my-3">
+                                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">Racing</span>
+                                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100">Carbon Plate</span>
+                                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100">Lightweight</span>
+                                </div>
+
+                                <!-- Stats -->
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 text-sm">
+                                    <div>
+                                        <div class="text-gray-500 dark:text-gray-400">Distance Logged</div>
+                                        <div class="font-medium text-gray-900 dark:text-white">320 km</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-500 dark:text-gray-400">Your Rating</div>
+                                        <div class="flex items-center">
+                                            <div class="flex text-yellow-400 mr-1">
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                            </div>
+                                            <span class="text-xs font-medium text-gray-500">4.7/10</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-500 dark:text-gray-400">Expert Rating</div>
+                                        <div class="flex items-center">
+                                            <div class="flex text-yellow-400 mr-1">
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                            </div>
+                                            <span class="text-xs font-medium text-gray-500">4.8/10</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="flex flex-wrap gap-3 mt-6">
+                                    <button class="expand-details-btn flex-1 md:flex-none px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors">
+                                        Full User Review
+                                    </button>
+                                    <button class="flex-1 md:flex-none px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                                        Check Prices
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expanded State (Hidden by default) -->
+                    <div class="expanded-details hidden border-t border-gray-200 dark:border-gray-700 p-6">
+                        <div class="bg-gradient-to-r from-blue-50 to-blue-50/90 dark:from-blue-900/20 dark:to-blue-900/10 rounded-xl p-6 mb-8 border-l-4 border-blue-500">
+                            <h4 class="font-medium text-gray-900 dark:text-white text-lg mb-3">Summary</h4>
+                            <p class="italic text-gray-700 dark:text-gray-300">"The Vaporfly Next% 2 is a game-changer for racing, offering exceptional energy return and a propulsive feel. The carbon fiber plate and ZoomX foam work together to make every stride feel effortless, though the high price and reduced durability are notable trade-offs."</p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </section>
     </div>
@@ -995,7 +1094,71 @@
             
             // Initialize icons
             lucide.createIcons();
+
+            // Load and render shoe card component
+            const loadShoeCard = async () => {
+                // Load Handlebars if not already loaded
+                if (typeof Handlebars === 'undefined') {
+                    const script = document.createElement('script');
+                    script.src = 'https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js';
+                    document.body.appendChild(script);
+                    
+                    // Wait for Handlebars to load
+                    await new Promise(resolve => script.onload = resolve);
+                }
+
+
+                // Load the shoe card template
+                const response = await fetch('/components/shoe-card.html');
+                const templateHtml = await response.text();
+                
+                // Create a template element
+                const template = document.createElement('template');
+                template.innerHTML = templateHtml;
+                document.body.appendChild(template);
+                
+                // Extract the template content
+                const templateContent = document.getElementById('shoe-card-template');
+                if (!templateContent) return;
+                
+                // Compile the template
+                const compiledTemplate = Handlebars.compile(templateContent.innerHTML);
+                
+                // Data for the shoe card
+                const shoeData = {
+                    shoeName: "Nike Vaporfly Next% 2",
+                    shoeType: "Racing Shoe",
+                    likes: 42,
+                    comments: 15,
+                    distance: 320,
+                    userRating: 4.7,
+                    expertRating: 4.8,
+                    tags: ["Racing", "Carbon Plate", "Lightweight"],
+                    shoeId: "vaporfly-next-2"
+                };
+                
+                // Render the template with data
+                const html = compiledTemplate(shoeData);
+                
+                // Add the rendered HTML after the existing shoe card section
+                const shoeSection = document.querySelector('section:has(h2:has(i[data-lucide="shoe"]))');
+                if (shoeSection) {
+                    const container = document.createElement('div');
+                    container.innerHTML = html;
+                    shoeSection.parentNode.insertBefore(container, shoeSection.nextSibling);
+                    
+                    // Reinitialize Lucide icons for the new content
+                    lucide.createIcons();
+                }
+            };
+
+            // Load the shoe card component
+            loadShoeCard().catch(console.error);
         });
+    </script>
+    
+    <!-- Shoe Card Template (will be used by Handlebars) -->
+    <script type="text/template" id="shoe-card-template">
     </script>
 </body>
 </html>
