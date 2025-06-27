@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Header Demo - RunRotate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#03FCBA',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            min-height: 100vh;
+            background-color: #fff;
+            color: #111827;
+        }
+        
+        .dark body {
+            background-color: #111827;
+            color: #f9fafb;
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <!-- Header Component -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <img src="../assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="h-8 dark:hidden">
+                        <img src="../assets/logos/runrotate_logo_white.svg" alt="RunRotate Logo" class="h-8 hidden dark:block">
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="hover:text-primary transition-colors">Explore</a>
+                    <a href="#" class="hover:text-primary transition-colors">Log In</a>
+                    <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
+                        JOIN FOR FREE
+                    </a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                </nav>
+                <button class="md:hidden p-2" id="mobile-menu-button">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-6">Header Demo Page</h1>
+        <p class="mb-4">This is a demo page showing the header component.</p>
+        <p class="mb-4">Try resizing your browser window to see the responsive behavior.</p>
+        <p class="mb-4">Click the theme toggle button to switch between light and dark modes.</p>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or use system preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            
+            // Toggle theme on button click
+            themeToggle?.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+                updateThemeIcon();
+            });
+            
+            function updateThemeIcon() {
+                const icon = themeToggle.querySelector('i');
+                if (html.classList.contains('dark')) {
+                    icon.dataset.lucide = 'sun';
+                } else {
+                    icon.dataset.lucide = 'moon';
+                }
+                lucide.createIcons();
+            }
+            
+            // Initialize icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

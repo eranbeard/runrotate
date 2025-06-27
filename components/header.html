@@ -1,49 +1,27 @@
-<!-- Header Component -->
+<!-- Header -->
 <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
-    <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
-            <!-- Logo -->
-            <a href="/" class="flex items-center space-x-2">
-                <i data-lucide="footprints" class="w-8 h-8 text-primary"></i>
-                <span class="text-2xl font-bold">RunRotate</span>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#features" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Features</a>
-                <a href="#how-it-works" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">How It Works</a>
-                <a href="#pricing" class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Pricing</a>
-                <a href="/login" class="px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">Log in</a>
-                <a href="/signup" class="px-4 py-2 bg-primary text-gray-900 rounded-md hover:bg-primary/90 transition-colors">Sign up</a>
-                
-                <!-- Theme Toggle -->
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <a href="/" class="flex items-center">
+                    <img src="../assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="h-8 dark:hidden">
+                    <img src="../assets/logos/runrotate_logo_white.svg" alt="RunRotate Logo" class="h-8 hidden dark:block">
+                </a>
+            </div>
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#" class="hover:text-primary transition-colors">Explore</a>
+                <a href="#" class="hover:text-primary transition-colors">Log In</a>
+                <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
+                    JOIN FOR FREE
+                </a>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
                     <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
                     <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
                 </button>
             </nav>
-
-            <!-- Mobile menu button -->
-            <div class="md:hidden flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-                    <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
-                </button>
-                <button id="mobile-menu-button" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden pb-4">
-            <div class="flex flex-col space-y-2">
-                <a href="#features" class="px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md">Features</a>
-                <a href="#how-it-works" class="px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md">How It Works</a>
-                <a href="#pricing" class="px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md">Pricing</a>
-                <a href="/login" class="px-3 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md">Log in</a>
-                <a href="/signup" class="px-3 py-2 text-center bg-primary text-gray-900 rounded-md hover:bg-primary/90">Sign up</a>
-            </div>
+            <button class="md:hidden p-2" id="mobile-menu-button">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
     </div>
 </header>
