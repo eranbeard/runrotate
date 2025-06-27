@@ -1,0 +1,96 @@
+<!-- CTA Section Component -->
+<template id="cta-section-template">
+    <section class="py-16 bg-gray-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl font-bold mb-6" data-cta-title>Build your perfect shoe rotation</h2>
+                <p class="text-xl text-gray-300 mb-8" data-cta-subtitle>Join RunRotate to show off your shoes, find your next pair, and run smarter.</p>
+                <button class="bg-primary text-gray-900 hover:bg-opacity-90 px-8 py-3 rounded-md font-medium text-lg transition-colors" data-cta-button>
+                    Join for Free
+                </button>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script>
+class CTASection extends HTMLElement {
+    constructor() {
+        super();
+        
+        // Default props
+        this.props = {
+            title: 'Build your perfect shoe rotation',
+            subtitle: 'Join RunRotate to show off your shoes, find your next pair, and run smarter.',
+            buttonText: 'Join for Free',
+            buttonHref: '#',
+            variant: 'default' // 'default' or 'inverted'
+        };
+    }
+
+    static get observedAttributes() {
+        return ['title', 'subtitle', 'button-text', 'button-href', 'variant'];
+    }
+
+    connectedCallback() {
+        this.render();
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (oldValue !== newValue) {
+            this.props[name.replace(/-([a-z])/g, (g) => g[1].toUpperCase())] = newValue;
+            this.render();
+        }
+    }
+
+    getStyles() {
+        const variants = {
+            default: {
+                bg: 'bg-gray-900',
+                text: 'text-white',
+                button: 'bg-primary text-gray-900 hover:bg-opacity-90',
+                subtitle: 'text-gray-300'
+            },
+            inverted: {
+                bg: 'bg-white dark:bg-gray-900',
+                text: 'text-gray-900 dark:text-white',
+                button: 'bg-primary text-white hover:bg-opacity-90',
+                subtitle: 'text-gray-600 dark:text-gray-300'
+            }
+        };
+
+        return variants[this.props.variant] || variants.default;
+    }
+
+    render() {
+        const styles = this.getStyles();
+        
+        this.innerHTML = `
+            <section class="py-16 ${styles.bg} ${styles.text}">
+                <div class="container mx-auto px-4 text-center">
+                    <div class="max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-6">${this.props.title}</h2>
+                        <p class="text-xl ${styles.subtitle} mb-8">${this.props.subtitle}</p>
+                        <button class="${styles.button} px-8 py-3 rounded-md font-medium text-lg transition-colors">
+                            ${this.props.buttonText}
+                        </button>
+                    </div>
+                </div>
+            </section>
+        `;
+
+        // Add click handler if href is provided
+        const button = this.querySelector('button');
+        if (button && this.props.buttonHref) {
+            button.addEventListener('click', () => {
+                window.location.href = this.props.buttonHref;
+            });
+        }
+    }
+}
+
+// Define the custom element
+if (!customElements.get('cta-section')) {
+    customElements.define('cta-section', CTASection);
+}
+</script>

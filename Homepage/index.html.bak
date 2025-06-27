@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <link rel="stylesheet" href="/assets/css/reset.css">
-    <link rel="stylesheet" href="dark-mode-fix.css">
     <title>RunRotate - Track Your Running Shoe Rotation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="../components/cta-section.html" type="module"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -65,9 +63,9 @@
         }
     </style>
 </head>
-<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
     <!-- Header -->
-    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
         <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center space-x-2">
@@ -82,9 +80,8 @@
                     <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
                         JOIN FOR FREE
                     </a>
-                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
-                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
-                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                        <i data-lucide="moon" class="w-5 h-5"></i>
                     </button>
                 </nav>
                 <button class="md:hidden p-2" id="mobile-menu-button">
@@ -118,7 +115,7 @@
     </section>
 
     <!-- Featured Rotations -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-12">FEATURED ROTATIONS</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -308,8 +305,8 @@
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center space-x-2">
                                 <div class="w-6 h-6 rounded-full border-2 border-gray-300"></div>
-                                <span class="font-bold">Emma from</span>
-                                <span class="font-bold">Canada</span>
+                                <span class="font-medium">Emma from</span>
+                                <span class="font-medium">CAN</span>
                                 <span class="text-2xl">🇨🇦</span>
                             </div>
                         </div>
@@ -338,8 +335,8 @@
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex items-center space-x-2">
                                 <div class="w-6 h-6 rounded-full border-2 border-gray-300"></div>
-                                <span class="font-bold">Luca from</span>
-                                <span class="font-bold">Italy</span>
+                                <span class="font-medium">Luca from</span>
+                                <span class="font-medium">ITA</span>
                                 <span class="text-2xl">🇮🇹</span>
                             </div>
                         </div>
@@ -356,15 +353,14 @@
                             </div>
                             <div class="flex items-center space-x-1">
                                 <i data-lucide="message-circle" class="w-4 h-4"></i>
-                                <span>45</span>
-                    </svg>
-                </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Popular Shoes -->
-    <section class="py-16 dark:bg-gray-950">
+    <section class="py-16">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-12">POPULAR SHOES</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -435,20 +431,11 @@
                     </div>
                 </div>
             </div>
-            <!-- More Shoes Button -->
-            <div class="mt-12 text-center">
-                <button class="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white font-medium rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                    More shoes
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                    </svg>
-                </button>
-            </div>
         </div>
     </section>
 
     <!-- Why Join RunRotate? -->
-    <section class="py-16 bg-gray-50 dark:bg-gray-900">
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-12">WHY JOIN RUNROTATE?</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -508,7 +495,7 @@
     <section class="py-16">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold mb-12">JOIN A GLOBAL COMMUNITY</h2>
-            <div class="relative h-96 bg-gray-100 dark:bg-gray-900/80 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
+            <div class="relative h-96 bg-gray-100 dark:bg-gray-800 rounded-xl overflow-hidden">
                 <!-- Simple world map with dots -->
                 <div class="absolute inset-0 flex items-center justify-center">
                     <div class="relative w-full h-full">
@@ -528,9 +515,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Bottom CTA Section -->
-    <cta-section></cta-section>
 
     <!-- Footer -->
     <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 py-8">
