@@ -509,7 +509,7 @@
                                             <span class="text-sm text-gray-500">24</span>
                                         </div>
                                         <div class="flex items-center space-x-1">
-                                            <button class="text-gray-400 hover:text-primary transition-colors">
+                                            <button class="text-gray-400 hover:text-primary transition-colors comment-toggle" data-shoe-id="pegasus-40">
                                                 <i data-lucide="message-square" class="w-5 h-5"></i>
                                             </button>
                                             <span class="text-sm text-gray-500">8</span>
@@ -731,7 +731,7 @@
 
                         <!-- Bottom Buttons -->
                         <!-- Comments Section -->
-                        <div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
+                        <div id="comments-pegasus-40" class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6 hidden">
                             <h5 class="font-medium text-gray-900 dark:text-white mb-4">Comments (3)</h5>
                             
                             <!-- Comment 1 -->
@@ -817,18 +817,18 @@
     </div>
 
     <script>
-        // Add expand/collapse functionality for shoe details
+        // Add expand/collapse functionality for shoe details and comments
         document.addEventListener('DOMContentLoaded', function() {
-            const expandBtns = document.querySelectorAll('.expand-details-btn');
+            // Initialize Lucide icons
+            lucide.createIcons();
             
+            // Toggle expanded review
+            const expandBtns = document.querySelectorAll('.expand-details-btn');
             expandBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     const card = this.closest('.bg-white');
                     const details = card.querySelector('.expanded-details');
-                    const isExpanded = details.classList.contains('hidden');
-                    
-                    // Toggle the expanded state
-                    details.classList.toggle('hidden');
+                    const isExpanded = details.classList.toggle('hidden');
                     
                     // Update button text
                     this.textContent = isExpanded ? 'Collapse Review' : 'Full User Review';
@@ -837,11 +837,66 @@
                     if (isExpanded) {
                         details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
+                    
+                    // Refresh Lucide icons after showing/hiding content
+                    lucide.createIcons();
                 });
             });
             
-            // Initialize Lucide icons
-            lucide.createIcons();
+            // Toggle comments section
+            const commentToggles = document.querySelectorAll('.comment-toggle');
+            commentToggles.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const shoeId = this.getAttribute('data-shoe-id');
+                    const commentsSection = document.getElementById(`comments-${shoeId}`);
+                    const isHidden = commentsSection.classList.toggle('hidden');
+                    
+                    // If we're showing the comments, expand the review if needed and scroll to comments
+                    if (!isHidden) {
+                        // First expand the review if it's not already
+                        const reviewButton = this.closest('.bg-white').querySelector('.expand-details-btn');
+                        const expandedContent = this.closest('.bg-white').querySelector('.expanded-details');
+                        
+                        if (expandedContent.classList.contains('hidden')) {
+                            expandedContent.classList.remove('hidden');
+                            reviewButton.textContent = 'Collapse Review';
+                            // Wait for the content to be visible before scrolling
+                            setTimeout(() => {
+                                commentsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            }, 50);
+                        } else {
+                            // If already expanded, just scroll to comments
+                            commentsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                    
+                    // Refresh Lucide icons after showing/hiding content
+                    lucide.createIcons();
+                });
+            });
+            
+            // Handle direct URL hash for comments
+            function handleHash() {
+                if (window.location.hash) {
+                    const hash = window.location.hash.substring(1);
+                    if (hash.startsWith('comments-')) {
+                        const commentsSection = document.getElementById(hash);
+                        if (commentsSection) {
+                            const toggleButton = document.querySelector(`[data-shoe-id="${hash.replace('comments-', '')}"]`);
+                            if (toggleButton) {
+                                toggleButton.click();
+                            }
+                        }
+                    }
+                }
+            }
+            
+            // Check for hash on load
+            handleHash();
+            
+            // And also if the hash changes
+            window.addEventListener('hashchange', handleHash);
         });
     </script>
     <script>
