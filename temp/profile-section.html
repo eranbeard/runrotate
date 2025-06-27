@@ -473,8 +473,297 @@
                 </div>
             </div>
         </section>
+
+        <!-- Running Shoes Section -->
+        <section class="bg-white dark:bg-dark-secondary rounded-xl shadow-card dark:shadow-dark-card overflow-hidden mb-8">
+            <div class="p-6 md:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                    <i data-lucide="shoe" class="w-6 h-6 mr-2 text-primary"></i>
+                    Running Shoes
+                </h2>
+
+                <!-- Shoe Card -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 mb-6">
+                    <!-- Unexpanded State -->
+                    <div class="p-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <!-- Shoe Image -->
+                            <div class="w-full md:w-1/3 lg:w-1/4">
+                                <div class="aspect-square bg-gray-100 dark:bg-gray-700/50 rounded-lg overflow-hidden flex items-center justify-center">
+                                    <i data-lucide="shoe" class="w-20 h-20 text-gray-300 dark:text-gray-600"></i>
+                                </div>
+                            </div>
+                            
+                            <!-- Shoe Info -->
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">Nike Pegasus 40</h3>
+                                        <p class="text-gray-600 dark:text-gray-300">Daily Trainer</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="text-gray-400 hover:text-red-500 transition-colors">
+                                            <i data-lucide="heart" class="w-5 h-5"></i>
+                                        </button>
+                                        <span class="text-sm text-gray-500">24</span>
+                                    </div>
+                                </div>
+
+                                <!-- Tags -->
+                                <div class="flex flex-wrap gap-2 my-3">
+                                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">Daily Trainer</span>
+                                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">Cushioned</span>
+                                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400">Versatile</span>
+                                </div>
+
+                                <!-- Stats -->
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 text-sm">
+                                    <div>
+                                        <div class="text-gray-500 dark:text-gray-400">Distance Logged</div>
+                                        <div class="font-medium text-gray-900 dark:text-white">487 km</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-500 dark:text-gray-400">Jane's Rating</div>
+                                        <div class="flex items-center">
+                                            <div class="flex text-yellow-400">
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="text-gray-500 dark:text-gray-400">Expert Rating</div>
+                                        <div class="flex items-center">
+                                            <div class="flex text-yellow-400">
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                                <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="flex flex-wrap gap-3 mt-6">
+                                    <button class="expand-details-btn flex-1 md:flex-none px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors">
+                                        Full User Review
+                                    </button>
+                                    <button class="flex-1 md:flex-none px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                                        Check Prices
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expanded State (Hidden by default) -->
+                    <div class="expanded-details hidden border-t border-gray-200 dark:border-gray-700 p-6">
+                        <!-- User Review -->
+                        <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 mb-6">
+                            <div class="flex items-start">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" 
+                                     alt="Jane Smith" 
+                                     class="w-12 h-12 rounded-full object-cover mr-4">
+                                <div class="flex-1">
+                                    <div class="font-medium text-gray-900 dark:text-white">Jane Smith</div>
+                                    <p class="italic text-gray-700 dark:text-gray-300 mt-1">"This shoe delivers exceptional cushioning and long-distance comfort, making it ideal for easy and recovery runs. It's built to last, with a durable outsole and strong wear resistance beyond 400km, though it feels heavier and less responsive than tempo options."</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pros and Cons -->
+                        <div class="grid md:grid-cols-2 gap-6 mb-8">
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white mb-3 flex items-center">
+                                    <i data-lucide="thumbs-up" class="w-4 h-4 mr-2 text-green-500"></i>
+                                    Pros
+                                </h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">Excellent cushioning for long runs</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">Durable outsole with great traction</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="check-circle" class="w-4 h-4 text-green-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">Versatile for different types of runs</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-900 dark:text-white mb-3 flex items-center">
+                                    <i data-lucide="thumbs-down" class="w-4 h-4 mr-2 text-red-500"></i>
+                                    Cons
+                                </h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-red-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">Heavier than tempo shoes</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-red-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">Takes some time to break in</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-lucide="x-circle" class="w-4 h-4 text-red-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                                        <span class="text-gray-700 dark:text-gray-300">Not ideal for speed work</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Jane's Detailed Scores -->
+                        <div class="mb-8">
+                            <h4 class="font-medium text-gray-900 dark:text-white mb-4">Jane's Detailed Scores</h4>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Cushioning</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">9.5<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Responsiveness</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">7.5<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Durability</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">9.0<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Traction</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">8.8<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Fit</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">8.5<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Stability</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">8.2<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Breathability</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">7.8<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
+                                    <div class="text-sm text-gray-500 dark:text-gray-400">Weight</div>
+                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">8.0<small class="text-sm font-normal text-gray-500">/10</small></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Notes -->
+                        <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 mb-8">
+                            <h4 class="font-medium text-gray-900 dark:text-white mb-2">Jane's Personal Notes</h4>
+                            <p class="italic text-gray-700 dark:text-gray-300">"Perfect for easy and long runs. The cushioning really helps with recovery and reduces fatigue on high-mileage weeks."</p>
+                        </div>
+
+                        <!-- Durability Timeline -->
+                        <div class="mb-8">
+                            <h4 class="font-medium text-gray-900 dark:text-white mb-4">Durability Timeline</h4>
+                            <div class="relative">
+                                <!-- Timeline line -->
+                                <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700"></div>
+                                
+                                <!-- Timeline items -->
+                                <div class="space-y-8">
+                                    <!-- Timeline Item 1 -->
+                                    <div class="relative pl-12">
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                            <span class="text-xs font-bold text-gray-900">100</span>
+                                        </div>
+                                        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+                                            <h5 class="font-medium text-gray-900 dark:text-white">100KM</h5>
+                                            <p class="text-gray-600 dark:text-gray-300 mt-1">Shoes are broken in and feeling comfortable</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Timeline Item 2 -->
+                                    <div class="relative pl-12">
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                            <span class="text-xs font-bold text-gray-900">300</span>
+                                        </div>
+                                        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+                                            <h5 class="font-medium text-gray-900 dark:text-white">300KM</h5>
+                                            <p class="text-gray-600 dark:text-gray-300 mt-1">Midsole shows slight compression but still responsive</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Timeline Item 3 -->
+                                    <div class="relative pl-12">
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                            <span class="text-xs font-bold text-gray-900">500</span>
+                                        </div>
+                                        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+                                            <h5 class="font-medium text-gray-900 dark:text-white">500KM</h5>
+                                            <p class="text-gray-600 dark:text-gray-300 mt-1">Outsole shows moderate wear, cushioning still good</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Timeline Item 4 -->
+                                    <div class="relative pl-12">
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                            <span class="text-xs font-bold text-gray-900">700</span>
+                                        </div>
+                                        <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+                                            <h5 class="font-medium text-gray-900 dark:text-white">700KM</h5>
+                                            <p class="text-gray-600 dark:text-gray-300 mt-1">Approaching end of life, noticeable loss of cushioning</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-3 mt-8">
+                            <button class="flex-1 px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors">
+                                Read More Reviews
+                            </button>
+                            <button class="flex-1 px-6 py-3 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                                Check Prices
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
+    <script>
+        // Add expand/collapse functionality for shoe details
+        document.addEventListener('DOMContentLoaded', function() {
+            const expandBtns = document.querySelectorAll('.expand-details-btn');
+            
+            expandBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.bg-white');
+                    const details = card.querySelector('.expanded-details');
+                    const isExpanded = details.classList.contains('hidden');
+                    
+                    // Toggle the expanded state
+                    details.classList.toggle('hidden');
+                    
+                    // Update button text
+                    this.textContent = isExpanded ? 'Collapse Review' : 'Full User Review';
+                    
+                    // Scroll to the expanded section if opening
+                    if (isExpanded) {
+                        details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }
+                });
+            });
+            
+            // Initialize Lucide icons
+            lucide.createIcons();
+        });
+    </script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Carousel functionality
