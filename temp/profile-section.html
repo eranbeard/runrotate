@@ -828,13 +828,16 @@
                 btn.addEventListener('click', function() {
                     const card = this.closest('.bg-white');
                     const details = card.querySelector('.expanded-details');
-                    const isExpanded = details.classList.toggle('hidden');
+                    const isExpanded = !details.classList.contains('hidden');
                     
-                    // Update button text
-                    this.textContent = isExpanded ? 'Collapse Review' : 'Full User Review';
+                    // Toggle the expanded state
+                    details.classList.toggle('hidden');
+                    
+                    // Update button text - fixed to show correct state
+                    this.textContent = isExpanded ? 'Full User Review' : 'Collapse Review';
                     
                     // Scroll to the expanded section if opening
-                    if (isExpanded) {
+                    if (!isExpanded) {
                         details.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                     }
                     
