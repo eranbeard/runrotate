@@ -533,25 +533,27 @@
                                     <div>
                                         <div class="text-gray-500 dark:text-gray-400">Jane's Rating</div>
                                         <div class="flex items-center">
-                                            <div class="flex text-yellow-400">
+                                            <div class="flex text-yellow-400 mr-1">
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                             </div>
+                                            <span class="text-xs font-medium text-gray-500">8.7/10</span>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="text-gray-500 dark:text-gray-400">Expert Rating</div>
                                         <div class="flex items-center">
-                                            <div class="flex text-yellow-400">
+                                            <div class="flex text-yellow-400 mr-1">
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                                                 <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
                                             </div>
+                                            <span class="text-xs font-medium text-gray-500">8.0/10</span>
                                         </div>
                                     </div>
                                 </div>
@@ -571,17 +573,10 @@
 
                     <!-- Expanded State (Hidden by default) -->
                     <div class="expanded-details hidden border-t border-gray-200 dark:border-gray-700 p-6">
-                        <!-- User Review -->
-                        <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 mb-6">
-                            <div class="flex items-start">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" 
-                                     alt="Jane Smith" 
-                                     class="w-12 h-12 rounded-full object-cover mr-4">
-                                <div class="flex-1">
-                                    <div class="font-medium text-gray-900 dark:text-white">Jane Smith</div>
-                                    <p class="italic text-gray-700 dark:text-gray-300 mt-1">"This shoe delivers exceptional cushioning and long-distance comfort, making it ideal for easy and recovery runs. It's built to last, with a durable outsole and strong wear resistance beyond 400km, though it feels heavier and less responsive than tempo options."</p>
-                                </div>
-                            </div>
+                        <!-- Summary -->
+                        <div class="bg-gradient-to-r from-green-50 to-green-50/90 dark:from-green-900/20 dark:to-green-900/10 rounded-xl p-6 mb-8 border-l-4 border-green-500">
+                            <h4 class="font-medium text-gray-900 dark:text-white text-lg mb-3">Summary</h4>
+                            <p class="italic text-gray-700 dark:text-gray-300">"This shoe delivers exceptional cushioning and long-distance comfort, making it ideal for easy and recovery runs. It's built to last, with a durable outsole and strong wear resistance beyond 400km, though it feels heavier and less responsive than tempo options."</p>
                         </div>
 
                         <!-- Pros and Cons -->
@@ -630,7 +625,7 @@
 
                         <!-- Jane's Detailed Scores -->
                         <div class="mb-8">
-                            <h4 class="font-medium text-gray-900 dark:text-white mb-4">Jane's Detailed Scores</h4>
+                            <h4 class="font-medium text-gray-900 dark:text-white mb-4">Detailed Scores</h4>
                             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                                 <div class="bg-gray-50 dark:bg-gray-800/50 p-3 rounded-lg">
                                     <div class="text-sm text-gray-500 dark:text-gray-400">Cushioning</div>
@@ -668,9 +663,17 @@
                         </div>
 
                         <!-- Personal Notes -->
-                        <div class="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-5 mb-8">
-                            <h4 class="font-medium text-gray-900 dark:text-white mb-2">Jane's Personal Notes</h4>
-                            <p class="italic text-gray-700 dark:text-gray-300">"Perfect for easy and long runs. The cushioning really helps with recovery and reduces fatigue on high-mileage weeks."</p>
+                        <h4 class="font-medium text-gray-900 dark:text-white mb-2">Personal Notes</h4>
+                        <div class="relative mb-8">
+                            <div class="flex items-start">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="Reviewer" class="w-10 h-10 rounded-full object-cover mr-3 z-10 bg-white">
+                                <div class="bg-gradient-to-r from-green-50 to-green-50/90 dark:from-green-900/20 dark:to-green-900/10 rounded-xl p-4 relative flex-1" data-component-name="<div />">
+                                    <div class="absolute -left-2 top-3 w-3 h-3 transform -rotate-45 bg-green-50 dark:bg-green-900/20" style="border-top-right-radius: 0.25rem;"></div>
+                                    <div class="relative z-10">
+                                        <p class="italic text-gray-700 dark:text-gray-300">"Perfect for easy and long runs. The cushioning really helps with recovery and reduces fatigue on high-mileage weeks."</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Durability Timeline -->
@@ -684,8 +687,8 @@
                                 <div class="space-y-8">
                                     <!-- Timeline Item 1 -->
                                     <div class="relative pl-12">
-                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                                            <span class="text-xs font-bold text-gray-900">100</span>
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-gray-900 dark:bg-gray-800 flex items-center justify-center">
+                                            <span class="text-xs font-bold text-white">100</span>
                                         </div>
                                         <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
                                             <h5 class="font-medium text-gray-900 dark:text-white">100KM</h5>
@@ -695,8 +698,8 @@
                                     
                                     <!-- Timeline Item 2 -->
                                     <div class="relative pl-12">
-                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                                            <span class="text-xs font-bold text-gray-900">300</span>
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-gray-900 dark:bg-gray-800 flex items-center justify-center">
+                                            <span class="text-xs font-bold text-white">300</span>
                                         </div>
                                         <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
                                             <h5 class="font-medium text-gray-900 dark:text-white">300KM</h5>
@@ -706,8 +709,8 @@
                                     
                                     <!-- Timeline Item 3 -->
                                     <div class="relative pl-12">
-                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                                            <span class="text-xs font-bold text-gray-900">500</span>
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-gray-900 dark:bg-gray-800 flex items-center justify-center">
+                                            <span class="text-xs font-bold text-white">500</span>
                                         </div>
                                         <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
                                             <h5 class="font-medium text-gray-900 dark:text-white">500KM</h5>
@@ -717,8 +720,8 @@
                                     
                                     <!-- Timeline Item 4 -->
                                     <div class="relative pl-12">
-                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                                            <span class="text-xs font-bold text-gray-900">700</span>
+                                        <div class="absolute left-0 w-8 h-8 rounded-full bg-gray-900 dark:bg-gray-800 flex items-center justify-center">
+                                            <span class="text-xs font-bold text-white">700</span>
                                         </div>
                                         <div class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
                                             <h5 class="font-medium text-gray-900 dark:text-white">700KM</h5>
