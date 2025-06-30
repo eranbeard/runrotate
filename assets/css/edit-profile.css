@@ -16,9 +16,35 @@
     margin-bottom: 0.5rem;
 }
 
+.profile-edit.form-section h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
 .profile-edit-header .subtitle {
     color: var(--text-secondary);
     font-size: 1.1rem;
+    --font-3xl: 1.875rem;
+}
+
+.step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #39FFA8;
+    color: black;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-right: 12px;
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
 }
 
 /* Profile Completion */
@@ -157,6 +183,8 @@
     margin-bottom: 0.5rem;
     font-size: 1.25rem;
     color: var(--text-primary);
+    display: flex;
+    align-items: center;
 }
 
 /* Override for specific sections */
