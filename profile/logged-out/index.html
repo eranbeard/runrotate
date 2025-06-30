@@ -1246,8 +1246,14 @@
                 </h2>
                 
                 <!-- Placeholder for Latest Runs -->
-                <div class="bg-gray-50 dark:bg-gray-800/30 rounded-xl overflow-hidden">
+                <div class="bg-gray-50 dark:bg-gray-800/30 rounded-xl overflow-hidden relative group">
                     <img src="/assets/images/strava-run.jpg" alt="Run activity" class="w-full h-auto">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-end justify-center pb-4">
+                        <div class="flex items-center text-white text-sm font-medium bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full">
+                            <span>View more runs</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 ml-1"></i>
+                        </div>
+                    </div>
                 </div>
     </div>
 
