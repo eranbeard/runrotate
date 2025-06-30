@@ -115,14 +115,10 @@
                         <p class="text-gray-600 text-sm ml-10 mt-1">How much do you run per week?</p>
                     </div>
                     <div class="flex items-center gap-3">
-                        <div class="relative flex-1">
-                            <input type="number" id="weekly-distance" class="form-input pr-16" min="0" step="0.1" placeholder="0.0">
-                            <div class="absolute right-3 top-1/2 -translate-y-1/2">
-                                <div class="unit-toggle flex bg-gray-100 rounded-md p-0.5">
-                                    <button type="button" class="unit-option text-sm px-3 py-1 rounded-md" data-unit="km">KM</button>
-                                    <button type="button" class="unit-option text-sm px-3 py-1 rounded-md" data-unit="mi">Miles</button>
-                                </div>
-                            </div>
+                        <input type="number" id="weekly-distance" class="form-input w-32" min="0" step="0.1" placeholder="0.0">
+                        <div class="unit-toggle flex bg-gray-100 rounded-md p-0.5">
+                            <button type="button" class="unit-option text-sm px-3 py-1 rounded-md" data-unit="km">KM</button>
+                            <button type="button" class="unit-option text-sm px-3 py-1 rounded-md" data-unit="mi">Miles</button>
                         </div>
                     </div>
                 </div>
@@ -319,9 +315,14 @@
                 </div>
 
                 <!-- Form Actions -->
-                <div class="form-actions row" style="justify-content: space-between; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
-                    <button type="button" class="btn-ghost"><i class="fas fa-arrow-left"></i> Return Without Saving</button>
-                    <button type="submit" class="btn-black"><i class="fas fa-save"></i> Save Profile</button>
+                <div class="form-actions" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
+                    <div class="flex justify-between">
+                        <button type="button" class="btn-ghost"><i class="fas fa-save"></i> Save as Draft</button>
+                        <button type="submit" class="btn-black"><i class="fas fa-check"></i> Save Profile</button>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a href="#" class="text-sm text-gray-600 hover:text-gray-800 hover:underline">Return without saving</a>
+                    </div>
                 </div>
             </form>
         </div>
