@@ -93,26 +93,29 @@
 </head>
 <body class="bg-gray-50 dark:bg-gray-900">
     <!-- Header -->
-    <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4">
             <div class="flex justify-between items-center">
-                <a href="/" class="flex items-center">
-                    <span class="text-2xl font-bold text-gray-900 dark:text-white">RunRotate</span>
-                </a>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Home</a>
-                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Shoes</a>
-                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Community</a>
-                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">About</a>
-                </nav>
-                <div class="flex items-center space-x-4">
-                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
-                        <i data-lucide="search" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
-                    </button>
-                    <a href="/profile" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                        <i data-lucide="user" class="w-4 h-4 text-gray-700 dark:text-gray-300"></i>
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <img src="../assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="h-8 dark:hidden">
+                        <img src="../assets/logos/runrotate_logo_white.svg" alt="RunRotate Logo" class="h-8 hidden dark:block">
                     </a>
                 </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="hover:text-primary transition-colors">Explore</a>
+                    <a href="#" class="hover:text-primary transition-colors">Log In</a>
+                    <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
+                        JOIN FOR FREE
+                    </a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                </nav>
+                <button class="md:hidden p-2" id="mobile-menu-button">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -170,11 +173,12 @@
 
                 <div class="mt-auto space-y-4">
                     <div class="flex space-x-4">
-                        <button class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-3 px-6 rounded-full transition-colors duration-200">
-                            Buy Now - $275
+                        <button class="px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                            Check Prices
                         </button>
-                        <button class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
-                            <i data-lucide="heart" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i>
+                        <button class="px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="plus" class="w-4 h-4"></i>
+                            <span>Add to Wishlist</span>
                         </button>
                     </div>
                 </div>
@@ -326,7 +330,35 @@
     </footer>
 
     <script>
+        // Initialize Lucide icons
         lucide.createIcons();
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const theme = localStorage.getItem('theme') || 'light';
+
+        // Apply saved theme or system preference
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Toggle theme on button click
+        themeToggle?.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenu?.classList.toggle('hidden');
+        });
     </script>
 </body>
 </html>
