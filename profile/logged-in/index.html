@@ -1,136 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>My Profile - RunRotate</title>
-    <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#03FCBA',
+                        'primary-hover': '#02e0a7',
+                        'dark-bg': '#111827',
+                        'dark-secondary': '#1F2937',
+                        'dark-border': '#374151',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'card': '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+                        'card-hover': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+                        'dark-card': '0 1px 3px 0 rgb(0 0 0 / 0.25), 0 1px 2px -1px rgb(0 0 0 / 0.25)',
+                        'dark-card-hover': '0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Additional styles for empty states */
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            background: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
         }
         
-        .empty-state i {
-            font-size: 48px;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            opacity: 0.7;
+        ::-webkit-scrollbar-track {
+            background-color: #f3f4f6;
         }
         
-        .empty-state h3 {
-            margin-bottom: 15px;
-            color: var(--text-primary);
-            font-size: 1.5rem;
+        .dark ::-webkit-scrollbar-track {
+            background-color: rgba(31, 41, 55, 0.5);
         }
         
-        .empty-state p {
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin: 0 auto 20px;
-            line-height: 1.6;
-            font-size: 1rem;
+        ::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 9999px;
         }
         
-        .placeholder-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin: 20px auto 0;
-            max-width: 500px;
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #4b5563;
         }
         
-        .placeholder-item {
-            aspect-ratio: 1;
-            background-color: #f1f5f9;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #94a3b8;
-            font-size: 24px;
-            font-weight: bold;
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #9ca3af;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background-color: #6b7280;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out forwards;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <!-- User Profile Section -->
-        <header class="profile-container">
-            <div class="profile-header">
-                <div class="profile-avatar">
-                    <div class="avatar-wrapper">
-                        <div class="avatar-placeholder" id="user-avatar"></div>
-                        <span class="online-status"></span>
-                    </div>
-                    <div class="profile-actions">
-                        <!-- Social stats removed -->
-                    </div>
+<body class="min-h-screen bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <img src="../../assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="h-8 dark:hidden">
+                        <img src="../../assets/logos/runrotate_logo_white.svg" alt="RunRotate Logo" class="h-8 hidden dark:block">
+                    </a>
                 </div>
-                
-                <div class="profile-info">
-                    <div class="profile-name">
-                        <div class="name-with-badge">
-                            <h1>Jane Smith</h1>
-                        </div>
-                        <div class="profile-meta">
-                            <span class="location"><i class="fas fa-map-marker-alt"></i> New York, USA</span>
-                            <span class="member-since"><i class="far fa-calendar-alt"></i> Member since Jun 2025</span>
-                        </div>
-                        <div class="profile-badges">
-                            <!-- Badges will be added here -->
-                        </div>
-                        <div class="profile-completion-prompt" style="background: #f8f9fa; border: 2px dashed #e1e4e8; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
-                            <div style="margin-bottom: 15px;">
-                                <h3 style="margin: 0 0 10px; color: var(--text-primary);">Step 1: Complete Your Profile</h3>
-                                <p style="margin: 0 0 15px; color: var(--text-secondary); font-size: 0.95rem;">Share your running journey with the community by adding your bio, personal bests, and race history.</p>
-                            </div>
-                            <button class="btn-primary" style="margin: 0 auto;">
-                                <i class="fas fa-edit"></i> EDIT PROFILE
-                            </button>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#" class="hover:text-primary transition-colors">Explore</a>
+                    <a href="#" class="hover:text-primary transition-colors">My Profile</a>
+                    <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
+                        UPLOAD SHOES
+                    </a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                </nav>
+                <button class="md:hidden p-2" id="mobile-menu-button">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Profile Section -->
+        <section class="bg-white dark:bg-dark-secondary rounded-xl shadow-card dark:shadow-dark-card overflow-hidden mb-8">
+            <div class="p-6 md:p-8 animate-fade-in">
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Left Column: Avatar and Follow Button -->
+                    <div class="flex flex-col items-center w-full lg:items-center lg:w-auto">
+                        <div class="w-full flex justify-center mb-6">
+                            <div id="user-avatar" class="w-32 h-32 md:w-36 md:h-36 rounded-full border-4 border-white dark:border-gray-800 shadow-lg flex items-center justify-center text-4xl font-bold text-white"></div>
                         </div>
                         
-                        <div class="profile-completion-prompt" style="background: #f8f9fa; border: 2px dashed #e1e4e8; border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
-                            <div style="margin-bottom: 15px;">
-                                <i class="fas fa-sneaker" style="font-size: 24px; color: var(--primary-color); margin-bottom: 10px; display: block;"></i>
-                                <h3 style="margin: 0 0 10px; color: var(--text-primary);">Step 2: Add Your Running Shoes</h3>
-                                <p style="margin: 0 0 15px; color: var(--text-secondary); font-size: 0.95rem;">Upload your current running shoes to start building your rotation.</p>
+                        <button class="w-full flex items-center justify-center mb-6 px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500/50 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900">
+                            <i data-lucide="edit" class="w-4 h-4 mr-2"></i>
+                            Edit Profile
+                        </button>
+                        
+                        <div class="grid w-full max-w-xs grid-cols-2 gap-4">
+                            <div class="flex flex-col items-center justify-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                <span class="font-bold text-gray-900 dark:text-white">0</span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Shoes</span>
                             </div>
-                            <button class="btn-primary" style="margin: 0 auto;">
-                                <i class="fas fa-plus"></i> ADD SHOES
-                            </button>
+                            <div class="flex flex-col items-center justify-center p-3 rounded-lg bg-gray-50 dark:bg-gray-800/50 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                                <span class="font-bold text-gray-900 dark:text-white">0</span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Runs</span>
+                            </div>
                         </div>
                     </div>
-                    
 
+                    <!-- Right Column: Profile Info -->
+                    <div class="flex-1 space-y-6">
+                        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-2">
+                            <div>
+                                <h1 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white md:text-4xl pb-4">Jane Smith</h1>
+                                <div class="flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-300">
+                                    <span class="flex items-center">
+                                        <i data-lucide="map-pin" class="w-4 h-4 mr-1"></i>
+                                        New York, USA
+                                    </span>
+                                    <span class="flex items-center">
+                                        <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
+                                        Member since Jun 2025
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Setup Prompts -->
+                        <div class="space-y-4">
+                            <div class="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-700 text-center">
+                                <div class="mb-4">
+                                    <i data-lucide="user" class="w-8 h-8 mx-auto text-primary mb-2"></i>
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Complete Your Profile</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 max-w-md mx-auto">Share your running journey with the community by adding your bio, personal bests, and race history.</p>
+                                </div>
+                                <button class="px-4 py-2 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                                    <i data-lucide="edit-2" class="w-4 h-4 mr-1 inline"></i> Edit Profile
+                                </button>
+                            </div>
+                            
+                            <div class="p-6 bg-gray-50 dark:bg-gray-800/50 rounded-xl border-2 border-dashed border-gray-300 dark:border-gray-700 text-center">
+                                <div class="mb-4">
+                                    <i data-lucide="shoe" class="w-8 h-8 mx-auto text-primary mb-2"></i>
+                                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-1">Add Your Running Shoes</h3>
+                                    <p class="text-sm text-gray-600 dark:text-gray-300 max-w-md mx-auto">Upload your current running shoes to start building your rotation and tracking their mileage.</p>
+                                </div>
+                                <button class="px-4 py-2 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                                    <i data-lucide="plus" class="w-4 h-4 mr-1 inline"></i> Add Shoes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </header>
+        </section>
 
-
-
-
-    </div>
+        <!-- Empty State Section -->
+        <section class="bg-white dark:bg-dark-secondary rounded-xl shadow-card dark:shadow-dark-card overflow-hidden p-8 text-center">
+            <i data-lucide="activity" class="w-12 h-12 mx-auto text-gray-400 mb-4"></i>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Activities Yet</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6 max-w-md mx-auto">Start tracking your runs to see your activity history and statistics here.</p>
+            <button class="px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                <i data-lucide="plus" class="w-4 h-4 mr-1 inline"></i> Log a Run
+            </button>
+        </section>
+    </main>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+            
             // Generate avatar with initials
             function generateAvatar() {
-                const name = 'Jane Smith'; // Get user's full name
+                const name = 'Jane Smith';
                 const initials = name
                     .split(' ')
                     .map(word => word[0])
                     .join('')
                     .toUpperCase();
                 
-                // Generate a consistent color based on the name
                 const colors = [
                     '#4a6fa5', // Primary blue
                     '#6b8cae', // Secondary blue
@@ -144,18 +218,17 @@
                 
                 const avatar = document.getElementById('user-avatar');
                 avatar.textContent = initials;
-                avatar.style.backgroundColor = 'transparent';
-                avatar.style.border = `2px solid ${colors[colorIndex]}`;
-                avatar.style.color = colors[colorIndex];
-                avatar.style.display = 'flex';
-                avatar.style.alignItems = 'center';
-                avatar.style.justifyContent = 'center';
-                avatar.style.borderRadius = '50%';
-                avatar.style.width = '120px';
-                avatar.style.height = '120px';
-                avatar.style.fontSize = '48px';
-                avatar.style.fontWeight = '600';
-                avatar.style.margin = '0 auto 20px';
+                avatar.style.backgroundColor = colors[colorIndex];
+                avatar.style.color = 'white';
+            }
+            
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
             }
             
             // Initialize avatar
