@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="../../assets/css/section-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .text-2xs {
+            font-size: 0.625rem; /* 10px */
+            line-height: 0.75rem; /* 12px */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -219,10 +225,14 @@
                 <div class="form-section personal-bests">
                     <div class="section-header">
                         <div>
-                            <h3>Personal Bests</h3>
+                            <h3>Personal Bests <span class="text-2xs font-normal text-gray-500">(optional)</span></h3>
                             <p class="section-subtitle">Keep track of all your fastest times in one place.</p>
                         </div>
+                        <button type="button" class="btn-text btn-toggle-pbs" aria-expanded="false" aria-label="Toggle personal bests">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                     </div>
+                    <div class="pbs-content" style="display: none;">
                     <div class="pr-list">
                         <div class="pr-item">
                             <select class="form-select pr-distance">
@@ -246,23 +256,24 @@
                             </button>
                         </div>
                     </div>
-                    <button type="button" class="btn-text" id="add-pr">
-                        <i class="fas fa-plus"></i> Add Personal Best
-                    </button>
+                        <button type="button" class="btn-text" id="add-pr">
+                            <i class="fas fa-plus"></i> Add Personal Best
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Recent Events -->
                 <div class="form-section recent-events">
                     <div class="section-header">
                         <div>
-                            <h3>Running Events (Past & Future) <span class="text-xs font-normal text-gray-500">(optional)</span></h3>
+                            <h3>Running Events (Past & Future) <span class="text-2xs font-normal text-gray-500">(optional)</span></h3>
                             <p class="section-subtitle">Add any races you've done or ones you're planning to do.</p>
                         </div>
-                        <button type="button" class="btn-text btn-toggle-events" aria-expanded="true" aria-label="Toggle events">
+                        <button type="button" class="btn-text btn-toggle-events" aria-expanded="false" aria-label="Toggle events">
                             <i class="fas fa-chevron-down"></i>
                         </button>
                     </div>
-                    <div class="events-content">
+                    <div class="events-content" style="display: none;">
                     <div class="event-list">
                         <div class="event-item">
                             <div class="event-grid">
@@ -302,7 +313,7 @@
                 <div class="form-section goals">
                     <div class="section-header">
                         <div>
-                            <h3>Goals <span class="text-xs font-normal text-gray-500">(optional)</span></h3>
+                            <h3>Goals <span class="text-2xs font-normal text-gray-500">(optional)</span></h3>
                             <p class="section-subtitle">Make a note of your running goals to stay motivated.</p>
                         </div>
                         <button type="button" class="btn-text btn-toggle-goals" aria-expanded="false" aria-label="Toggle goals">
@@ -430,6 +441,24 @@
                 
                 // Rotate the icon
                 const icon = toggleEventsButton.querySelector('i');
+                if (icon) {
+                    icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            });
+        }
+        
+        // Toggle personal bests section
+        const togglePbsButton = document.querySelector('.btn-toggle-pbs');
+        const pbsContent = document.querySelector('.pbs-content');
+        
+        if (togglePbsButton && pbsContent) {
+            togglePbsButton.addEventListener('click', () => {
+                const isExpanded = togglePbsButton.getAttribute('aria-expanded') === 'true';
+                togglePbsButton.setAttribute('aria-expanded', !isExpanded);
+                pbsContent.style.display = isExpanded ? 'none' : 'block';
+                
+                // Rotate the icon
+                const icon = togglePbsButton.querySelector('i');
                 if (icon) {
                     icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
                 }
