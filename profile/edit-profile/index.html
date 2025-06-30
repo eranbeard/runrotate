@@ -255,10 +255,14 @@
                 <div class="form-section recent-events">
                     <div class="section-header">
                         <div>
-                            <h3>Running Events (Past & Future)</h3>
+                            <h3>Running Events (Past & Future) <span class="text-xs font-normal text-gray-500">(optional)</span></h3>
                             <p class="section-subtitle">Add any races you've done or ones you're planning to do.</p>
                         </div>
+                        <button type="button" class="btn-text btn-toggle-events" aria-expanded="true" aria-label="Toggle events">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                     </div>
+                    <div class="events-content">
                     <div class="event-list">
                         <div class="event-item">
                             <div class="event-grid">
@@ -288,9 +292,10 @@
                             </button>
                         </div>
                     </div>
-                    <button type="button" class="btn-text" id="add-event">
-                        <i class="fas fa-plus"></i> Add Another Event
-                    </button>
+                        <button type="button" class="btn-text" id="add-event">
+                            <i class="fas fa-plus"></i> Add Another Event
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Goals -->
@@ -409,6 +414,24 @@
                         const textarea = document.getElementById('goals');
                         if (textarea) textarea.focus();
                     }, 50);
+                }
+            });
+        }
+        
+        // Toggle events section
+        const toggleEventsButton = document.querySelector('.btn-toggle-events');
+        const eventsContent = document.querySelector('.events-content');
+        
+        if (toggleEventsButton && eventsContent) {
+            toggleEventsButton.addEventListener('click', () => {
+                const isExpanded = toggleEventsButton.getAttribute('aria-expanded') === 'true';
+                toggleEventsButton.setAttribute('aria-expanded', !isExpanded);
+                eventsContent.style.display = isExpanded ? 'none' : 'block';
+                
+                // Rotate the icon
+                const icon = toggleEventsButton.querySelector('i');
+                if (icon) {
+                    icon.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
                 }
             });
         }
