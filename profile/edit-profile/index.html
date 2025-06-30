@@ -315,13 +315,19 @@
                 </div>
 
                 <!-- Form Actions -->
-                <div class="form-actions" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
-                    <div class="flex justify-between">
-                        <button type="button" class="btn-ghost"><i class="fas fa-save"></i> Save as Draft</button>
-                        <button type="submit" class="btn-black"><i class="fas fa-check"></i> Save Profile</button>
+                <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e5e7eb;">
+                    <div style="display: flex; gap: 1rem; width: 100%;">
+                        <button type="button" class="btn-ghost" style="flex: 1; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 500; font-size: 1rem; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-transform: none !important; letter-spacing: normal !important; background: transparent; border: 1px solid #e5e7eb; color: #1f2937;">
+                            <i class="fas fa-save"></i> Save as Draft
+                        </button>
+                        <button type="submit" class="btn-primary" style="flex: 1; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 500; font-size: 1rem; cursor: pointer; transition: all 0.2s ease; background: #4a6fa5; color: white; border: 1px solid #4a6fa5; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                            <i class="fas fa-check"></i> Save Profile
+                        </button>
                     </div>
-                    <div class="text-center mt-3">
-                        <a href="#" class="text-sm text-gray-600 hover:text-gray-800 hover:underline">Return without saving</a>
+                    <div style="text-align: center; margin-top: 0.75rem;">
+                        <a href="#" style="font-size: 0.875rem; color: #4b5563; text-decoration: none;" onmouseover="this.style.color='#1f2937'; this.style.textDecoration='underline';" onmouseout="this.style.color='#4b5563'; this.style.textDecoration='none';">
+                            Return without saving
+                        </a>
                     </div>
                 </div>
             </form>
