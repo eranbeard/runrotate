@@ -148,7 +148,7 @@
                                 <i data-lucide="star" class="w-5 h-5 fill-current"></i>
                                 <i data-lucide="star" class="w-5 h-5 fill-current text-gray-300 dark:text-gray-600"></i>
                             </div>
-                            <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.2/5</span>
+                            <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">8.4/10</span>
                         </div>
                     </div>
                     <div>
@@ -161,7 +161,7 @@
                                 <i data-lucide="star" class="w-5 h-5 fill-current"></i>
                                 <i data-lucide="star" class="w-5 h-5 fill-current text-gray-300 dark:text-gray-600"></i>
                             </div>
-                            <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.0/5</span>
+                            <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">8.0/10</span>
                         </div>
                     </div>
                 </div>
@@ -172,13 +172,13 @@
                 </p>
 
                 <div class="mt-auto space-y-4">
-                    <div class="flex space-x-4">
-                        <button class="px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
-                            Check Prices
-                        </button>
-                        <button class="px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex items-center justify-center gap-2">
+                    <div class="grid grid-cols-2 gap-4 w-full">
+                        <button class="w-full px-6 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors flex items-center justify-center gap-2">
                             <i data-lucide="plus" class="w-4 h-4"></i>
                             <span>Add to Wishlist</span>
+                        </button>
+                        <button class="w-full px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
+                            Check Prices
                         </button>
                     </div>
                 </div>
@@ -224,80 +224,119 @@
 
         <!-- User Reviews Section -->
         <section>
-            <div class="flex justify-between items-center mb-6">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Users Who Own This Shoe</h2>
-                <button class="text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium text-sm">
-                    Write a Review
-                </button>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Review 1 -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
-                            <span class="text-gray-700 dark:text-gray-300 font-medium">JD</span>
-                        </div>
-                        <div>
-                            <h3 class="font-medium text-gray-900 dark:text-white">John D.</h3>
-                            <div class="flex items-center">
-                                <div class="flex text-yellow-400 mr-2">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Users Who Own This Shoe</h2>
+            
+            <div class="relative">
+                <div class="flex space-x-6 pb-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide">
+                    <!-- Review 1 -->
+                    <div class="w-80 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 snap-center">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">JD</span>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900 dark:text-white">John D.</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500">2 weeks ago</span>
                                 </div>
-                                <span class="text-sm text-gray-500">2 weeks ago</span>
                             </div>
                         </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4">
-                        These are the fastest shoes I've ever worn. The energy return is incredible and they feel super lightweight. Perfect for race day!
-                    </p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <button class="flex items-center mr-4 hover:text-emerald-500 dark:hover:text-emerald-400">
-                            <i data-lucide="thumbs-up" class="w-4 h-4 mr-1"></i>
-                            <span>12</span>
-                        </button>
-                        <button class="flex items-center hover:text-emerald-500 dark:hover:text-emerald-400">
-                            <i data-lucide="message-square" class="w-4 h-4 mr-1"></i>
-                            <span>Reply</span>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+                            These are the fastest shoes I've ever worn. The energy return is incredible and they feel super lightweight. Perfect for race day!
+                        </p>
+                        <button class="w-full mt-2 px-4 py-2 text-sm font-medium border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            Full User Review
                         </button>
                     </div>
-                </div>
 
-                <!-- Review 2 -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
-                            <span class="text-gray-700 dark:text-gray-300 font-medium">MS</span>
-                        </div>
-                        <div>
-                            <h3 class="font-medium text-gray-900 dark:text-white">Maria S.</h3>
-                            <div class="flex items-center">
-                                <div class="flex text-yellow-400 mr-2">
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
-                                    <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                    <!-- Review 2 -->
+                    <div class="w-80 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 snap-center">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">MS</span>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900 dark:text-white">Maria S.</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500">1 month ago</span>
                                 </div>
-                                <span class="text-sm text-gray-500">1 month ago</span>
                             </div>
                         </div>
-                    </div>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4">
-                        Good racing shoes but took some time to break in. The fit is a bit narrow for my feet. Great energy return though!
-                    </p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <button class="flex items-center mr-4 hover:text-emerald-500 dark:hover:text-emerald-400">
-                            <i data-lucide="thumbs-up" class="w-4 h-4 mr-1"></i>
-                            <span>5</span>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+                            Good racing shoes but took some time to break in. The fit is a bit narrow for my feet. Great energy return though!
+                        </p>
+                        <button class="w-full mt-2 px-4 py-2 text-sm font-medium border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            Full User Review
                         </button>
-                        <button class="flex items-center hover:text-emerald-500 dark:hover:text-emerald-400">
-                            <i data-lucide="message-square" class="w-4 h-4 mr-1"></i>
-                            <span>Reply</span>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="w-80 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 snap-center">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">AK</span>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900 dark:text-white">Alex K.</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500">3 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+                            Absolutely in love with these! The comfort and responsiveness are unmatched. I've set two PRs in them already. Worth every penny for serious runners.
+                        </p>
+                        <button class="w-full mt-2 px-4 py-2 text-sm font-medium border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            Full User Review
+                        </button>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="w-80 flex-shrink-0 bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 snap-center">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
+                                <span class="text-gray-700 dark:text-gray-300 font-medium">TJ</span>
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-gray-900 dark:text-white">Taylor J.</h3>
+                                <div class="flex items-center">
+                                    <div class="flex text-yellow-400 mr-2">
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                        <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                    </div>
+                                    <span class="text-sm text-gray-500">2 weeks ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
+                            Great race day shoe with excellent energy return. The upper is breathable and the fit is true to size. Only downside is the durability - I've noticed some wear after 150 miles.
+                        </p>
+                        <button class="w-full mt-2 px-4 py-2 text-sm font-medium border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors">
+                            Full User Review
                         </button>
                     </div>
                 </div>
@@ -305,29 +344,15 @@
         </section>
     </main>
 
-    <footer class="bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="md:flex md:items-center md:justify-between">
-                <div class="flex justify-center md:justify-start space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">Instagram</span>
-                        <i data-lucide="instagram" class="h-6 w-6"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">Twitter</span>
-                        <i data-lucide="twitter" class="h-6 w-6"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gray-500">
-                        <span class="sr-only">Facebook</span>
-                        <i data-lucide="facebook" class="h-6 w-6"></i>
-                    </a>
-                </div>
-                <p class="mt-8 text-center text-base text-gray-400 md:mt-0 md:order-1">
-                    &copy; 2023 RunRotate. All rights reserved.
-                </p>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Component -->
+    <div id="footer"></div>
+    <script>
+        fetch('../components/footer.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('footer').innerHTML = html;
+            });
+    </script>
 
     <script>
         // Initialize Lucide icons
