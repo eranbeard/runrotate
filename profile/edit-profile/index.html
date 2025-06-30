@@ -297,11 +297,16 @@
                 <div class="form-section goals">
                     <div class="section-header">
                         <div>
-                            <h3>Goals</h3>
+                            <h3>Goals <span class="text-xs font-normal text-gray-500">(optional)</span></h3>
                             <p class="section-subtitle">Make a note of your running goals to stay motivated.</p>
                         </div>
+                        <button type="button" class="btn-text btn-toggle-goals" aria-expanded="false" aria-label="Toggle goals">
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
                     </div>
-                    <textarea id="goals" class="form-textarea" rows="4" placeholder="e.g. Run a sub-4 hour marathon, Complete an ultra, Run 3 times a week"></textarea>
+                    <div class="goals-content" style="display: none;">
+                        <textarea id="goals" class="form-textarea" rows="4" placeholder="e.g. Run a sub-4 hour marathon, Complete an ultra, Run 3 times a week"></textarea>
+                    </div>
                 </div>
 
                 <!-- Form Actions -->
@@ -387,6 +392,26 @@
         };
         
         countrySelect.addEventListener('change', setDefaultUnit);
+        
+        // Toggle goals section
+        const toggleGoalsButton = document.querySelector('.btn-toggle-goals');
+        const goalsContent = document.querySelector('.goals-content');
+        
+        if (toggleGoalsButton && goalsContent) {
+            toggleGoalsButton.addEventListener('click', () => {
+                const isExpanded = toggleGoalsButton.getAttribute('aria-expanded') === 'true';
+                toggleGoalsButton.setAttribute('aria-expanded', !isExpanded);
+                goalsContent.style.display = isExpanded ? 'none' : 'block';
+                
+                // Focus the textarea when expanded
+                if (!isExpanded) {
+                    setTimeout(() => {
+                        const textarea = document.getElementById('goals');
+                        if (textarea) textarea.focus();
+                    }, 50);
+                }
+            });
+        }
         
         // Initialize units
         document.addEventListener('DOMContentLoaded', () => {
