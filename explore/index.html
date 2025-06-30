@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+    <title>Explore - RunRotate</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#03FCBA',
+                    },
+                }
+            }
+        }
+        
+        // Theme toggle functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            
+            // Check for saved theme preference or use system preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+            
+            // Toggle theme on button click
+            themeToggle?.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+                updateThemeIcon();
+            });
+            
+            function updateThemeIcon() {
+                const icon = themeToggle.querySelector('i');
+                if (html.classList.contains('dark')) {
+                    icon.dataset.lucide = 'sun';
+                } else {
+                    icon.dataset.lucide = 'moon';
+                }
+                lucide.createIcons();
+            }
+            
+            // Initialize icons
+            lucide.createIcons();
+        });
+    </script>
+</head>
+<body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="flex items-center">
+                        <img src="../assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="h-8 dark:hidden">
+                        <img src="../assets/logos/runrotate_logo_white.svg" alt="RunRotate Logo" class="h-8 hidden dark:block">
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="/explore" class="text-primary font-medium">Explore</a>
+                    <a href="#" class="hover:text-primary transition-colors">Log In</a>
+                    <a href="#" class="bg-primary text-gray-900 px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition-colors">
+                        JOIN FOR FREE
+                    </a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+                        <i data-lucide="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                </nav>
+                <button class="md:hidden p-2" id="mobile-menu-button">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold mb-2">Explore</h1>
+            <p class="text-gray-600 dark:text-gray-400">Discover running shoes and find your perfect match</p>
+        </div>
+
+        <!-- Sticky Filter Bar -->
+        <div class="sticky top-16 z-40 bg-white dark:bg-gray-950 py-4 border-b border-gray-200 dark:border-gray-800 mb-8">
+            <div class="space-y-4">
+                <!-- Brand Filter -->
+                <div>
+                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Brand</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            All Brands
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Nike
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Adidas
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Hoka
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            New Balance
+                        </button>
+                        <button class="p-1.5 rounded-full bg-gray-100 dark:bg-gray-800">
+                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Type Filter -->
+                <div>
+                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Type</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="px-3 py-1.5 text-sm bg-primary/10 text-primary dark:bg-primary/20 rounded-full font-medium">
+                            All Types
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Daily
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Race
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Tempo
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Trail
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Characteristics Filter -->
+                <div>
+                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Characteristics</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Breathable
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Cushioned
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Lightweight
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Maximalist
+                        </button>
+                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
+                            Minimalist
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rating Filter -->
+                <div>
+                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Rating</h3>
+                    <div class="flex items-center gap-2">
+                        <div class="flex items-center">
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
+                            <i data-lucide="star" class="w-5 h-5 text-gray-300 dark:text-gray-600 fill-current"></i>
+                        </div>
+                        <span class="text-sm text-gray-500">& up</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="mb-8
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Rotation Card 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-full border-2 border-gray-300"></div>
+                                <span class="font-bold">Jane from USA</span>
+                                <span class="text-2xl">🇺🇸</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">TEMPO</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">RACE</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">TRAIL</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">DAILY</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="heart" class="w-4 h-4 text-green-500"></i>
+                                <span>1.2k</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span>24</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shoe Card 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="aspect-[3/2] bg-gray-100 dark:bg-gray-700"></div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Nike Pegasus 40</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gray-300 fill-current"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">4.8</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rotation Card 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-full border-2 border-gray-300"></div>
+                                <span class="font-bold">John from UK</span>
+                                <span class="text-2xl">🇬🇧</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">TRAIL</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">TRAIL</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">DAILY</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">RACE</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="heart" class="w-4 h-4 text-green-500"></i>
+                                <span>987</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span>15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shoe Card 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="aspect-[3/2] bg-gray-100 dark:bg-gray-700"></div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Hoka Clifton 9</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-gray-300 fill-current"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">4.6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shoe Card 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="aspect-[3/2] bg-gray-100 dark:bg-gray-700"></div>
+                    <div class="p-4">
+                        <h3 class="font-bold">Saucony Endorphin Speed 3</h3>
+                        <div class="flex items-center mt-2">
+                            <div class="flex">
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                                <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                            </div>
+                            <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">4.9</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rotation Card 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="p-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-full border-2 border-gray-300"></div>
+                                <span class="font-bold">Maria from Spain</span>
+                                <span class="text-2xl">🇪🇸</span>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mb-4">
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">RACE</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">TRAIL</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">DAILY</span>
+                            </div>
+                            <div class="aspect-[3/2] bg-gray-200 dark:bg-gray-600 rounded-lg relative">
+                                <span class="absolute top-2 right-2 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-100 text-gray-900 text-xs font-medium px-2 py-0.5 rounded-full">TEMPO</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="heart" class="w-4 h-4 text-green-500"></i>
+                                <span>1.5k</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                <span>32</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav class="inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                    <a href="#" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                        <span class="sr-only">Previous</span>
+                        <i data-lucide="chevron-left" class="h-5 w-5"></i>
+                    </a>
+                    <a href="#" aria-current="page" class="z-10 bg-primary/10 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        1
+                    </a>
+                    <a href="#" class="bg-white dark:bg-gray-800 border-gray-300 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        2
+                    </a>
+                    <a href="#" class="bg-white dark:bg-gray-800 border-gray-300 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        3
+                    </a>
+                    <span class="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300">
+                        ...
+                    </span>
+                    <a href="#" class="bg-white dark:bg-gray-800 border-gray-300 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                        8
+                    </a>
+                    <a href="#" class="relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                        <span class="sr-only">Next</span>
+                        <i data-lucide="chevron-right" class="h-5 w-5"></i>
+                    </a>
+                </nav>
+            </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-12">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <a href="/" class="flex items-center">
+                        <img src="../assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="h-6 dark:hidden">
+                        <img src="../assets/logos/runrotate_logo_white.svg" alt="RunRotate Logo" class="h-6 hidden dark:block">
+                    </a>
+                    <p class="text-sm text-gray-500 mt-2">© 2023 RunRotate. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">About</a>
+                    <a href="#" class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Contact</a>
+                    <a href="#" class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Privacy</a>
+                    <a href="#" class="text-gray-600 hover:text-primary dark:text-gray-400 dark:hover:text-primary transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
