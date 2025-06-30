@@ -82,117 +82,115 @@
         </div>
     </header>
 
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Explore</h1>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto">Discover running shoes and find your perfect match</p>
+        </div>
+    </section>
+
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8 max-w-6xl">
-        <!-- Page Header -->
-        <div class="mb-8 text-center">
-            <h1 class="text-5xl font-bold mb-4">Explore</h1>
-            <p class="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto mb-6">Discover running shoes and find your perfect match</p>
-            
-            <!-- Search Bar -->
-            <div class="relative max-w-2xl mx-auto mb-8">
-                <div class="relative">
-                    <input 
-                        type="text" 
-                        placeholder="Search for shoes, brands, or runners..." 
-                        class="w-full px-6 py-4 pl-12 pr-12 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all duration-200"
-                    >
-                    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                        <i data-lucide="search" class="w-5 h-5"></i>
-                    </div>
-                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-primary text-gray-900 px-4 py-2 rounded-full text-sm font-medium hover:bg-opacity-90 transition-colors">
-                        Search
-                    </button>
+    <main class="container mx-auto px-4 py-8 pb-12 max-w-6xl">
+        <!-- Search Bar -->
+        <div class="relative max-w-2xl mx-auto mb-8">
+            <div class="relative">
+                <input 
+                    type="text" 
+                    placeholder="Search for shoes, brands, or runners..." 
+                    class="w-full px-6 py-3 pl-12 pr-28 rounded-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent transition-all duration-200"
+                >
+                <div class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
+                    <i data-lucide="search" class="w-5 h-5"></i>
                 </div>
+                <button class="absolute right-1 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-opacity-90 transition-colors">
+                    Search
+                </button>
             </div>
         </div>
 
         <!-- Sticky Filter Bar -->
         <div class="sticky top-16 z-40 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm py-4 border-b border-gray-200 dark:border-gray-800 mb-8">
-            <div class="space-y-4">
+            <div class="flex flex-wrap items-center justify-center gap-4 px-4 max-w-6xl mx-auto">
+                <!-- Sort By Dropdown -->
+                <div class="relative">
+                    <select class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent cursor-pointer">
+                        <option>Sort by: Newest</option>
+                        <option>Most Popular</option>
+                        <option>Top Rated</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                    </div>
+                </div>
+
                 <!-- Brand Filter -->
-                <div>
-                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Brand</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            All Brands
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Nike
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Adidas
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Hoka
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            New Balance
-                        </button>
-                        <button class="p-1.5 rounded-full bg-gray-100 dark:bg-gray-800">
-                            <i data-lucide="chevron-down" class="w-4 h-4"></i>
-                        </button>
+                <div class="relative">
+                    <select class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent cursor-pointer">
+                        <option>All Brands</option>
+                        <option>Nike</option>
+                        <option>Adidas</option>
+                        <option>Hoka</option>
+                        <option>New Balance</option>
+                        <option>Asics</option>
+                        <option>Saucony</option>
+                        <option>Brooks</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Type Filter -->
-                <div>
-                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Type</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="px-3 py-1.5 text-sm bg-primary/10 text-primary dark:bg-primary/20 rounded-full font-medium">
-                            All Types
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Daily
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Race
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Tempo
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Trail
-                        </button>
+                <div class="relative">
+                    <select class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent cursor-pointer">
+                        <option>All Types</option>
+                        <option>Daily</option>
+                        <option>Race</option>
+                        <option>Tempo</option>
+                        <option>Trail</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Characteristics Filter -->
-                <div>
-                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Characteristics</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Breathable
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Cushioned
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Lightweight
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Maximalist
-                        </button>
-                        <button class="px-3 py-1.5 text-sm bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-full transition-colors">
-                            Minimalist
-                        </button>
+                <div class="relative">
+                    <select class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent cursor-pointer">
+                        <option>All Characteristics</option>
+                        <option>Breathable</option>
+                        <option>Cushioned</option>
+                        <option>Lightweight</option>
+                        <option>Maximalist</option>
+                        <option>Minimalist</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </div>
                 </div>
 
                 <!-- Rating Filter -->
-                <div>
-                    <h3 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Rating</h3>
-                    <div class="flex items-center gap-2">
-                        <div class="flex items-center">
-                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 text-yellow-400 fill-current"></i>
-                            <i data-lucide="star" class="w-5 h-5 text-gray-300 dark:text-gray-600 fill-current"></i>
-                        </div>
-                        <span class="text-sm text-gray-500">& up</span>
+                <div class="relative">
+                    <select class="appearance-none bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md pl-3 pr-8 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-transparent cursor-pointer">
+                        <option>All Ratings</option>
+                        <option>4+ Stars</option>
+                        <option>3+ Stars</option>
+                        <option>2+ Stars</option>
+                        <option>1+ Stars</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300">
+                        <i data-lucide="chevron-down" class="w-4 h-4"></i>
                     </div>
                 </div>
+
+                <!-- Reset Button -->
+                <button class="text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors flex items-center ml-2">
+                    <i data-lucide="x" class="w-4 h-4 mr-1"></i>
+                    Reset Filters
+                </button>
             </div>
         </div>
 
