@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Alphafly 3 - RunRotate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#03FCBA',
+                        dark: '#111827',
+                        light: '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #111827;
+            line-height: 1.625;
+        }
+
+        /* Dark mode styles */
+        .dark body {
+            background-color: #111827;
+            color: #F9FAFB;
+        }
+
+        /* Card styles */
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease-in-out;
+            overflow: hidden;
+        }
+
+        .dark .card {
+            background-color: #1F2937;
+            border-color: #374151;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25), 0 1px 2px -1px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Rating stars */
+        .rating-stars {
+            display: inline-flex;
+        }
+
+        .rating-stars svg {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+        }
+
+        /* Review card */
+        .review-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+        .review-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .review-card:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.25), 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Animation for interactive elements */
+        button, a {
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Focus states */
+        button:focus, a:focus {
+            outline: 2px solid #03FCBA;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="flex items-center">
+                    <span class="text-2xl font-bold text-gray-900 dark:text-white">RunRotate</span>
+                </a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Home</a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Shoes</a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">Community</a>
+                    <a href="#" class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400">About</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <i data-lucide="search" class="w-5 h-5 text-gray-600 dark:text-gray-300"></i>
+                    </button>
+                    <a href="/profile" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                        <i data-lucide="user" class="w-4 h-4 text-gray-700 dark:text-gray-300"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Top Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            <!-- Shoe Image -->
+            <div class="flex justify-center lg:justify-start">
+                <div class="relative w-full max-w-lg">
+                    <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/3d5c8b3a-9f3a-4f8e-8f5c-5e8f5c9e6b1f/air-zoom-alphafly-3-road-racing-shoes-9Pq0Pz.png" 
+                         alt="Nike Alphafly 3" 
+                         class="w-full h-auto object-contain">
+                </div>
+            </div>
+
+            <!-- Shoe Info -->
+            <div class="flex flex-col">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Nike Alphafly 3</h1>
+                
+                <!-- Ratings -->
+                <div class="flex flex-wrap gap-8 mb-6">
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">RunRotate Rating</p>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current text-gray-300 dark:text-gray-600"></i>
+                            </div>
+                            <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.2/5</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Expert Rating</p>
+                        <div class="flex items-center">
+                            <div class="flex text-yellow-400">
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                                <i data-lucide="star" class="w-5 h-5 fill-current text-gray-300 dark:text-gray-600"></i>
+                            </div>
+                            <span class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300">4.0/5</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-gray-700 dark:text-gray-300 mb-6">
+                    The Nike Alphafly 3 is designed for race day, featuring a responsive ZoomX midsole and a carbon fiber plate for explosive energy return. 
+                    The lightweight mesh upper provides breathability, while the outsole offers exceptional grip.
+                </p>
+
+                <div class="mt-auto space-y-4">
+                    <div class="flex space-x-4">
+                        <button class="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white font-medium py-3 px-6 rounded-full transition-colors duration-200">
+                            Buy Now - $275
+                        </button>
+                        <button class="flex items-center justify-center w-12 h-12 rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
+                            <i data-lucide="heart" class="w-5 h-5 text-gray-700 dark:text-gray-300"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tech Specs Section -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Tech Specs</h2>
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                        <div class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-500 dark:text-gray-400">Weight</span>
+                            <span class="font-medium text-gray-900 dark:text-white">6.6 oz (M), 5.7 oz (W)</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-500 dark:text-gray-400">Stack Height</span>
+                            <span class="font-medium text-gray-900 dark:text-white">40mm (Heel), 32mm (Forefoot)</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-500 dark:text-gray-400">Drop</span>
+                            <span class="font-medium text-gray-900 dark:text-white">8mm</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-500 dark:text-gray-400">Outsole</span>
+                            <span class="font-medium text-gray-900 dark:text-white">Carbon Rubber</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-500 dark:text-gray-400">Midsole</span>
+                            <span class="font-medium text-gray-900 dark:text-white">ZoomX Foam</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-500 dark:text-gray-400">Best For</span>
+                            <span class="font-medium text-gray-900 dark:text-white">Racing, Marathon</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Reviews Section -->
+        <section>
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Users Who Own This Shoe</h2>
+                <button class="text-emerald-500 hover:text-emerald-600 dark:text-emerald-400 dark:hover:text-emerald-300 font-medium text-sm">
+                    Write a Review
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">JD</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900 dark:text-white">John D.</h3>
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400 mr-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-500">2 weeks ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        These are the fastest shoes I've ever worn. The energy return is incredible and they feel super lightweight. Perfect for race day!
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <button class="flex items-center mr-4 hover:text-emerald-500 dark:hover:text-emerald-400">
+                            <i data-lucide="thumbs-up" class="w-4 h-4 mr-1"></i>
+                            <span>12</span>
+                        </button>
+                        <button class="flex items-center hover:text-emerald-500 dark:hover:text-emerald-400">
+                            <i data-lucide="message-square" class="w-4 h-4 mr-1"></i>
+                            <span>Reply</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center mr-3">
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">MS</span>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-900 dark:text-white">Maria S.</h3>
+                            <div class="flex items-center">
+                                <div class="flex text-yellow-400 mr-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                    <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
+                                </div>
+                                <span class="text-sm text-gray-500">1 month ago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        Good racing shoes but took some time to break in. The fit is a bit narrow for my feet. Great energy return though!
+                    </p>
+                    <div class="flex items-center text-sm text-gray-500">
+                        <button class="flex items-center mr-4 hover:text-emerald-500 dark:hover:text-emerald-400">
+                            <i data-lucide="thumbs-up" class="w-4 h-4 mr-1"></i>
+                            <span>5</span>
+                        </button>
+                        <button class="flex items-center hover:text-emerald-500 dark:hover:text-emerald-400">
+                            <i data-lucide="message-square" class="w-4 h-4 mr-1"></i>
+                            <span>Reply</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-100 dark:border-gray-700 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="flex justify-center md:justify-start space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Instagram</span>
+                        <i data-lucide="instagram" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Twitter</span>
+                        <i data-lucide="twitter" class="h-6 w-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-gray-500">
+                        <span class="sr-only">Facebook</span>
+                        <i data-lucide="facebook" class="h-6 w-6"></i>
+                    </a>
+                </div>
+                <p class="mt-8 text-center text-base text-gray-400 md:mt-0 md:order-1">
+                    &copy; 2023 RunRotate. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
