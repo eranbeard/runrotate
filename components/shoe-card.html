@@ -3,116 +3,47 @@
   
   Props:
   - shoeName: Name of the shoe (e.g., "Nike Pegasus 40")
-  - shoeType: Type/category of the shoe (e.g., "Daily Trainer")
+  - rating: Shoe rating out of 5 (e.g., 4.5)
   - likes: Number of likes
   - comments: Number of comments
-  - distance: Distance logged in km
-  - userRating: User's rating out of 10 (e.g., 8.7)
-  - expertRating: Expert rating out of 10 (e.g., 8.0)
-  - tags: Array of tag strings (e.g., ["Daily", "Cushioned", "Versatile"])
-  - shoeId: Unique identifier for the shoe (used for comments toggle)
+  - brand: Shoe brand (e.g., "Nike")
+  - shoeId: Unique identifier for the shoe
 -->
 
-<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 mb-6">
-    <!-- Unexpanded State -->
-    <div class="p-6">
-        <div class="flex flex-col md:flex-row gap-6">
-            <!-- Shoe Image -->
-            <div class="w-full md:w-1/3 lg:w-1/4">
-                <div class="aspect-square bg-gray-100 dark:bg-gray-700/50 rounded-lg overflow-hidden flex items-center justify-center">
-                    <i data-lucide="shoe" class="w-20 h-20 text-gray-300 dark:text-gray-600"></i>
-                </div>
-            </div>
-            
-            <!-- Shoe Info -->
-            <div class="flex-1">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white">{{shoeName}}</h3>
-                        <p class="text-gray-600 dark:text-gray-300">{{shoeType}}</p>
-                    </div>
-                    <div class="flex items-center space-x-4">
-                        <div class="flex items-center space-x-1">
-                            <button class="text-gray-400 hover:text-red-500 transition-colors">
-                                <i data-lucide="heart" class="w-5 h-5"></i>
-                            </button>
-                            <span class="text-sm text-gray-500">{{likes}}</span>
-                        </div>
-                        <div class="flex items-center space-x-1">
-                            <button class="text-gray-400 hover:text-primary transition-colors comment-toggle" data-shoe-id="{{shoeId}}">
-                                <i data-lucide="message-square" class="w-5 h-5"></i>
-                            </button>
-                            <span class="text-sm text-gray-500">{{comments}}</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tags -->
-                <div class="flex flex-wrap gap-2 my-3">
-                    {{#each tags}}
-                    <span class="px-2.5 py-1 text-xs font-medium rounded-full {{#if @first}}bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400{{else}}bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-100{{/if}}">
-                        {{this}}
-                    </span>
-                    {{/each}}
-                </div>
-
-                <!-- Stats -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 text-sm">
-                    <div>
-                        <div class="text-gray-500 dark:text-gray-400">Distance Logged</div>
-                        <div class="font-medium text-gray-900 dark:text-white">{{distance}} km</div>
-                    </div>
-                    <div>
-                        <div class="text-gray-500 dark:text-gray-400">Your Rating</div>
-                        <div class="flex items-center">
-                            <div class="flex text-yellow-400 mr-1">
-                                {{#times (round userRating)}}
-                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                {{/times}}
-                                {{#times (subtract 5 (round userRating))}}
-                                <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
-                                {{/times}}
-                            </div>
-                            <span class="text-xs font-medium text-gray-500">{{userRating}}/10</span>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="text-gray-500 dark:text-gray-400">Expert Rating</div>
-                        <div class="flex items-center">
-                            <div class="flex text-yellow-400 mr-1">
-                                {{#times (round expertRating)}}
-                                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                                {{/times}}
-                                {{#times (subtract 5 (round expertRating))}}
-                                <i data-lucide="star" class="w-4 h-4 fill-current text-gray-300 dark:text-gray-600"></i>
-                                {{/times}}
-                            </div>
-                            <span class="text-xs font-medium text-gray-500">{{expertRating}}/10</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Buttons -->
-                <div class="flex flex-wrap gap-3 mt-6">
-                    <button class="expand-details-btn flex-1 md:flex-none px-6 py-2.5 bg-gray-900 hover:bg-gray-800 text-white font-medium rounded-lg transition-colors">
-                        Full User Review ▼
-                    </button>
-                    <button class="flex-1 md:flex-none px-6 py-2.5 bg-primary hover:bg-primary-hover text-gray-900 font-medium rounded-lg transition-colors">
-                        Check Prices
-                    </button>
-                </div>
-            </div>
+<div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all flex flex-col h-full">
+    <div class="p-4">
+        <h3 class="font-bold text-base">{{shoeName}}</h3>
+    </div>
+    <div class="px-4">
+        <div class="aspect-[3/2] bg-gray-100 dark:bg-gray-700 rounded-lg">
+            <!-- Shoe image would go here -->
         </div>
     </div>
-
-    <!-- Expanded State (Hidden by default) -->
-    <div class="expanded-details hidden border-t border-gray-200 dark:border-gray-700 p-6">
-        <!-- Content will be dynamically loaded here -->
-    </div>
-
-    <!-- Comments Section (Hidden by default) -->
-    <div id="comments-{{shoeId}}" class="hidden border-t border-gray-200 dark:border-gray-700 p-6">
-        <!-- Comments will be dynamically loaded here -->
+    <div class="p-4 mt-auto">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center">
+                <div class="flex">
+                    {{#times 5}}
+                        {{#if (gte rating @index)}}
+                            <i data-lucide="star" class="w-4 h-4 text-yellow-400 fill-current"></i>
+                        {{else}}
+                            <i data-lucide="star" class="w-4 h-4 text-gray-300 fill-current"></i>
+                        {{/if}}
+                    {{/times}}
+                </div>
+                <span class="ml-2 text-sm text-gray-500 dark:text-gray-400">{{rating}}</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="flex items-center text-gray-500 hover:text-emerald-500 transition-colors">
+                    <i data-lucide="heart" class="w-4 h-4"></i>
+                    <span class="ml-1 text-sm">{{likes}}</span>
+                </button>
+                <button class="flex items-center text-gray-500 hover:text-emerald-500 transition-colors">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span class="ml-1 text-sm">{{comments}}</span>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -120,6 +51,7 @@
 <script>
 // Register Handlebars helpers if not already registered
 if (typeof Handlebars !== 'undefined') {
+    // Helper to repeat a block N times
     Handlebars.registerHelper('times', function(n, block) {
         let accum = '';
         for (let i = 0; i < n; i++) {
@@ -128,6 +60,12 @@ if (typeof Handlebars !== 'undefined') {
         return accum;
     });
 
+    // Greater than or equal helper
+    Handlebars.registerHelper('gte', function(a, b, options) {
+        return a >= b ? options.fn(this) : options.inverse(this);
+    });
+
+    // Subtract helper
     Handlebars.registerHelper('subtract', function(a, b) {
         return a - b;
     });
