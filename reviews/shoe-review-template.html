@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Review Template | RunRotate</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #03FCBA; --primary-hover: #02e0a7; --emerald-100: #d1fae5; --bg-light: #FFFFFF; --bg-secondary: #F9FAFB; --text-primary: #111827; --text-secondary: #6B7280; --border: #E5E7EB; --card-bg: #FFFFFF; --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
+        .dark { --bg-light: #111827; --bg-secondary: #1F2937; --text-primary: #F9FAFB; --border: #374151; --card-bg: #1F2937; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-light); color: var(--text-primary); line-height: 1.625; margin: 0; padding: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        h1 { font-size: 2.25rem; line-height: 1.2; font-weight: 800; margin: 0 0 1rem; }
+        h2 { font-size: 1.875rem; line-height: 1.25; font-weight: 700; margin: 2.5rem 0 1.25rem; }
+        .text-lead { font-size: 1.25rem; line-height: 1.75; color: var(--text-secondary); }
+        .btn { display: inline-flex; align-items: center; border-radius: 9999px; font-weight: 600; padding: 0.75rem 1.5rem; transition: all 0.2s; text-decoration: none; }
+        .btn-primary { background-color: var(--primary); color: var(--text-primary); }
+        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-1px); }
+        .tag { display: inline-flex; background-color: var(--emerald-100); color: var(--text-primary); font-size: 0.75rem; font-weight: 500; padding: 0.25rem 0.75rem; border-radius: 9999px; margin-right: 0.5rem; margin-bottom: 0.5rem; }
+        .dark .tag { background-color: rgba(6, 78, 59, 0.3); color: var(--emerald-100); }
+        .hero { position: relative; margin-bottom: 3rem; border-radius: 1rem; overflow: hidden; background-color: var(--bg-secondary); }
+        .hero-image { width: 100%; height: 400px; object-fit: cover; }
+        .hero-content { position: relative; padding: 2rem; background: linear-gradient(0deg, var(--bg-light) 0%, rgba(255,255,255,0) 30%); }
+        .score-summary { background-color: var(--card-bg); border-radius: 1rem; padding: 2rem; margin: 2rem 0; box-shadow: var(--card-shadow); }
+        .score-item { display: flex; align-items: center; margin-bottom: 1rem; }
+        .score-label { width: 140px; font-weight: 500; color: var(--text-secondary); }
+        .score-bar { flex: 1; height: 8px; background-color: var(--bg-secondary); border-radius: 4px; margin: 0 1rem; }
+        .score-fill { height: 100%; background-color: var(--primary); border-radius: 4px; }
+        .score-value { width: 40px; text-align: right; font-weight: 600; }
+        .specs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+        .spec-item { background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.25rem; box-shadow: var(--card-shadow); }
+        .spec-label { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem; }
+        .spec-value { font-weight: 600; font-size: 1.125rem; }
+        .review-section { margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--border); }
+        .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
+        .pros, .cons { background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; }
+        .pros h3::before { content: '✅'; margin-right: 0.5rem; }
+        .cons h3::before { content: '❌'; margin-right: 0.5rem; }
+        .author-bio { display: flex; margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        @media (max-width: 768px) { .pros-cons { grid-template-columns: 1fr; } h1 { font-size: 1.875rem; } h2 { font-size: 1.5rem; } }
+    </style>
+</head>
+<body class="light">
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Nike Pegasus 41" class="hero-image">
+            <div class="hero-content">
+                <div class="tags">
+                    <span class="tag">Daily Trainer</span>
+                    <span class="tag">Road</span>
+                    <span class="tag">Neutral</span>
+                </div>
+                <h1>Nike Pegasus 41 Review: Reliable Comfort with a Speedy Edge</h1>
+                <p class="text-lead">The latest iteration of Nike's legendary daily trainer delivers a perfect balance of cushioning and responsiveness.</p>
+                <div style="display: flex; align-items: center; margin-top: 1.5rem;">
+                    <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Author" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 0.75rem;">
+                    <div>
+                        <div style="font-weight: 600;">Alex Johnson</div>
+                        <div style="font-size: 0.875rem; color: var(--text-secondary);">Published on June 15, 2025</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Score Summary -->
+        <section class="score-summary">
+            <h2 style="margin-top: 0;">RunRotate Score</h2>
+            <div class="score-item"><div class="score-label">Cushioning</div><div class="score-bar"><div class="score-fill" style="width: 85%;"></div></div><div class="score-value">8.5</div></div>
+            <div class="score-item"><div class="score-label">Fit</div><div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div><div class="score-value">9.0</div></div>
+            <div class="score-item"><div class="score-label">Traction</div><div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div><div class="score-value">8.0</div></div>
+            <div class="score-item"><div class="score-label">Stability</div><div class="score-bar"><div class="score-fill" style="width: 75%;"></div></div><div class="score-value">7.5</div></div>
+            <div class="score-item"><div class="score-label">Durability</div><div class="score-bar"><div class="score-fill" style="width: 88%;"></div></div><div class="score-value">8.8</div></div>
+            <div style="text-align: center; margin-top: 2rem; color: var(--text-secondary);"><strong>Overall Rating:</strong> 8.6/10</div>
+        </section>
+
+        <!-- Specs at a Glance - Horizontal Layout -->
+        <section>
+            <h2>Specs at a Glance</h2>
+            <div style="background: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; box-shadow: var(--card-shadow);">
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem;">
+                    <div>
+                        <div class="spec-label">Weight</div>
+                        <div class="spec-value">9.3 oz / 264g (M)<br>7.8 oz / 221g (W)</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Heel Height</div>
+                        <div class="spec-value">36mm</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Forefoot Height</div>
+                        <div class="spec-value">28mm</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Drop</div>
+                        <div class="spec-value">8mm</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Outsole</div>
+                        <div class="spec-value">Carbon Rubber</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Category</div>
+                        <div class="spec-value">Daily Trainer</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Pace</div>
+                        <div class="spec-value">All Paces</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Material</div>
+                        <div class="spec-value">Recycled Mesh</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Terrain</div>
+                        <div class="spec-value">Road</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Arch Support</div>
+                        <div class="spec-value">Medium</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Strike Pattern</div>
+                        <div class="spec-value">Midfoot/Heel</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Release Date</div>
+                        <div class="spec-value">May 2025</div>
+                    </div>
+                    <div>
+                        <div class="spec-label">Retail Price</div>
+                        <div class="spec-value">$129.99</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Review Content -->
+        <section class="review-content">
+            <h2>Fit & Feel</h2>
+            <p>Covers how the shoe fits (true to size, snug/loose areas), upper comfort, lockdown, width, and weight. Include toe box comfort, heel hold, and any break-in period.</p>
+            <p>Covers: Fit, Weight</p>
+
+            <h2>Cushioning & Responsiveness</h2>
+            <p>Describe the softness, firmness, or bounce of the midsole. Mention ground feel, energy return, and transitions.</p>
+            <p>Covers: Cushioning, Responsiveness</p>
+
+            <h2>Traction & Stability</h2>
+            <p>Test performance on different surfaces (wet, dry, loose gravel). Mention how secure the shoe feels during sharp turns, downhill, or uneven paths.</p>
+            <p>Covers: Traction, Stability</p>
+
+            <h2>Breathability & Temperature Control</h2>
+            <p>Describe ventilation of the upper, heat build-up on long runs, and sock compatibility.</p>
+            <p>Covers: Breathability</p>
+
+            <h2>Durability & Build Quality</h2>
+            <p>Report on wear over distance (e.g., 50–100km in), outsole and upper wear, and construction quality.</p>
+            <p>Covers: Durability, Build Quality</p>
+
+            <h2>Style & Design</h2>
+            <p>Subjective take on how the shoe looks in person and on foot. Include visual design notes, colorway appeal, and how versatile it feels style-wise.</p>
+            <p>Covers: Looks</p>
+
+            <h2>Value for Money</h2>
+            <p>Evaluate pricing vs. performance, and how it compares to alternatives in the same category.</p>
+            <p>Covers: Value</p>
+
+            <h2>Who Should Buy This Shoe?</h2>
+            <p>Summarize the ideal runner based on pace, experience, terrain, and typical training.</p>
+
+            <h2>Final Thoughts</h2>
+            <p>Personal verdict. Would you keep this in your rotation? Any surprising upsides or hidden dealbreakers?</p>
+        </section>
+
+        <!-- Pros & Cons -->
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>Pros</h3>
+                <ul>
+                    <li>Excellent balance of cushioning and responsiveness</li>
+                    <li>Versatile enough for all types of runs</li>
+                    <li>Durable construction that holds up well over time</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h3>Cons</h3>
+                <ul>
+                    <li>May feel too firm for some runners</li>
+                    <li>Not the lightest option for race day</li>
+                    <li>Limited color options</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="#" class="btn btn-primary" style="margin-right: 1rem;">
+                <i data-lucide="shopping-bag" class="w-5 h-5 mr-2"></i> Check Prices
+            </a>
+            <button class="btn" style="border: 1px solid var(--border);">
+                <i data-lucide="heart" class="w-5 h-5 mr-2"></i> Add to Wishlist
+            </button>
+        </div>
+
+        <!-- Author Bio -->
+        <div class="author-bio">
+            <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Alex Johnson" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 1.5rem;">
+            <div>
+                <h3>About Alex Johnson</h3>
+                <p>Alex is a certified running coach with over 8 years of experience reviewing running gear. He runs 50-70km per week and enjoys everything from 5K races to ultramarathons.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple dark mode toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            
+            // Check for saved theme preference
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
