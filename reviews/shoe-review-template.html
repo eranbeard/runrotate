@@ -10,7 +10,7 @@
         :root { --primary: #03FCBA; --primary-hover: #02e0a7; --emerald-100: #d1fae5; --bg-light: #FFFFFF; --bg-secondary: #F9FAFB; --text-primary: #111827; --text-secondary: #6B7280; --border: #E5E7EB; --card-bg: #FFFFFF; --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
         .dark { --bg-light: #111827; --bg-secondary: #1F2937; --text-primary: #F9FAFB; --border: #374151; --card-bg: #1F2937; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-light); color: var(--text-primary); line-height: 1.625; margin: 0; padding: 0; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 1.25rem; }
         h1 { font-size: 2.25rem; line-height: 1.2; font-weight: 800; margin: 0 0 1rem; }
         h2 { font-size: 1.875rem; line-height: 1.25; font-weight: 700; margin: 2.5rem 0 1.25rem; }
         .text-lead { font-size: 1.25rem; line-height: 1.75; color: var(--text-secondary); }
@@ -21,9 +21,9 @@
         .dark .tag { background-color: rgba(6, 78, 59, 0.3); color: var(--emerald-100); }
         .hero { position: relative; margin-bottom: 3rem; border-radius: 1rem; overflow: hidden; background-color: var(--bg-secondary); }
         .hero-image { width: 100%; height: 400px; object-fit: cover; }
-        .hero-content { position: relative; padding: 2rem; background: linear-gradient(0deg, var(--bg-light) 0%, rgba(255,255,255,0) 30%); }
-        .score-summary { background-color: var(--card-bg); border-radius: 1rem; padding: 2rem; margin: 2rem 0; box-shadow: var(--card-shadow); }
-        .score-item { display: flex; align-items: center; margin-bottom: 1rem; }
+        .hero-content { position: relative; padding: 1.5rem; background: linear-gradient(0deg, var(--bg-light) 0%, rgba(255,255,255,0) 30%); }
+        .score-summary { background-color: var(--card-bg); border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0; box-shadow: var(--card-shadow); }
+        .score-item { display: flex; align-items: center; margin-bottom: 1rem; min-width: 100%; }
         .score-label { width: 140px; font-weight: 500; color: var(--text-secondary); }
         .score-bar { flex: 1; height: 8px; background-color: var(--bg-secondary); border-radius: 4px; margin: 0 1rem; }
         .score-fill { height: 100%; background-color: var(--primary); border-radius: 4px; }
@@ -45,14 +45,19 @@
     <div class="container">
         <!-- Hero Section -->
         <header class="hero">
-            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80" alt="Nike Pegasus 41" class="hero-image">
+            <div class="hero-image" style="background-color: #f3f4f6; display: flex; align-items: center; justify-content: center;">
+                <svg width="200" height="150" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.7;">
+                    <path d="M12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z" fill="#9CA3AF"/>
+                    <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4C9.11 4 6.6 5.64 5.35 8.04C2.34 8.36 0 10.91 0 14C0 17.31 2.69 20 6 20H19C21.76 20 24 17.76 24 15C24 12.36 21.95 10.22 19.35 10.04ZM19 18H6C3.79 18 2 16.21 2 14C2 11.95 3.53 10.24 5.56 10.03L6.63 9.92L7.13 8.97C8.08 7.14 9.94 6 12 6C14.62 6 16.88 7.86 17.4 10.43L17.69 11.93L19.22 12.04C20.78 12.15 22 13.45 22 15C22 16.65 20.65 18 19 18Z" fill="#9CA3AF"/>
+                </svg>
+            </div>
             <div class="hero-content">
                 <div class="tags">
                     <span class="tag">Daily Trainer</span>
                     <span class="tag">Road</span>
                     <span class="tag">Neutral</span>
                 </div>
-                <h1>Nike Pegasus 41 Review: Reliable Comfort with a Speedy Edge</h1>
+                <h1>Nike Pegasus 41 Review</h1>
                 <p class="text-lead">The latest iteration of Nike's legendary daily trainer delivers a perfect balance of cushioning and responsiveness.</p>
                 <div style="display: flex; align-items: center; margin-top: 1.5rem;">
                     <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Author" style="width: 40px; height: 40px; border-radius: 50%; margin-right: 0.75rem;">
@@ -64,15 +69,77 @@
             </div>
         </header>
 
+        <!-- Verdict Summary -->
+        <div style="background-color: var(--card-bg); border-radius: 1rem; padding: 2.5rem 2rem 2rem; margin: 3rem 0; box-shadow: var(--card-shadow); position: relative; border: 1px solid var(--primary);">
+            <!-- Ribbon -->
+            <div style="position: absolute; top: 0; right: 2rem; background-color: var(--primary); color: var(--text-primary); font-weight: 600; padding: 0.5rem 1.5rem; border-bottom-left-radius: 0.5rem; border-bottom-right-radius: 0.5rem; font-size: 0.875rem;">
+                HIGHLY RECOMMENDED
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: center;">
+                <!-- Image Placeholder (4:3 aspect ratio) with Score Overlay -->
+                <div style="position: relative; max-width: 400px;">
+                    <div style="position: absolute; top: -1rem; left: -1rem; background: var(--primary); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 800; border: 3px solid white; box-shadow: 0 2px 10px rgba(0,0,0,0.2); z-index: 10;">
+                        8.9
+                    </div>
+                    <div style="background-color: #f3f4f6; border-radius: 0.75rem; overflow: hidden; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;">
+                        <svg width="60%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.7;">
+                            <path d="M12 16C13.6569 16 15 14.6569 15 13C15 11.3431 13.6569 10 12 10C10.3431 10 9 11.3431 9 13C9 14.6569 10.3431 16 12 16Z" fill="#9CA3AF"/>
+                            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4C9.11 4 6.6 5.64 5.35 8.04C2.34 8.36 0 10.91 0 14C0 17.31 2.69 20 6 20H19C21.76 20 24 17.76 24 15C24 12.36 21.95 10.22 19.35 10.04ZM19 18H6C3.79 18 2 16.21 2 14C2 11.95 3.53 10.24 5.56 10.03L6.63 9.92L7.13 8.97C8.08 7.14 9.94 6 12 6C14.62 6 16.88 7.86 17.4 10.43L17.69 11.93L19.22 12.04C20.78 12.15 22 13.45 22 15C22 16.65 20.65 18 19 18Z" fill="#9CA3AF"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div>
+                        <h2 style="margin: 0 0 0.5rem 0; font-size: 1.75rem;">Nike Pegasus 41 Verdict</h2>
+                        <p style="margin: 0; color: var(--text-secondary); font-size: 1.1rem; line-height: 1.6;">This is where the summary of the review goes. The Nike Pegasus 41 continues to impress with its perfect balance of cushioning and responsiveness, making it an excellent choice for daily training.</p>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary" style="display: block; text-align: center; padding: 1rem 1.5rem; font-size: 1.1rem; font-weight: 600; border-radius: 0.5rem; margin-top: 0.5rem; width: 100%;">
+                        Check Current Price
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Introduction -->
+        <div style="margin-bottom: 2rem;">
+            <p>The Nike Pegasus 41 continues the legacy of its predecessors with several key updates that aim to enhance the running experience. After putting it through its paces over various distances and terrains, we've gathered our thoughts on what makes this shoe stand out and where it might fall short. Below you'll find our detailed breakdown of the pros and cons, along with comprehensive scoring across all important categories.</p>
+        </div>
+
+        <!-- Pros & Cons -->
+        <div class="pros-cons">
+            <div class="pros">
+                <h3>Pros</h3>
+                <ul>
+                    <li>Excellent balance of cushioning and responsiveness</li>
+                    <li>Versatile enough for all types of runs</li>
+                    <li>Durable construction that holds up well over time</li>
+                </ul>
+            </div>
+            <div class="cons">
+                <h3>Cons</h3>
+            </div>
+        </div>
+
         <!-- Score Summary -->
         <section class="score-summary">
-            <h2 style="margin-top: 0;">RunRotate Score</h2>
-            <div class="score-item"><div class="score-label">Cushioning</div><div class="score-bar"><div class="score-fill" style="width: 85%;"></div></div><div class="score-value">8.5</div></div>
-            <div class="score-item"><div class="score-label">Fit</div><div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div><div class="score-value">9.0</div></div>
-            <div class="score-item"><div class="score-label">Traction</div><div class="score-bar"><div class="score-fill" style="width: 80%;"></div></div><div class="score-value">8.0</div></div>
-            <div class="score-item"><div class="score-label">Stability</div><div class="score-bar"><div class="score-fill" style="width: 75%;"></div></div><div class="score-value">7.5</div></div>
-            <div class="score-item"><div class="score-label">Durability</div><div class="score-bar"><div class="score-fill" style="width: 88%;"></div></div><div class="score-value">8.8</div></div>
-            <div style="text-align: center; margin-top: 2rem; color: var(--text-secondary);"><strong>Overall Rating:</strong> 8.6/10</div>
+            <h2 style="margin-top: 0; margin-bottom: 1.5rem;">RunRotate Score</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="score-item"><div class="score-label">Fit</div><div class="score-bar"><div class="score-fill" style="width: 88%;"></div></div><div class="score-value">8.8</div></div>
+                <div class="score-item"><div class="score-label">Cushioning</div><div class="score-bar"><div class="score-fill" style="width: 92%;"></div></div><div class="score-value">9.2</div></div>
+                <div class="score-item"><div class="score-label">Responsiveness</div><div class="score-bar"><div class="score-fill" style="width: 89%;"></div></div><div class="score-value">8.9</div></div>
+                <div class="score-item"><div class="score-label">Traction & Stability</div><div class="score-bar"><div class="score-fill" style="width: 91%;"></div></div><div class="score-value">9.1</div></div>
+                <div class="score-item"><div class="score-label">Breathability</div><div class="score-bar"><div class="score-fill" style="width: 87%;"></div></div><div class="score-value">8.7</div></div>
+                <div class="score-item"><div class="score-label">Durability</div><div class="score-bar"><div class="score-fill" style="width: 85%;"></div></div><div class="score-value">8.5</div></div>
+                <div class="score-item"><div class="score-label">Style & Design</div><div class="score-bar"><div class="score-fill" style="width: 90%;"></div></div><div class="score-value">9.0</div></div>
+                <div class="score-item"><div class="score-label">Value</div><div class="score-bar"><div class="score-fill" style="width: 86%;"></div></div><div class="score-value">8.6</div></div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <div style="font-size: 1.5rem; font-weight: 700; color: var(--text-primary);">Overall Rating: <span style="color: var(--primary);">8.9/10</span></div>
+            </div>
         </section>
 
         <!-- Specs at a Glance - Horizontal Layout -->
@@ -139,32 +206,28 @@
         <!-- Main Review Content -->
         <section class="review-content">
             <h2>Fit & Feel</h2>
-            <p>Covers how the shoe fits (true to size, snug/loose areas), upper comfort, lockdown, width, and weight. Include toe box comfort, heel hold, and any break-in period.</p>
-            <p>Covers: Fit, Weight</p>
+            <p>Describe the fit (true to size, narrow/wide), lockdown, and initial comfort. Mention any hot spots or pressure points.</p>
 
             <h2>Cushioning & Responsiveness</h2>
             <p>Describe the softness, firmness, or bounce of the midsole. Mention ground feel, energy return, and transitions.</p>
-            <p>Covers: Cushioning, Responsiveness</p>
+
+            <h2>Responsiveness</h2>
+            <p>Describe how the shoe returns energy and responds to different paces and running styles.</p>
 
             <h2>Traction & Stability</h2>
             <p>Test performance on different surfaces (wet, dry, loose gravel). Mention how secure the shoe feels during sharp turns, downhill, or uneven paths.</p>
-            <p>Covers: Traction, Stability</p>
 
             <h2>Breathability & Temperature Control</h2>
             <p>Describe ventilation of the upper, heat build-up on long runs, and sock compatibility.</p>
-            <p>Covers: Breathability</p>
 
             <h2>Durability & Build Quality</h2>
             <p>Report on wear over distance (e.g., 50–100km in), outsole and upper wear, and construction quality.</p>
-            <p>Covers: Durability, Build Quality</p>
 
             <h2>Style & Design</h2>
             <p>Subjective take on how the shoe looks in person and on foot. Include visual design notes, colorway appeal, and how versatile it feels style-wise.</p>
-            <p>Covers: Looks</p>
 
             <h2>Value for Money</h2>
             <p>Evaluate pricing vs. performance, and how it compares to alternatives in the same category.</p>
-            <p>Covers: Value</p>
 
             <h2>Who Should Buy This Shoe?</h2>
             <p>Summarize the ideal runner based on pace, experience, terrain, and typical training.</p>
@@ -172,36 +235,6 @@
             <h2>Final Thoughts</h2>
             <p>Personal verdict. Would you keep this in your rotation? Any surprising upsides or hidden dealbreakers?</p>
         </section>
-
-        <!-- Pros & Cons -->
-        <div class="pros-cons">
-            <div class="pros">
-                <h3>Pros</h3>
-                <ul>
-                    <li>Excellent balance of cushioning and responsiveness</li>
-                    <li>Versatile enough for all types of runs</li>
-                    <li>Durable construction that holds up well over time</li>
-                </ul>
-            </div>
-            <div class="cons">
-                <h3>Cons</h3>
-                <ul>
-                    <li>May feel too firm for some runners</li>
-                    <li>Not the lightest option for race day</li>
-                    <li>Limited color options</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- CTA Buttons -->
-        <div style="text-align: center; margin: 3rem 0;">
-            <a href="#" class="btn btn-primary" style="margin-right: 1rem;">
-                <i data-lucide="shopping-bag" class="w-5 h-5 mr-2"></i> Check Prices
-            </a>
-            <button class="btn" style="border: 1px solid var(--border);">
-                <i data-lucide="heart" class="w-5 h-5 mr-2"></i> Add to Wishlist
-            </button>
-        </div>
 
         <!-- Author Bio -->
         <div class="author-bio">
