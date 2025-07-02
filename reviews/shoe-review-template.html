@@ -35,8 +35,6 @@
         .review-section { margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--border); }
         .pros-cons { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
         .pros, .cons { background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; }
-        .pros h3::before { content: '✅'; margin-right: 0.5rem; }
-        .cons h3::before { content: '❌'; margin-right: 0.5rem; }
         .author-bio { display: flex; margin: 3rem 0; padding: 2rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
         @media (max-width: 768px) { .pros-cons { grid-template-columns: 1fr; } h1 { font-size: 1.875rem; } h2 { font-size: 1.5rem; } }
     </style>
@@ -112,41 +110,63 @@
         </div>
 
         <!-- Pros & Cons -->
-        <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin: 2.5rem 0; border: 1px solid var(--border); box-shadow: var(--card-shadow);">
-            <div class="pros-cons" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <div class="pros" style="padding: 1rem;">
-                    <h3 style="display: flex; align-items: center; margin: 0 0 1rem 0; color: #10B981; font-size: 1.25rem;">
-                        <i data-lucide="check-circle" class="w-5 h-5 mr-2" style="color: #10B981;"></i>
-                        Pros
-                    </h3>
+        <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 2rem; margin: 2.5rem 0; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0 0 1.5rem 0; color: var(--text-primary);">Key Takeaways</h2>
+            
+            <div class="pros-cons" style="display: grid; grid-template-columns: 1fr 1px 1fr; gap: 0;">
+                <!-- Pros -->
+                <div class="pros" style="padding: 0 2rem 0 0;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(16, 185, 129, 0.2);">
+                        <div style="background-color: rgba(16, 185, 129, 0.1); width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                            <i data-lucide="thumbs-up" class="w-5 h-5" style="color: #10B981;"></i>
+                        </div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin: 0; color: #10B981; display: flex; align-items: center;">Pros</h3>
+                    </div>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="display: flex; align-items: flex-start; margin-bottom: 0.75rem; line-height: 1.5;">
-                            <i data-lucide="check" class="w-5 h-5 mr-2 flex-shrink-0" style="color: #10B981; margin-top: 0.25rem;"></i>
-                            <span>Excellent balance of cushioning and responsiveness</span>
+                        <li style="display: flex; align-items: flex-start; margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='rgba(16, 185, 129, 0.05)'" onmouseout="this.style.backgroundColor='transparent'">
+                            <div style="background-color: rgba(16, 185, 129, 0.1); min-width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; flex-shrink: 0;">
+                                <i data-lucide="check" class="w-4 h-4" style="color: #10B981;"></i>
+                            </div>
+                            <span style="font-size: 0.95rem; line-height: 1.5; color: var(--text-primary);">Excellent balance of cushioning and responsiveness</span>
                         </li>
-                        <li style="display: flex; align-items: flex-start; margin-bottom: 0.75rem; line-height: 1.5;">
-                            <i data-lucide="check" class="w-5 h-5 mr-2 flex-shrink-0" style="color: #10B981; margin-top: 0.25rem;"></i>
-                            <span>Versatile enough for all types of runs</span>
+                        <li style="display: flex; align-items: flex-start; margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='rgba(16, 185, 129, 0.05)'" onmouseout="this.style.backgroundColor='transparent'">
+                            <div style="background-color: rgba(16, 185, 129, 0.1); min-width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; flex-shrink: 0;">
+                                <i data-lucide="check" class="w-4 h-4" style="color: #10B981;"></i>
+                            </div>
+                            <span style="font-size: 0.95rem; line-height: 1.5; color: var(--text-primary);">Versatile enough for all types of runs</span>
                         </li>
-                        <li style="display: flex; align-items: flex-start; line-height: 1.5;">
-                            <i data-lucide="check" class="w-5 h-5 mr-2 flex-shrink-0" style="color: #10B981; margin-top: 0.25rem;"></i>
-                            <span>Durable construction that holds up well over time</span>
+                        <li style="display: flex; align-items: flex-start; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='rgba(16, 185, 129, 0.05)'" onmouseout="this.style.backgroundColor='transparent'">
+                            <div style="background-color: rgba(16, 185, 129, 0.1); min-width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; flex-shrink: 0;">
+                                <i data-lucide="check" class="w-4 h-4" style="color: #10B981;"></i>
+                            </div>
+                            <span style="font-size: 0.95rem; line-height: 1.5; color: var(--text-primary);">Durable construction that holds up well over time</span>
                         </li>
                     </ul>
                 </div>
-                <div class="cons" style="padding: 1rem; border-left: 1px solid var(--border);">
-                    <h3 style="display: flex; align-items: center; margin: 0 0 1rem 0; color: #EF4444; font-size: 1.25rem;">
-                        <i data-lucide="x-circle" class="w-5 h-5 mr-2" style="color: #EF4444;"></i>
-                        Cons
-                    </h3>
+
+                <!-- Divider -->
+                <div style="background-color: var(--border); margin: 0 1.5rem;"></div>
+
+                <!-- Cons -->
+                <div class="cons" style="padding: 0 0 0 2rem;">
+                    <div style="display: flex; align-items: center; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(239, 68, 68, 0.2);">
+                        <div style="background-color: rgba(239, 68, 68, 0.1); width: 2.5rem; height: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;">
+                            <i data-lucide="thumbs-down" class="w-5 h-5" style="color: #EF4444;"></i>
+                        </div>
+                        <h3 style="font-size: 1.125rem; font-weight: 600; margin: 0; color: #EF4444;">Cons</h3>
+                    </div>
                     <ul style="list-style: none; padding: 0; margin: 0;">
-                        <li style="display: flex; align-items: flex-start; margin-bottom: 0.75rem; line-height: 1.5;">
-                            <i data-lucide="x" class="w-5 h-5 mr-2 flex-shrink-0" style="color: #EF4444; margin-top: 0.25rem;"></i>
-                            <span>Some runners may find the toe box too narrow</span>
+                        <li style="display: flex; align-items: flex-start; margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='rgba(239, 68, 68, 0.05)'" onmouseout="this.style.backgroundColor='transparent'">
+                            <div style="background-color: rgba(239, 68, 68, 0.1); min-width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; flex-shrink: 0;">
+                                <i data-lucide="x" class="w-4 h-4" style="color: #EF4444;"></i>
+                            </div>
+                            <span style="font-size: 0.95rem; line-height: 1.5; color: var(--text-primary);">Some runners may find the toe box too narrow</span>
                         </li>
-                        <li style="display: flex; align-items: flex-start; line-height: 1.5;">
-                            <i data-lucide="x" class="w-5 h-5 mr-2 flex-shrink-0" style="color: #EF4444; margin-top: 0.25rem;"></i>
-                            <span>Premium price point compared to competitors</span>
+                        <li style="display: flex; align-items: flex-start; padding: 0.75rem; border-radius: 0.5rem; transition: all 0.2s ease;" onmouseover="this.style.backgroundColor='rgba(239, 68, 68, 0.05)'" onmouseout="this.style.backgroundColor='transparent'">
+                            <div style="background-color: rgba(239, 68, 68, 0.1); min-width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; flex-shrink: 0;">
+                                <i data-lucide="x" class="w-4 h-4" style="color: #EF4444;"></i>
+                            </div>
+                            <span style="font-size: 0.95rem; line-height: 1.5; color: var(--text-primary);">Premium price point compared to competitors</span>
                         </li>
                     </ul>
                 </div>
@@ -290,7 +310,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p style="color: var(--text-primary); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.5; -webkit-line-clamp: 3; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden;">
+                        <p style="color: var(--text-primary); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.5; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden;">
                             These are the fastest shoes I've ever worn. The energy return is incredible and they feel super lightweight. Perfect for race day!
                         </p>
                         <button style="width: 100%; margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); border-radius: 0.5rem; background-color: transparent; color: var(--text-primary); cursor: pointer; transition: background-color 0.2s;">
@@ -318,7 +338,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p style="color: var(--text-primary); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.5; -webkit-line-clamp: 3; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden;">
+                        <p style="color: var(--text-primary); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.5; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden;">
                             Good racing shoes but took some time to break in. The fit is a bit narrow for my feet. Great energy return though!
                         </p>
                         <button style="width: 100%; margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); border-radius: 0.5rem; background-color: transparent; color: var(--text-primary); cursor: pointer; transition: background-color 0.2s;">
@@ -346,7 +366,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p style="color: var(--text-primary); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.5; -webkit-line-clamp: 3; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden;">
+                        <p style="color: var(--text-primary); margin-bottom: 1rem; font-size: 0.9375rem; line-height: 1.5; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; display: -webkit-box; overflow: hidden;">
                             Absolutely in love with these! The comfort and responsiveness are unmatched. I've set two PRs in them already. Worth every penny for serious runners.
                         </p>
                         <button style="width: 100%; margin-top: 0.5rem; padding: 0.5rem 1rem; font-size: 0.875rem; font-weight: 500; border: 1px solid var(--border); border-radius: 0.5rem; background-color: transparent; color: var(--text-primary); cursor: pointer; transition: background-color 0.2s;">
