@@ -220,47 +220,30 @@
                 <div class="pt-4 border-t border-gray-100 space-y-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Details</h3>
                     <!-- Cushioning Rating -->
-                    <div x-data="{ active: false, value: 5 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
+                    <div x-data="{ active: false, value: 0 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
                         <div class="flex justify-between items-center mb-1">
-                            <span class="text-sm font-medium" :class="{ 'text-gray-600': !active, 'text-gray-900': active }">Cushioning</span>
-                            <span class="text-sm font-medium px-2 py-0.5 rounded" :class="{ 'text-gray-400': !active, 'text-white bg-blue-500': active }" x-text="active ? (value + '/10') : 'Rate this'"></span>
+                            <span class="text-sm font-medium text-gray-400" :class="{ 'text-gray-400': !active, 'text-gray-900': active }">Cushioning</span>
+                            <span class="text-sm font-medium px-2 py-0.5 rounded text-gray-400" :class="{ 'text-gray-400': !value && !active, 'text-white bg-blue-500': value > 0 || active }" x-text="active || value > 0 ? (value + '/10') : 'Rate this'">Rate this</span>
                         </div>
                         <div class="relative pt-1">
-                            <input 
-                                type="range" 
-                                min="0" 
-                                max="10" 
-                                step="0.5" 
-                                x-model="value" 
-                                :class="{ 'opacity-50': !active, 'opacity-100': active }"
-                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                @focus="active = true"
-                                @blur="active = false">
+                            <input type="range" min="0" max="10" step="0.5" x-model="value" :class="{ 'opacity-50': !active, 'opacity-100': active }" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" :class="{ 'opacity-50': !active, 'opacity-100': active }" @focus="active = true" @blur="active = false">
                         </div>
-                        <p class="text-xs mt-1" :class="{ 'text-gray-400': !active, 'text-gray-600': active }">How soft or shock-absorbing the shoe feels</p>
+                        <p class="text-xs mt-1 text-gray-300" :class="{ 'text-gray-300': !active, 'text-gray-600': active }">How soft or shock-absorbing the shoe feels</p>
                     </div>
                     
                     <!-- Other Metrics -->
                     <template x-for="metric in metrics" :key="metric.id">
-                        <div x-data="{ active: false, value: 5 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
+                        <div x-data="{ active: false, value: 0 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
                             <div class="flex justify-between items-center mb-1">
-                                <span class="text-sm font-medium" :class="{ 'text-gray-600': !active, 'text-gray-900': active }" x-text="metric.name"></span>
-                                <span class="text-sm font-medium px-2 py-0.5 rounded" :class="{ 'text-gray-400': !active, 'text-white bg-blue-500': active }" x-text="active ? (value + '/10') : 'Rate this'"></span>
+                                <span class="text-sm font-medium text-gray-400" :class="{ 'text-gray-400': !active, 'text-gray-900': active }" x-text="metric.name"></span>
+                                <span class="text-sm font-medium px-2 py-0.5 rounded text-gray-400" :class="{ 'text-gray-400': !value && !active, 'text-white bg-blue-500': value > 0 || active }" x-text="active || value > 0 ? (value + '/10') : 'Rate this'"></span>
                             </div>
                             <div class="relative pt-1">
-                                <input 
-                                    type="range" 
-                                    min="0" 
-                                    max="10" 
-                                    step="0.5" 
-                                    x-model="value" 
-                                    :class="{ 'opacity-50': !active, 'opacity-100': active }"
-                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                                    @focus="active = true"
-                                    @blur="active = false">
+                                <input type="range" min="0" max="10" step="0.5" x-model="value" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" :class="{ 'opacity-50': !active, 'opacity-100': active }" @focus="active = true" @blur="active = false">
                             </div>
-                            <p class="text-xs mt-1" :class="{ 'text-gray-400': !active, 'text-gray-600': active }" x-text="metric.description"></p>
+                            <p class="text-xs mt-1 text-gray-300" :class="{ 'text-gray-300': !active, 'text-gray-600': active }" x-text="metric.description"></p>
                         </div>
+                    </template>
                     </template>
                 </div>
                 
