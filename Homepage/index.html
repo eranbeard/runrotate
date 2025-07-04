@@ -920,6 +920,26 @@
     <section class="py-16 bg-gray-50 dark:bg-gray-950">
         <div class="container mx-auto px-4">
             <h2 class="text-2xl font-bold text-center mb-12">WHY JOIN RUNROTATE?</h2>
+            <!-- Global Community Map -->
+            <div class="relative h-96 bg-white dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 mb-12">
+                <!-- Simple world map with dots -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="relative w-full h-full">
+                        <!-- World map with highlighted countries -->
+                        <svg class="w-full h-full" viewBox="0 0 2000 857" preserveAspectRatio="xMidYMid meet">
+                            <!-- Background map -->
+                            <image href="../assets/images/world.svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"/>
+                            
+                            <!-- Green highlighted countries -->
+                            <circle cx="25%" cy="40%" r="12" fill="#10B981" fill-opacity="0.7"/>
+                            <circle cx="75%" cy="35%" r="12" fill="#10B981" fill-opacity="0.7"/>
+                            <circle cx="50%" cy="60%" r="12" fill="#10B981" fill-opacity="0.7"/>
+                            <circle cx="20%" cy="65%" r="12" fill="#10B981" fill-opacity="0.7"/>
+                            <circle cx="80%" cy="70%" r="12" fill="#10B981" fill-opacity="0.7"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
                 <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm hover:shadow-md transition-all">
@@ -980,32 +1000,6 @@
                         <h3 class="text-xl font-bold">6. Connect with the Community</h3>
                     </div>
                     <p class="text-gray-600 dark:text-gray-300 text-left">Follow other runners, swap insights, and get inspired by their journeys.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Global Community Map -->
-    <section class="py-16 bg-white dark:bg-gray-900">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold mb-12">JOIN A GLOBAL COMMUNITY</h2>
-            <div class="relative h-96 bg-gray-100 dark:bg-gray-900/80 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800">
-                <!-- Simple world map with dots -->
-                <div class="absolute inset-0 flex items-center justify-center">
-                    <div class="relative w-full h-full">
-                        <!-- World map with highlighted countries -->
-                        <svg class="w-full h-full" viewBox="0 0 2000 857" preserveAspectRatio="xMidYMid meet">
-                            <!-- Background map -->
-                            <image href="../assets/images/world.svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"/>
-                            
-                            <!-- Green highlighted countries -->
-                            <circle cx="25%" cy="40%" r="12" fill="#10B981" fill-opacity="0.7"/>
-                            <circle cx="75%" cy="35%" r="12" fill="#10B981" fill-opacity="0.7"/>
-                            <circle cx="50%" cy="60%" r="12" fill="#10B981" fill-opacity="0.7"/>
-                            <circle cx="20%" cy="65%" r="12" fill="#10B981" fill-opacity="0.7"/>
-                            <circle cx="80%" cy="70%" r="12" fill="#10B981" fill-opacity="0.7"/>
-                        </svg>
-                    </div>
                 </div>
             </div>
         </div>
