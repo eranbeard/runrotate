@@ -210,10 +210,10 @@
                                         <i data-lucide="calendar" class="w-4 h-4 mr-1"></i>
                                         Member since Jan 2023
                                     </span>
-                                    <span class="flex items-center bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 text-xs px-2.5 py-0.5 rounded-full">
+                                    <span class="flex items-center bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 text-xs px-2.5 py-1 rounded-full whitespace-nowrap">
                                         <!-- License: GPL. Made by coreui: https://github.com/coreui/coreui-icons/ -->
                                         <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M20.516 23.927l-2.786-5.49h-4.083l6.87 13.563 6.865-13.563h-4.083zM13.953 10.974l3.781 7.464h5.563l-9.344-18.438-9.333 18.438h5.557z"/>
+                                            <path d="M20.516 23.927l-2.786-5.49h-4.083l6.87 13.563 6.865-13.563h-4.083zM13.953 10.974l3.781 7.464h5.563l-9.344-18.438-9.333 18.438h5.557z"></path>
                                         </svg>
                                         Strava Verified
                                     </span>
@@ -597,24 +597,75 @@
                     </div>
                     
                     <!-- Social Actions in White Area -->
-                    <div class="flex items-center justify-between mt-6 px-2">
-                        <div class="flex items-center space-x-6">
-                            <button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors group">
-                                <div class="p-1.5 rounded-full group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/30 transition-colors">
+                    <div class="flex justify-end px-2">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-1">
+                                <button class="text-gray-400 hover:text-red-500 transition-colors">
                                     <i data-lucide="heart" class="w-5 h-5"></i>
-                                </div>
-                                <span class="ml-1 text-sm font-medium">24</span>
-                            </button>
-                            <button class="flex items-center text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors group">
-                                <div class="p-1.5 rounded-full group-hover:bg-emerald-100 dark:group-hover:bg-emerald-900/30 transition-colors">
-                                    <i data-lucide="message-circle" class="w-5 h-5"></i>
-                                </div>
-                                <span class="ml-1 text-sm font-medium">8</span>
-                            </button>
+                                </button>
+                                <span class="text-sm text-gray-500">24</span>
+                            </div>
+                            <div class="flex items-center space-x-1">
+                                <button class="text-gray-400 hover:text-primary transition-colors comment-toggle">
+                                    <i data-lucide="message-square" class="w-5 h-5"></i>
+                                </button>
+                                <span class="text-sm text-gray-500">8</span>
+                            </div>
                         </div>
-                        <button class="text-gray-700 dark:text-gray-300 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">
-                            <i data-lucide="share-2" class="w-5 h-5"></i>
-                        </button>
+                    </div>
+                    
+                    <!-- Comments Section -->
+                    <div class="comments-section hidden mt-4 px-2">
+                        <div class="space-y-4">
+                            <!-- Comment 1 -->
+                            <div class="flex gap-3">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                <div class="flex-1">
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="font-medium text-sm text-gray-900 dark:text-white">Sarah Johnson</span>
+                                            <span class="text-xs text-gray-500">2 days ago</span>
+                                        </div>
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm">This rotation looks amazing! How do you like the Pegasus for long runs?</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 mt-2 ml-4">
+                                        <button class="text-xs text-gray-500 hover:text-primary dark:hover:text-primary transition-colors">Reply</button>
+                                        <button class="text-xs text-gray-500 hover:text-primary dark:hover:text-primary transition-colors">Like</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Comment 2 -->
+                            <div class="flex gap-3">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                <div class="flex-1">
+                                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4">
+                                        <div class="flex justify-between items-center mb-1">
+                                            <span class="font-medium text-sm text-gray-900 dark:text-white">Mike Chen</span>
+                                            <span class="text-xs text-gray-500">1 day ago</span>
+                                        </div>
+                                        <p class="text-gray-700 dark:text-gray-300 text-sm">Great selection of shoes! The Alphafly 3 is my favorite for race day.</p>
+                                    </div>
+                                    <div class="flex items-center gap-4 mt-2 ml-4">
+                                        <button class="text-xs text-gray-500 hover:text-primary dark:hover:text-primary transition-colors">Reply</button>
+                                        <button class="text-xs text-gray-500 hover:text-primary dark:hover:text-primary transition-colors">Like</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Comment Form -->
+                            <div class="pt-2">
+                                <div class="flex gap-3">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces" alt="You" class="w-10 h-10 rounded-full object-cover flex-shrink-0">
+                                    <div class="flex-1 relative">
+                                        <input type="text" placeholder="Add a comment..." class="w-full bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full py-2.5 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400">
+                                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-primary">
+                                            <i data-lucide="send" class="w-5 h-5"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -664,7 +715,7 @@
                                 </div>
 
                                 <!-- Tags -->
-                                <div class="flex flex-wrap gap-2 my-3">
+                                <div class="flex flex-wrap gap-2 mb-2 mt-0.5">
                                     <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-400">Daily</span>
                                     <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300">Cushioned</span>
                                     <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-gray-200 text-gray-600 dark:bg-gray-700 dark:text-gray-300">Versatile</span>
@@ -1275,22 +1326,24 @@
         <!-- Latest Runs Section -->
         <section class="bg-white dark:bg-dark-secondary rounded-xl shadow-card dark:shadow-dark-card overflow-hidden mb-8 pb-8">
             <div class="p-6 md:p-8">
-                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mr-3 text-primary">
-                        <path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/>
-                        <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/>
-                        <path d="M16 17h4"/>
-                        <path d="M4 13h4"/>
-                    </svg>
-                    Latest Runs
-                    <span class="ml-3 flex items-center bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 text-xs px-2.5 py-1 rounded-full whitespace-nowrap">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7 mr-3 text-primary">
+                            <path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/>
+                            <path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/>
+                            <path d="M16 17h4"/>
+                            <path d="M4 13h4"/>
+                        </svg>
+                        Latest Runs
+                    </h2>
+                    <span class="flex items-center bg-orange-100 dark:bg-orange-900/30 text-orange-800 dark:text-orange-400 text-xs px-2.5 py-1 rounded-full whitespace-nowrap font-normal">
                         <!-- License: GPL. Made by coreui: https://github.com/coreui/coreui-icons/ -->
-                        <svg class="strava-logo" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.516 23.927l-2.786-5.49h-4.083l6.87 13.563 6.865-13.563h-4.083zM13.953 10.974l3.781 7.464h5.563l-9.344-18.438-9.333 18.438h5.557z"/>
+                        <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.516 23.927l-2.786-5.49h-4.083l6.87 13.563 6.865-13.563h-4.083zM13.953 10.974l3.781 7.464h5.563l-9.344-18.438-9.333 18.438h5.557z"></path>
                         </svg>
                         Strava Verified
                     </span>
-                </h2>
+                </div>
                 
                 <!-- Placeholder for Latest Runs -->
                 <div class="bg-gray-50 dark:bg-gray-800/30 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
@@ -1302,6 +1355,46 @@
     <script>
         // Add expand/collapse functionality for shoe details and comments
         document.addEventListener('DOMContentLoaded', function() {
+            // Toggle comments in shoe rotation section
+            document.querySelectorAll('.comment-toggle').forEach(button => {
+                button.addEventListener('click', function() {
+                    const commentsSection = this.closest('.relative').querySelector('.comments-section');
+                    commentsSection.classList.toggle('hidden');
+                    
+                    // Toggle between message-square and x icons
+                    const icon = this.querySelector('i');
+                    if (icon.getAttribute('data-lucide') === 'message-square') {
+                        icon.setAttribute('data-lucide', 'x');
+                        lucide.createIcons({ icons: icon });
+                    } else {
+                        icon.setAttribute('data-lucide', 'message-square');
+                        lucide.createIcons({ icons: icon });
+                    }
+                });
+            });
+            
+            // Handle send comment
+            document.querySelectorAll('.comments-section').forEach(section => {
+                const sendButton = section.querySelector('button[data-lucide="send"]');
+                const input = section.querySelector('input[type="text"]');
+                
+                if (sendButton && input) {
+                    const handleSend = () => {
+                        if (input.value.trim() !== '') {
+                            // In a real app, you would send this to your backend
+                            console.log('New comment:', input.value);
+                            input.value = ''; // Clear the input
+                        }
+                    };
+                    
+                    sendButton.addEventListener('click', handleSend);
+                    input.addEventListener('keypress', (e) => {
+                        if (e.key === 'Enter') {
+                            handleSend();
+                        }
+                    });
+                }
+            });
             // Initialize Lucide icons
             lucide.createIcons();
             
