@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runrotate - Log In / Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary: #000000;
+            --text: #333333;
+            --text-light: #666666;
+            --border: #e5e7eb;
+            --border-hover: #9ca3af;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: var(--text);
+            background-color: #f9fafb;
+            line-height: 1.5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .auth-container {
+            width: 100%;
+            max-width: 28rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2.5rem;
+        }
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo img {
+            height: 2.5rem;
+            width: auto;
+            display: block;
+            margin: 0 auto 1.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .tab {
+            padding: 0.75rem 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            text-decoration: none;
+            margin-top: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .forgot-password:hover {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+            margin-top: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: #333333;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .form-subtitle {
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 0.9375rem;
+        }
+
+        .form-content {
+            display: none;
+        }
+
+        .form-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .auth-container {
+                padding: 1.5rem;
+            }
+            
+            .tabs {
+                margin-left: -1.5rem;
+                margin-right: -1.5rem;
+                padding: 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="logo">
+            <img src="./assets/logos/runrotate_logo_black.svg" alt="RunRotate Logo" class="logo-image">
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" data-tab="login">Log In</div>
+            <div class="tab" data-tab="signup">Sign Up</div>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="form-content active">
+            <h2 class="form-title">Welcome Back!</h2>
+            <p class="form-subtitle">Sign in to access your account</p>
+            
+            <form id="login">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <div class="flex justify-between items-center">
+                        <label for="login-password">Password</label>
+                    </div>
+                    <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signup-form" class="form-content">
+            <h2 class="form-title">Create an Account</h2>
+            <p class="form-subtitle">Join the Runrotate community</p>
+            
+            <form id="signup">
+                <div class="form-group">
+                    <label for="signup-name">First Name</label>
+                    <input type="text" id="signup-name" class="form-control" placeholder="John" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-location">Location</label>
+                    <input type="text" id="signup-location" class="form-control" placeholder="e.g. New York, NY">
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" id="signup-email" class="form-control" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" class="form-control" placeholder="••••••••" required>
+                </div>
+                
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab');
+            const forms = document.querySelectorAll('.form-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and forms
+                    tabs.forEach(t => t.classList.remove('active'));
+                    forms.forEach(f => f.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding form
+                    const targetForm = document.getElementById(`${this.dataset.tab}-form`);
+                    if (targetForm) {
+                        targetForm.classList.add('active');
+                    }
+                });
+            });
+            
+            // Form submission
+            document.getElementById('login')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add your login logic here
+                console.log('Login submitted');
+            });
+            
+            document.getElementById('signup')?.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Add your signup logic here
+                console.log('Signup submitted');
+            });
+        });
+    </script>
+</body>
+</html>
