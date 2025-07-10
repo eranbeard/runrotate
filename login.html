@@ -46,7 +46,7 @@
         .logo {
             display: flex;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .logo img {
@@ -57,21 +57,22 @@
         }
 
         .tabs-container {
-            display: flex;
-            justify-content: center;
+            width: 100%;
             margin: 0 0 2rem 0;
+            background-color: #f3f4f6;
+            border-radius: 0.5rem;
+            padding: 0.25rem;
         }
 
         .tabs {
-            display: inline-flex;
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 0.25rem;
-            background-color: #f3f4f6;
+            display: flex;
+            width: 100%;
         }
 
         .tab {
-            padding: 0.5rem 1.5rem;
+            flex: 1;
+            text-align: center;
+            padding: 0.75rem 1rem;
             font-weight: 500;
             color: var(--text-light);
             cursor: pointer;
@@ -81,9 +82,9 @@
         }
 
         .tab.active {
-            color: white;
-            background-color: var(--primary);
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            color: var(--primary);
+            background-color: white;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
         }
 
         .form-group {
@@ -153,7 +154,7 @@
         .form-title {
             font-size: 1.5rem;
             font-weight: 700;
-            margin: 0 0 0.5rem;
+            margin: 0.5rem 0 0.75rem;
             text-align: center;
         }
 
@@ -233,6 +234,13 @@
             <h2 class="form-title">Create an Account</h2>
             <p class="form-subtitle">Join the Runrotate community</p>
             
+            <div class="tabs-container">
+                <div class="tabs">
+                    <div class="tab" data-tab="login">Log In</div>
+                    <div class="tab active" data-tab="signup">Sign Up</div>
+                </div>
+            </div>
+            
             <form id="signup">
                 <div class="form-group">
                     <label for="signup-name">First Name</label>
@@ -262,36 +270,52 @@
     <script>
         // Tab switching functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.tab');
+            const allTabs = document.querySelectorAll('.tab');
             const forms = document.querySelectorAll('.form-content');
             
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs and forms
-                    tabs.forEach(t => t.classList.remove('active'));
-                    forms.forEach(f => f.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    // Show corresponding form
-                    const targetForm = document.getElementById(`${this.dataset.tab}-form`);
-                    if (targetForm) {
-                        targetForm.classList.add('active');
+            function switchTab(clickedTab) {
+                const tabType = clickedTab.dataset.tab;
+                
+                // Update all tab states
+                allTabs.forEach(tab => {
+                    if (tab.dataset.tab === tabType) {
+                        tab.classList.add('active');
+                    } else {
+                        tab.classList.remove('active');
                     }
                 });
+                
+                // Update form visibility
+                forms.forEach(form => {
+                    if (form.id === `${tabType}-form`) {
+                        form.classList.add('active');
+                    } else {
+                        form.classList.remove('active');
+                    }
+                });
+            }
+            
+            // Add click event to all tabs
+            allTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    switchTab(this);
+                });
             });
+            
+            // Initialize with login form active
+            const initialTab = document.querySelector('.tab[data-tab="login"]');
+            if (initialTab) {
+                switchTab(initialTab);
+            }
             
             // Form submission
             document.getElementById('login')?.addEventListener('submit', function(e) {
                 e.preventDefault();
-                // Add your login logic here
                 console.log('Login submitted');
             });
             
             document.getElementById('signup')?.addEventListener('submit', function(e) {
                 e.preventDefault();
-                // Add your signup logic here
                 console.log('Signup submitted');
             });
         });
