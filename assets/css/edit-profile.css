@@ -358,8 +358,14 @@
 
 .event-grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+}
+
+/* Make event name and location span full width */
+.event-grid .form-group:nth-child(1),
+.event-grid .form-group:nth-child(2) {
+    grid-column: 1 / -1;
 }
 
 /* Remove button styling */
