@@ -14,28 +14,50 @@
             font-size: 0.6875rem; /* 11px */
             line-height: 0.875rem; /* 14px */
         }
+        
+        /* Test styles */
+        .test-banner {
+            background-color: #FFFAF0 !important;
+            border-left: 4px solid #FFA500 !important;
+            padding: 16px !important;
+            margin-bottom: 24px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+        }
+        .test-banner p {
+            color: #5F370E !important;
+            margin: 0 !important;
+        }
+        .test-btn {
+            background-color: #FC4C02 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 6px !important;
+            padding: 8px 16px !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="profile-edit-container">
             <div class="profile-edit-header">
-                <h1>Tell the Community About Yourself</h1>
+                <h1><i class="fas fa-edit mr-2"></i>Edit Your Profile</h1>
                 <p class="subtitle">Add your bio, race history, and personal records to complete your profile.</p>
             </div>
 
             <form class="profile-edit-form">
-
-                <!-- Strava Connection -->
-                <div class="form-section strava-connect">
-                    <button type="button" class="btn-strava" id="connect-strava">
-                        <svg class="strava-logo" viewBox="0 0 82 82" fill="#FC4C02" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M41.1 0C18.4 0 0 18.4 0 41.1S18.4 82 41.1 82C63.7 82 82 63.7 82 41.1 82 18.4 63.7 0 41.1 0zm0 76.9C21.7 76.9 5.9 60.5 5.9 41.1 5.9 21.7 21.7 5.9 41.1 5.9c19.4 0 35.1 15.8 35.1 35.2 0 19.4-15.7 35.8-35.1 35.8z"/>
-                            <path d="M54.6 49.1l-6.1-11.5-6.1 11.5h-5.4l9.8-18.6h6.5l9.8 18.6h-6.5zM47.4 33.8l-2.5-5.2-2.5 5.2h5z"/>
-                        </svg>
-                        Connect to Strava
-                    </button>
-                    <p class="strava-description">Connect RunRotate with your Strava profile for automatic shoe mileage logging, average weekly running stats and more.</p>
+                <!-- Strava Connection Banner -->
+                <div style="background-color: #FFFAF0; border-left: 4px solid #FFA500; border-radius: 4px; padding: 16px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between;">
+                    <p style="margin: 0; color: #5F370E; font-size: 14px;">
+                        Connect RunRotate with your Strava profile to sync shoe mileage, running stats and recent running activities.
+                    </p>
+                    <a href="#" style="background-color: #FC4C02; color: white; text-decoration: none; border-radius: 6px; padding: 8px 16px; font-weight: 600; display: inline-flex; align-items: center; white-space: nowrap;">
+                        <i class="fab fa-strava" style="margin-right: 8px; color: white;"></i>
+                        Connect Strava
+                    </a>
                 </div>
 
                 <!-- Profile Photo -->
@@ -239,6 +261,7 @@
                                 <input type="number" class="form-input custom-distance" placeholder="Distance" min="0" step="0.01">
                                 <span class="unit-display">km</span>
                             </div>
+                            <input type="date" class="form-input pr-date">
                             <input type="text" class="form-input pr-time" placeholder="HH:MM:SS">
                             <button type="button" class="btn-icon" title="Remove">
                                 <i class="fas fa-times"></i>
@@ -492,6 +515,7 @@
                     <option value="half-ironman">Half Ironman</option>
                     <option value="ironman">Ironman</option>
                 </select>
+                <input type="date" class="form-input pr-date">
                 <input type="text" class="form-input pr-time" placeholder="HH:MM:SS">
                 <button type="button" class="btn-icon" title="Remove">
                     <i class="fas fa-times"></i>

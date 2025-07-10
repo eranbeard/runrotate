@@ -97,6 +97,61 @@
     text-align: center;
 }
 
+/* Strava Connection Banner */
+.strava-connection-banner {
+    background-color: #FFFAF0; /* Pale orange background */
+    border-left: 4px solid #FFA500; /* Orange left border */
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.strava-connection-banner .banner-content {
+    display: flex;
+    align-items: center;
+}
+
+.strava-connection-banner .banner-icon {
+    color: #FF8C00; /* Darker orange for icon */
+    margin-right: 12px;
+    font-size: 20px;
+}
+
+.strava-connection-banner .banner-text {
+    color: #5F370E; /* Dark brown text for better contrast */
+    font-size: 14px;
+    margin: 0;
+}
+
+.strava-connect-btn {
+    background-color: #FC4C02; /* Strava orange */
+    color: white !important;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.strava-connect-btn:hover {
+    background-color: #e03e00; /* Darker orange on hover */
+}
+
+.strava-connect-btn i {
+    margin-right: 8px;
+    color: white;
+}
+
 /* Badges Section */
 .badges-section {
     display: block; /* Override form-section grid */
