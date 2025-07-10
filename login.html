@@ -34,6 +34,117 @@
             padding: 1.5rem;
         }
 
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.5rem 0;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            background: white;
+            color: var(--text);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-btn.facebook {
+            background-color: #1877F2;
+            color: white;
+            border-color: #1877F2;
+        }
+        
+        .social-btn.facebook:hover {
+            background-color: #166FE5;
+            border-color: #166FE5;
+        }
+        
+        .social-btn.google {
+            background-color: #DB4437;
+            color: white;
+            border-color: #DB4437;
+        }
+        
+        .social-btn.google:hover {
+            background-color: #C53929;
+            border-color: #C53929;
+        }
+        
+        .social-btn.google .google-icon path {
+            fill: white;
+        }
+        
+        .social-btn .facebook-icon {
+            fill: white;
+        }
+        
+        .social-btn .google-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-btn:hover {
+            background-color: #f9fafb;
+            border-color: var(--border-hover);
+        }
+
+        .social-btn svg {
+            color: var(--text-light);
+        }
+
+        .auth-switch {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        .switch-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .switch-link:hover {
+            text-decoration: underline;
+        }
+
         .auth-container {
             width: 100%;
             max-width: 28rem;
@@ -227,6 +338,32 @@
                 
                 <button type="submit" class="btn">Sign In</button>
             </form>
+
+            <p class="auth-switch">
+                Don't have an account? <a href="#" class="switch-link" data-switch-to="signup">Sign up</a>
+            </p>
+
+            <div class="divider">
+                <span>OR CONTINUE WITH</span>
+            </div>
+            
+            <div class="social-buttons">
+                <button type="button" class="social-btn facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1877F2" class="facebook-icon">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                    <span>Facebook</span>
+                </button>
+                <button type="button" class="social-btn google">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="google-icon">
+                        <path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"></path>
+                        <path fill="#34A853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.82l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"></path>
+                        <path fill="#4A90E2" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.706-.1-1.473-.261-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"></path>
+                        <path fill="#FBBC05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"></path>
+                    </svg>
+                    <span>Google</span>
+                </button>
+            </div>
         </div>
 
         <!-- Sign Up Form -->
@@ -264,6 +401,32 @@
                 
                 <button type="submit" class="btn">Create Account</button>
             </form>
+
+            <p class="auth-switch">
+                Already have an account? <a href="#" class="switch-link" data-switch-to="login">Sign in</a>
+            </p>
+
+            <div class="divider">
+                <span>OR CONTINUE WITH</span>
+            </div>
+            
+            <div class="social-buttons">
+                <button type="button" class="social-btn facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="#1877F2" class="facebook-icon">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                    <span>Facebook</span>
+                </button>
+                <button type="button" class="social-btn google">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="google-icon">
+                        <path fill="#EA4335" d="M5.266 9.765A7.077 7.077 0 0 1 12 4.909c1.69 0 3.218.6 4.418 1.582L19.91 3C17.782 1.145 15.055 0 12 0 7.27 0 3.198 2.698 1.24 6.65l4.026 3.115Z"></path>
+                        <path fill="#34A853" d="M16.04 18.013c-1.09.703-2.474 1.078-4.04 1.078a7.077 7.077 0 0 1-6.723-4.82l-4.04 3.067A11.965 11.965 0 0 0 12 24c2.933 0 5.735-1.043 7.834-3l-3.793-2.987Z"></path>
+                        <path fill="#4A90E2" d="M19.834 21c2.195-2.048 3.62-5.096 3.62-9 0-.706-.1-1.473-.261-2.182H12v4.637h6.436c-.317 1.559-1.17 2.766-2.395 3.558L19.834 21Z"></path>
+                        <path fill="#FBBC05" d="M5.277 14.268A7.12 7.12 0 0 1 4.909 12c0-.782.125-1.533.357-2.235L1.24 6.65A11.934 11.934 0 0 0 0 12c0 1.92.445 3.73 1.237 5.335l4.04-3.067Z"></path>
+                    </svg>
+                    <span>Google</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -307,6 +470,18 @@
             if (initialTab) {
                 switchTab(initialTab);
             }
+            
+            // Handle switch link clicks
+            document.querySelectorAll('.switch-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetTab = this.dataset.switchTo;
+                    const tabToClick = document.querySelector(`.tab[data-tab="${targetTab}"]`);
+                    if (tabToClick) {
+                        tabToClick.click();
+                    }
+                });
+            });
             
             // Form submission
             document.getElementById('login')?.addEventListener('submit', function(e) {
