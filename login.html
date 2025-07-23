@@ -38,9 +38,10 @@
             display: flex;
             align-items: center;
             text-align: center;
-            margin: 1.5rem 0;
+            margin: 1.75rem 0;
             color: #9ca3af;
-            font-size: 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .divider::before,
@@ -68,18 +69,17 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.75rem;
             width: 100%;
-            padding: 0.875rem 1rem;
-            background-color: #fc4c02;
+            padding: 0.75rem 1.5rem;
+            background-color: #fc4c01;
             color: white;
             border: none;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            font-size: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 400;
+            font-size: 0.9375rem;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 0.5rem;
         }
         
         .strava-btn:hover {
@@ -93,16 +93,18 @@
         }
         
         .strava-btn svg {
-            width: 20px;
-            height: 20px;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 0.75rem;
         }
         
         .recommended-text {
             text-align: center;
             font-size: 0.75rem;
-            color: #6b7280;
-            margin-top: -0.5rem;
-            margin-bottom: 1rem;
+            color: #4b5563;
+            margin-top: 0.5rem;
+            margin-bottom: 1.25rem;
+            font-weight: 500;
         }
 
         .social-btn {
@@ -397,22 +399,21 @@
                 <button type="submit" class="btn">Log In</button>
             </form>
 
-            <p class="auth-switch">
-                Don't have an account? <a href="#" class="switch-link" data-switch-to="signup">Sign up</a>
-            </p>
-            
+
             <!-- Divider -->
             <div class="divider">or</div>
             
             <!-- Strava Login Button -->
             <div class="social-buttons">
                 <button class="strava-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor">
-                        <path d="M158.3 8.5c12.1-11.3 31.2-11.3 43.4 0l128 120c7.8 7.3 10.3 18.8 5.8 28.4-4.5 9.6-14.1 15.7-24.3 15.7H48c-10.2 0-19.8-6.1-24.3-15.7-4.5-9.6-2-21.1 5.8-28.4l128-120zM0 192v272c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V192H0z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Strava" role="img" viewBox="0 0 512 512">
+                        <rect width="512" height="512" rx="15%" fill="#fc4c01"/>
+                        <path fill="#fff" d="M120 288L232 56l112 232h-72l-40-96-40 96z"/>
+                        <path fill="#fda580" d="M280 288l32 72 32-72h48l-80 168-80-168z"/>
                     </svg>
-                    Continue with Strava
+                    Log In with Strava
                 </button>
-                <p class="recommended-text">⚡ Recommended for runners - fastest way to get started</p>
+                <p class="recommended-text">🏃‍♂️ Recommended for runners - fastest way to get started!</p>
             </div>
         </div>
 
@@ -450,9 +451,21 @@
                 <button type="submit" class="btn">Create Account</button>
             </form>
 
-            <p class="auth-switch">
-                Already have an account? <a href="#" class="switch-link" data-switch-to="login">Sign in</a>
-            </p>
+            <!-- Divider -->
+            <div class="divider">or</div>
+            
+            <!-- Strava Sign Up Button -->
+            <div class="social-buttons">
+                <button class="strava-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-label="Strava" role="img" viewBox="0 0 512 512">
+                        <rect width="512" height="512" rx="15%" fill="#fc4c01"/>
+                        <path fill="#fff" d="M120 288L232 56l112 232h-72l-40-96-40 96z"/>
+                        <path fill="#fda580" d="M280 288l32 72 32-72h48l-80 168-80-168z"/>
+                    </svg>
+                    Sign Up with Strava
+                </button>
+                <p class="recommended-text">🏃‍♂️ Recommended for runners - fastest way to get started!</p>
+            </div>
         </div>
     </div>
 
