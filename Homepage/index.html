@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -19,39 +19,6 @@
                 }
             }
         }
-        
-        // Theme toggle functionality
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('theme-toggle');
-            const html = document.documentElement;
-            
-            // Check for saved theme preference or use system preference
-            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                html.classList.add('dark');
-            } else {
-                html.classList.remove('dark');
-            }
-            
-            // Toggle theme on button click
-            themeToggle?.addEventListener('click', () => {
-                html.classList.toggle('dark');
-                localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
-                updateThemeIcon();
-            });
-            
-            function updateThemeIcon() {
-                const icon = themeToggle.querySelector('i');
-                if (html.classList.contains('dark')) {
-                    icon.dataset.lucide = 'sun';
-                } else {
-                    icon.dataset.lucide = 'moon';
-                }
-                lucide.createIcons();
-            }
-            
-            // Initialize icons
-            lucide.createIcons();
-        });
     </script>
     <style>
         .map-dot {
@@ -977,6 +944,38 @@
             </div>
         </div>
     </section>
+
+    <!-- Debug Info (temporary) -->
+    <div id="debug-info" class="fixed bottom-4 right-4 bg-black text-white p-4 rounded-lg text-xs z-50">
+        <div>Dark Mode: <span id="dark-mode-state">checking...</span></div>
+        <div>LocalStorage Theme: <span id="localstorage-theme">checking...</span></div>
+        <div>System Prefers Dark: <span id="system-dark">checking...</span></div>
+    </div>
+
+    <script>
+    // Debug script - log dark mode state
+    document.addEventListener('DOMContentLoaded', () => {
+        const darkModeState = document.getElementById('dark-mode-state');
+        const localStorageTheme = document.getElementById('localstorage-theme');
+        const systemDark = document.getElementById('system-dark');
+        
+        function updateDebugInfo() {
+            darkModeState.textContent = document.documentElement.classList.contains('dark') ? 'ON' : 'OFF';
+            localStorageTheme.textContent = localStorage.theme || 'not set';
+            systemDark.textContent = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        
+        // Update debug info every second
+        setInterval(updateDebugInfo, 1000);
+        updateDebugInfo();
+        
+        // Also log to console for easier debugging
+        console.log('Dark mode debug info:');
+        console.log('- HTML class:', document.documentElement.className);
+        console.log('- localStorage.theme:', localStorage.theme);
+        console.log('- prefers-color-scheme: dark:', window.matchMedia('(prefers-color-scheme: dark)').matches);
+    });
+    </script>
 
     <!-- Bottom CTA Section -->
     <section class="py-16 bg-gray-900 text-white">
