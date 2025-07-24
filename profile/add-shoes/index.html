@@ -226,19 +226,7 @@
             
                 <div class="pt-4 border-t border-gray-100 space-y-6">
                     <h3 class="text-lg font-semibold text-gray-800 mb-2">Details</h3>
-                    <!-- Cushioning Rating -->
-                    <div x-data="{ active: false, value: 0 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
-                        <div class="flex justify-between items-center mb-1">
-                            <span class="text-sm font-medium text-gray-400" :class="{ 'text-gray-400': !active, 'text-gray-900': active }">Cushioning</span>
-                            <span class="text-sm font-medium px-2 py-0.5 rounded text-gray-400" :class="{ 'text-gray-400': !value && !active, 'text-white bg-blue-500': value > 0 || active }" x-text="active || value > 0 ? (value + '/10') : 'Rate this'">Rate this</span>
-                        </div>
-                        <div class="relative pt-1">
-                            <input type="range" min="0" max="10" step="0.5" x-model="value" :class="{ 'opacity-50': !active, 'opacity-100': active }" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" :class="{ 'opacity-50': !active, 'opacity-100': active }" @focus="active = true" @blur="active = false">
-                        </div>
-                        <p class="text-xs mt-1 text-gray-300" :class="{ 'text-gray-300': !active, 'text-gray-600': active }">How soft or shock-absorbing the shoe feels</p>
-                    </div>
-                    
-                    <!-- Other Metrics -->
+                    <!-- Metrics Loop -->
                     <template x-for="metric in metrics" :key="metric.id">
                         <div x-data="{ active: false, value: 0 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)">
                             <div class="flex justify-between items-center mb-1">
@@ -481,15 +469,16 @@
                 ],
                 metrics: [
                     { id: 'fit', name: 'Fit', description: 'How well the shoe hugs your foot without discomfort' },
-                    { id: 'traction', name: 'Traction', description: 'Grip on various surfaces, wet or dry' },
-                    { id: 'stability', name: 'Stability', description: 'Support during uneven terrain or pronation control' },
-                    { id: 'durability', name: 'Durability', description: 'How well the shoe holds up over time' },
-                    { id: 'breathability', name: 'Breathability', description: 'Ventilation and how cool your feet stay' },
-                    { id: 'weight', name: 'Weight', description: 'How light or heavy the shoe feels while running' },
+                    { id: 'cushioning', name: 'Cushioning', description: 'How soft or shock-absorbing the shoe feels' },
                     { id: 'responsiveness', name: 'Responsiveness', description: 'How much energy return or "pop" the shoe gives back' },
+                    { id: 'stability', name: 'Stability', description: 'Support during uneven terrain or pronation control' },
+                    { id: 'traction', name: 'Traction', description: 'Grip on various surfaces, wet or dry' },
+                    { id: 'weight', name: 'Weight', description: 'How light or heavy the shoe feels while running' },
+                    { id: 'breathability', name: 'Breathability', description: 'Ventilation and how cool your feet stay' },
+                    { id: 'durability', name: 'Durability', description: 'How well the shoe holds up over time' },
+                    { id: 'build_quality', name: 'Build Quality', description: 'Overall material and construction quality' },
                     { id: 'looks', name: 'Looks', description: 'The visual appeal and design of the shoe' },
-                    { id: 'value', name: 'Value', description: 'How well the shoe performs relative to its price' },
-                    { id: 'build_quality', name: 'Build Quality', description: 'The quality of materials and construction' }
+                    { id: 'value', name: 'Value', description: 'How well the shoe performs relative to its price' }
                 ],
                 init() {
                     // Initialize any default values or setup
