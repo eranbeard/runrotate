@@ -111,56 +111,47 @@
         </section>
 
         <!-- Pros & Cons -->
-        <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 1.5rem; margin: 2rem 0; border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <div class="pros-cons" style="display: grid; grid-template-columns: 1fr 1px 1fr; gap: 1.5rem;">
-                <!-- Pros -->
-                <div class="pros" style="padding-right: 1.5rem;">
-                    <div style="display: flex; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(16, 185, 129, 0.15);">
-                        <div style="background-color: rgba(16, 185, 129, 0.1); width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; flex-shrink: 0;">
-                            <i data-lucide="thumbs-up" class="w-4 h-4" style="color: #10B981;"></i>
-                        </div>
-                        <h3 style="font-size: 1.1rem; font-weight: 600; margin: 0; color: #10B981;">Pros</h3>
+        <section style="margin: 3rem 0;">
+            <h2>Pros and Cons</h2>
+            <div style="background-color: var(--card-bg); border-radius: 0.75rem; padding: 2rem; margin: 1.5rem 0; border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+                <div style="display: grid; grid-template-columns: 1fr 1px 1fr; gap: 1.5rem;">
+                    <!-- Pros -->
+                    <div class="pros" style="padding-right: 1.5rem;">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 0.75rem; position: relative; padding-left: 1.5rem; color: var(--text-primary);">
+                                <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #10B981;"></span>
+                                <span style="font-size: 1rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Excellent balance of cushioning and responsiveness</span>
+                            </li>
+                            <li style="margin-bottom: 0.75rem; position: relative; padding-left: 1.5rem; color: var(--text-primary);">
+                                <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #10B981;"></span>
+                                <span style="font-size: 1rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Versatile enough for all types of runs</span>
+                            </li>
+                            <li style="margin-bottom: 0; position: relative; padding-left: 1.5rem; color: var(--text-primary);">
+                                <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #10B981;"></span>
+                                <span style="font-size: 1rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Durable construction that holds up well over time</span>
+                            </li>
+                        </ul>
                     </div>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 0 1rem;">
-                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.25rem; color: var(--text-primary);">
-                            <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #10B981;"></span>
-                            <span style="font-size: 0.95rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Excellent balance of cushioning and responsiveness</span>
-                        </li>
-                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.25rem; color: var(--text-primary);">
-                            <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #10B981;"></span>
-                            <span style="font-size: 0.95rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Versatile enough for all types of runs</span>
-                        </li>
-                        <li style="margin-bottom: 0; position: relative; padding-left: 1.25rem; color: var(--text-primary);">
-                            <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #10B981;"></span>
-                            <span style="font-size: 0.95rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Durable construction that holds up well over time</span>
-                        </li>
-                    </ul>
-                </div>
 
-                <!-- Divider -->
-                <div style="background: linear-gradient(to bottom, transparent 0%, var(--border) 10%, var(--border) 90%, transparent 100%);"></div>
+                    <!-- Divider -->
+                    <div style="background: linear-gradient(to bottom, transparent 0%, var(--border) 10%, var(--border) 90%, transparent 100%);"></div>
 
-                <!-- Cons -->
-                <div class="cons" style="padding-left: 1.5rem;">
-                    <div style="display: flex; align-items: center; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(239, 68, 68, 0.15);">
-                        <div style="background-color: rgba(239, 68, 68, 0.1); width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; flex-shrink: 0;">
-                            <i data-lucide="thumbs-down" class="w-4 h-4" style="color: #EF4444;"></i>
-                        </div>
-                        <h3 style="font-size: 1.1rem; font-weight: 600; margin: 0; color: #EF4444;">Cons</h3>
+                    <!-- Cons -->
+                    <div class="cons" style="padding-left: 1.5rem;">
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="margin-bottom: 0.75rem; position: relative; padding-left: 1.5rem; color: var(--text-primary);">
+                                <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #EF4444;"></span>
+                                <span style="font-size: 1rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Some runners may find the toe box too narrow</span>
+                            </li>
+                            <li style="margin-bottom: 0; position: relative; padding-left: 1.5rem; color: var(--text-primary);">
+                                <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #EF4444;"></span>
+                                <span style="font-size: 1rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Premium price point compared to competitors</span>
+                            </li>
+                        </ul>
                     </div>
-                    <ul style="list-style: none; padding: 0; margin: 0 0 0 1rem;">
-                        <li style="margin-bottom: 0.5rem; position: relative; padding-left: 1.25rem; color: var(--text-primary);">
-                            <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #EF4444;"></span>
-                            <span style="font-size: 0.95rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Some runners may find the toe box too narrow</span>
-                        </li>
-                        <li style="margin-bottom: 0; position: relative; padding-left: 1.25rem; color: var(--text-primary);">
-                            <span style="position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; border-radius: 50%; background-color: #EF4444;"></span>
-                            <span style="font-size: 0.95rem; line-height: 1.6; display: block; padding: 0.15rem 0;">Premium price point compared to competitors</span>
-                        </li>
-                    </ul>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Score Summary -->
         <section class="score-summary">
@@ -184,53 +175,67 @@
         <!-- Main Review Content -->
         <section class="review-content">
 
-        <!-- Specs at a Glance - Horizontal Layout -->
-       
-            <h2>Specs</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
-                <div class="spec-item">
-                    <div class="spec-label">Weight</div>
-                    <div class="spec-value">9.3 oz / 264g (M)<br>7.8 oz / 221g (W)</div>
+              <!-- Tech Specs Section -->
+              <section style="margin: 4rem 0;">
+                <h2>Specs</h2>
+                <div style="background-color: var(--card-bg); border-radius: 1rem; padding: 1.5rem; box-shadow: var(--card-shadow);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0.5rem;">
+                        <!-- Left Column -->
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Weight</div>
+                                <div style="font-weight: 500;">6.6 oz (M), 5.7 oz (W)</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Heel Height</div>
+                                <div style="font-weight: 500;">40mm</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Forefoot Height</div>
+                                <div style="font-weight: 500;">32mm</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Drop</div>
+                                <div style="font-weight: 500;">8mm</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Arch Support</div>
+                                <div style="font-weight: 500;">Medium</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Arch Type</div>
+                                <div style="font-weight: 500;">Neutral</div>
+                            </div>
+                        </div>
+                        <!-- Right Column -->
+                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Material</div>
+                                <div style="font-weight: 500;">Engineered Mesh</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Midsole</div>
+                                <div style="font-weight: 500;">React Foam</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Outsole</div>
+                                <div style="font-weight: 500;">Durable Rubber</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Stack Height</div>
+                                <div style="font-weight: 500;">32-40mm</div>
+                            </div>
+                            <div style="padding: 0.75rem 0; border-bottom: 1px solid var(--border);">
+                                <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Best For</div>
+                                <div style="font-weight: 500;">Daily Training, Long Runs</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="spec-item">
-                    <div class="spec-label">Heel Height</div>
-                    <div class="spec-value">36mm</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Forefoot Height</div>
-                    <div class="spec-value">28mm</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Drop</div>
-                    <div class="spec-value">8mm</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Outsole</div>
-                    <div class="spec-value">Carbon Rubber</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Category</div>
-                    <div class="spec-value">Daily Trainer</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Pace</div>
-                    <div class="spec-value">All Paces</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Material</div>
-                    <div class="spec-value">Recycled Mesh</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Terrain</div>
-                    <div class="spec-value">Road, Light Trail</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Release Date</div>
-                    <div class="spec-value">March 2024</div>
-                </div>
-            </div>
-        </section>
-            <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
+            </section>
+
+            <!-- Shoe Review Content -->
+    
 
             <h2>Fit</h2>
             <p>Describe the fit (true to size, narrow/wide), lockdown, and initial comfort. Mention any hot spots or pressure points.</p>
