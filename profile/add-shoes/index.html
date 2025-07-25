@@ -7,6 +7,7 @@
     <title>Add a Shoe to Your Rotation - RunRotate</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
         [x-cloak] { display: none !important; }
         .rating input {
@@ -204,7 +205,6 @@
             <div class="space-y-8">
                 <!-- Pros & Cons -->
                 <h3 class="text-lg font-semibold text-gray-800 mt-2 flex items-center">
-                    <i data-lucide="check-circle" class="w-5 h-5 mr-2 text-green-500"></i>
                     Pros & Cons
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-2">
@@ -217,7 +217,9 @@
                         <div class="space-y-2 mb-3">
                             <template x-for="(pro, index) in pros" :key="'pro-' + index">
                                 <div class="flex items-center group">
-                                    <span class="text-green-500 mr-2">✓</span>
+                                    <svg class="w-3.5 h-3.5 mr-2" style="color: #10B981;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+                                    </svg>
                                     <span x-text="pro" class="text-gray-800"></span>
                                     <button @click="removeItem('pros', index)" class="ml-auto text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <i class="fas fa-times"></i>
@@ -249,7 +251,9 @@
                         <div class="space-y-2 mb-3">
                             <template x-for="(con, index) in cons" :key="'con-' + index">
                                 <div class="flex items-center group">
-                                    <span class="text-red-500 mr-2">✕</span>
+                                    <svg class="w-3.5 h-3.5 mr-2" style="color: #EF4444;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path>
+                                    </svg>
                                     <span x-text="con" class="text-gray-800"></span>
                                     <button @click="removeItem('cons', index)" class="ml-auto text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity">
                                         <i class="fas fa-times"></i>
@@ -274,7 +278,8 @@
                 </div>
             
                 <div class="pt-4 border-t border-gray-100 space-y-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Category Ratings</h3>
+                    <h2 class="text-lg font-semibold text-gray-800 mb-2">Category Scores</h2>
+                <p class="text-gray-600 text-sm mb-6">Choose a score out of 10 for each feature of your shoes to create an overall score out of 100.</p>
                     <!-- Metrics Loop -->
                     <template x-for="metric in metrics" :key="metric.id">
                         <div x-data="{ active: false, value: 0 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)" x-effect="if (value > 0) { updateOverallScore(); }">
@@ -299,7 +304,7 @@
                             <span class="text-lg font-semibold text-gray-800">Overall Score</span>
                             <div class="flex items-center">
                                 <div class="w-12 h-12 rounded-full flex items-center justify-center text-black font-extrabold text-xl" style="background-color: #03FCBA;" x-text="Math.round(overallScore)"></div>
-                                <span class="ml-2 text-gray-500">/100</span>
+                             
                             </div>
                         </div>
                     </div>
@@ -511,6 +516,16 @@
     <!-- Alpine.js -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
+        // Initialize Lucide icons when the page loads
+        document.addEventListener('alpine:init', () => {
+            // This will run when Alpine is initialized
+            if (window.lucide) {
+                lucide.createIcons();
+            } else {
+                console.warn('Lucide not loaded - icons may not display correctly');
+            }
+        });
+        
         function app() {
             return {
                 isDragover: false,
