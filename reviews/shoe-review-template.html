@@ -7,6 +7,36 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        .score-display {
+            font-weight: 600 !important;
+            background-color: rgba(3, 252, 186, 0.1) !important;
+            color: #000 !important;
+            padding: 0.15rem 0.5rem !important;
+            border-radius: 4px !important;
+            font-size: 0.9rem !important;
+            display: inline-block !important;
+            min-width: 45px !important;
+            text-align: center !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            border: 1px solid rgba(3, 252, 186, 0.2);
+        }
+        
+        /* Keep the original selector for backward compatibility */
+        .score-summary .score-display {
+            font-weight: 600 !important;
+            background-color: rgba(3, 252, 186, 0.1) !important;
+            color: #000 !important;
+            padding: 0.15rem 0.5rem !important;
+            border-radius: 4px !important;
+            font-size: 0.9rem !important;
+            display: inline-block !important;
+            min-width: 45px !important;
+            text-align: center !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            border: 1px solid rgba(3, 252, 186, 0.2);
+        }
         :root { --primary: #03FCBA; --primary-hover: #02e0a7; --emerald-100: #d1fae5; --bg-light: #FFFFFF; --bg-secondary: #F9FAFB; --text-primary: #111827; --text-secondary: #6B7280; --border: #E5E7EB; --card-bg: #FFFFFF; --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); }
         .dark { --bg-light: #111827; --bg-secondary: #1F2937; --text-primary: #F9FAFB; --border: #374151; --card-bg: #1F2937; }
         body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-light); color: var(--text-primary); line-height: 1.625; margin: 0; padding: 0; }
@@ -163,77 +193,77 @@
                         <i data-lucide="ruler" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Fit</span></span>
                     </a>
-                    <span style="font-weight: 600;">8</span></span>
+                    <span class="score-display">8/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#cushioning" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="cloud" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Cushioning</span></span>
                     </a>
-                    <span style="font-weight: 600;">9</span></span>
+                    <span class="score-display">9/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#responsiveness" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="zap" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Responsiveness</span></span>
                     </a>
-                    <span style="font-weight: 600;">8</span></span>
+                    <span class="score-display">8/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#stability" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="shield-check" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Stability</span></span>
                     </a>
-                    <span style="font-weight: 600;">9</span></span>
+                    <span class="score-display">9/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#traction" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="grip-horizontal" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Traction</span></span>
                     </a>
-                    <span style="font-weight: 600;">8</span></span>
+                    <span class="score-display">8/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#weight" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="feather" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Weight</span></span>
                     </a>
-                    <span style="font-weight: 600;">8</span></span>
+                    <span class="score-display">8/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#breathability" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="wind" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Breathability</span></span>
                     </a>
-                    <span style="font-weight: 600;">9</span></span>
+                    <span class="score-display">9/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#build-and-durability" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="hammer" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Build & Durability</span></span>
                     </a>
-                    <span style="font-weight: 600;">8</span></span>
+                    <span class="score-display">8/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0;">
                     <a href="#looks" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="eye" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Looks</span></span>
                     </a>
-                    <span style="font-weight: 600;">9</span></span>
+                    <span class="score-display">9/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0 0.75rem 0;">
                     <a href="#value" style="text-decoration: none; color: inherit; position: relative; padding-left: 1.5rem; transition: all 0.2s ease;">
                         <i data-lucide="badge-dollar-sign" class="w-3.5 h-3.5" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); color: var(--primary); opacity: 0.7; stroke-width: 2.5;"></i>
                         <span style="font-weight: 600; padding-left: 0.5rem; display: inline-block; position: relative;"><span style="border-bottom: 1px dashed currentColor;">Value</span></span>
                     </a>
-                    <span style="font-weight: 600;">8</span></span>
+                    <span class="score-display">8/10</span>
                 </div>
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; background-color: rgba(0, 0, 0, 0.04); border-radius: 0.75rem; margin: 1.5rem 0 0.75rem 0; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 1px 2px rgba(0,0,0,0.03); grid-column: 1 / -1;">
                     <div style="display: flex; align-items: center; font-weight: 700; color: var(--text-primary); font-size: 1.05rem; letter-spacing: 0.3px;">
-                        <i data-lucide="award" style="color: var(--primary); margin-right: 0.75rem; width: 1.25rem; height: 1.25rem; stroke-width: 2.25;"></i>
+                        <i data-lucide="percent" style="color: var(--primary); margin-right: 0.75rem; width: 1.25rem; height: 1.25rem; stroke-width: 2.25;"></i>
                         <span>Overall Score</span>
                     </div>
-                    <div style="width: 44px; height: 44px; border-radius: 50%; background-color: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; line-height: 1; border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">89</div>
+                    <div style="width: 44px; height: 44px; border-radius: 50%; background-color: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.1rem; line-height: 1; border: 2px solid white; box-shadow: 0 2px 6px rgba(0,0,0,0.08);">89</div>
                 </div>
             </div>
         </section>
@@ -298,45 +328,75 @@
             <!-- Shoe Review Content -->
     
 
-            <h2 id="fit"><i data-lucide="ruler" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Fit</h2>
+            <h2 id="fit" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="ruler" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Fit</span>
+                <span class="score-display">8/10</span>
+            </h2>
             <p>Describe the fit (true to size, narrow/wide), lockdown, and initial comfort. Mention any hot spots or pressure points.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="cushioning"><i data-lucide="cloud" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Cushioning</h2>
+            <h2 id="cushioning" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="cloud" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Cushioning</span>
+                <span class="score-display">9/10</span>
+            </h2>
             <p>Describe the softness, firmness, or bounce of the midsole. Mention ground feel and comfort over long distances.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="responsiveness"><i data-lucide="zap" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Responsiveness</h2>
+            <h2 id="responsiveness" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="zap" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Responsiveness</span>
+                <span class="score-display">8/10</span>
+            </h2>
             <p>Describe how the shoe returns energy and responds to different paces and running styles.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="stability"><i data-lucide="shield-check" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Stability</h2>
+            <h2 id="stability" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="shield-check" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Stability</span>
+                <span class="score-display">9/10</span>
+            </h2>
             <p>Describe how stable the shoe feels during different types of runs. Mention arch support and any stability features.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="traction"><i data-lucide="grip-horizontal" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Traction</h2>
+            <h2 id="traction" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="grip-horizontal" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Traction</span>
+                <span class="score-display">8/10</span>
+            </h2>
             <p>Test performance on different surfaces (wet, dry, loose gravel). Mention how secure the shoe feels during sharp turns, downhill, or uneven paths.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="weight"><i data-lucide="feather" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Weight</h2>
+            <h2 id="weight" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="feather" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Weight</span>
+                <span class="score-display">8/10</span>
+            </h2>
             <p>Discuss the weight of the shoe and how it affects performance. Compare to similar shoes in the category.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="breathability"><i data-lucide="wind" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Breathability</h2>
+            <h2 id="breathability" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="wind" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Breathability</span>
+                <span class="score-display">9/10</span>
+            </h2>
             <p>Describe ventilation of the upper, heat build-up on long runs, and sock compatibility.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="build-and-durability"><i data-lucide="hammer" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Build & Durability</h2>
+            <h2 id="build-and-durability" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="hammer" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Build & Durability</span>
+                <span class="score-display">8/10</span>
+            </h2>
             <p>Report on wear over distance (e.g., 50–100km in), outsole and upper wear, and construction quality.</p>
             
             
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="looks"><i data-lucide="eye" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Looks</h2>
+            <h2 id="looks" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="eye" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Looks</span>
+                <span class="score-display">9/10</span>
+            </h2>
             <p>Subjective take on how the shoe looks in person and on foot. Include visual design notes, colorway appeal, and style versatility.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
-            <h2 id="value"><i data-lucide="badge-dollar-sign" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Value</h2>
+            <h2 id="value" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <span><i data-lucide="badge-dollar-sign" style="color: var(--primary); margin-right: 0.75rem; vertical-align: middle; width: 1.5rem; height: 1.5rem;"></i>Value</span>
+                <span class="score-display">8/10</span>
+            </h2>
             <p>Evaluate pricing vs. performance, and how it compares to alternatives in the same category.</p>
 
             <div style="height: 1px; background-color: var(--border); margin: 3rem 0 2rem 0;"></div>
