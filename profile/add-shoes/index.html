@@ -280,10 +280,15 @@
                         <div x-data="{ active: false, value: 0 }" class="group" @mouseenter="active = true" @mouseleave="!$el.contains(document.activeElement) && (active = false)" x-effect="if (value > 0) { updateOverallScore(); }">
                             <div class="flex justify-between items-center mb-1">
                                 <span class="text-base font-semibold text-gray-700" :class="{ 'text-gray-700': !active, 'text-gray-900': active }" x-text="metric.name"></span>
-                                <span class="text-sm px-2 py-0.5 rounded" :style="(value > 0 || active) ? 'background-color: #39FFA8 !important; color: #000 !important;' : 'color: #9CA3AF;'" x-text="active || value > 0 ? (value + '/10') : 'Rate this'"></span>
+                                <span class="text-sm px-2 py-0.5 rounded font-bold" :style="(value > 0 || active) ? 'background-color: #03FCBA !important; color: #000 !important;' : 'color: #9CA3AF;'" x-text="active || value > 0 ? (value + '/10') : 'Rate this'"></span>
                             </div>
                             <div class="relative pt-1">
-                                <input type="range" min="0" max="10" step="1" x-model="value" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" :class="{ 'opacity-50': !active, 'opacity-100': active }" @focus="active = true" @blur="active = false">
+                                <input type="range" min="0" max="10" step="1" x-model="value" 
+                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" 
+                                    :class="{ 'opacity-50': !active, 'opacity-100': active }" 
+                                    @focus="active = true" 
+                                    @blur="active = false"
+                                    @input="updateOverallScore()">
                             </div>
                             <p class="text-sm mt-1 text-gray-500 leading-tight" :class="{ 'text-gray-500': !active, 'text-gray-700': active }" x-text="metric.description"></p>
                         </div>
@@ -293,7 +298,7 @@
                         <div class="flex justify-between items-center">
                             <span class="text-lg font-semibold text-gray-800">Overall Score</span>
                             <div class="flex items-center">
-                                <div class="w-12 h-12 rounded-full flex items-center justify-center text-black font-bold text-xl" style="background-color: #39FFA8;" x-text="Math.round(overallScore)"></div>
+                                <div class="w-12 h-12 rounded-full flex items-center justify-center text-black font-extrabold text-xl" style="background-color: #03FCBA;" x-text="Math.round(overallScore)"></div>
                                 <span class="ml-2 text-gray-500">/100</span>
                             </div>
                         </div>
@@ -585,19 +590,24 @@
                 },
                 
                 updateOverallScore() {
-                    // Get all metric values
-                    const metricValues = [];
-                    document.querySelectorAll('[x-data*="value:"]').forEach(el => {
-                        const component = Alpine.$data(el);
-                        if (component && typeof component.value === 'number') {
-                            metricValues.push(component.value);
-                        }
+                    // Force Alpine to update the DOM first
+                    this.$nextTick(() => {
+                        // Get all metric values
+                        const metricValues = [];
+                        const metricElements = document.querySelectorAll('[x-data*="value:"]');
+                        
+                        metricElements.forEach(el => {
+                            const component = Alpine.$data(el);
+                            if (component && typeof component.value === 'number') {
+                                metricValues.push(component.value);
+                            }
+                        });
+                        
+                        // Calculate average and scale to 100
+                        const sum = metricValues.reduce((a, b) => a + b, 0);
+                        const avg = metricValues.length > 0 ? (sum / metricValues.length) * 10 : 0;
+                        this.overallScore = Math.min(100, Math.round(avg));
                     });
-                    
-                    // Calculate average and scale to 100
-                    const sum = metricValues.reduce((a, b) => a + b, 0);
-                    const avg = metricValues.length > 0 ? (sum / metricValues.length) * 10 : 0;
-                    this.overallScore = Math.min(100, Math.round(avg));
                 }
             };
         }
